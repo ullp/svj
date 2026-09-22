@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "1:3": true,
+    "9:3": true
+  },
+  "comments": {
+    "0:3": "Přeplatek byl vrácen, avšak dodnes nebylo podáno vysvětlení. Ačkoliv p. Husárek tvrdí, že věc je za SVJ vyřešena, tak jsem nedostal vyjádření na zprávu z datové schránky. ",
+    "1:4": "Vyhotovení finální verze nezachycuje skutečný průběh schůze. Zápis ze schůze je zcela účelový a jednostranný ve prospěch ačkoliv netransparentního jednání ze strany SVJ, Hodek st. ml., Husárek, tak aby nedošlo k projednávání již dříve zmiňovaného jednání ze strany SVJ.",
+    "2:3": "Bylo již poukázáno přes advokátní zastoupení, avšak dodnes SVJ nepředložilo řádné podklady pro navýšení záloh.",
+    "3:0": "Požadujeme revizi vyúčtování z tohoto roku, jakožto i předchozích, z důvodu podezření z pronevěry svěřených financí.",
+    "3:1": "Netransparetní dlouhodobé zálohy vs. správní náklady.",
+    "3:2": "Doložitelné jakožto zmatečné jednání a manipulace s financemi.",
+    "3:3": "Byl odstraněn předchozí prvek kontrolingu. Nyní je zapotřebí kontrolní mechanizmus zpět.",
+    "8:0": "Vráceno, avšak bez vysvětlení.",
+    "0:0": "Toto zůstává nedořešeno",
+    "0:1": "Jak pan Husárek i Hodek prohlásili, že toto bylo odsouhlaseno na schůzi SVJ. Rád bych o tom viděl zápis, tj. tuto dluhovou zprávu s jejím ID.",
+    "1:0": "Snaha zamaskovat skutečný stav SVJ, kdy se pan Hodek st. prokazoval prohlášením o zastupování syna Pavla Hodka v roli předsedy SVJ. Celá tato schůze tak byla primárně na zamaskování všech aktivit od doby 2011.",
+    "1:3": "Připomínky jsem zaslal a předseda byl vyrozumněn přes email od p. Panuška.",
+    "2:1": "I přes splnění vymyšlených podmínek, jsem klíče dodnes od společných prostor neobdržel všechny. Z kočárkárny je nyní kumbál na věci na zahradu. Mohlo by se přesunout do prádelny nebo z prádelny udělat kočárkárnu a kolárnu.",
+    "9:3": "Jedná se mé odstoupení, ketré by mělo být správně zaneseno a měl by tak být zbaven veškerých akcí o kterých jsem případně ze strany SVJ během té doby neměl žádné informace. "
+  },
+  "savedAt": "2026-09-22T23:08:13.399Z"
+}
