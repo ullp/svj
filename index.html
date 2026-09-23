@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVJ U Beránky 2140 – index</title>
+<style>
+:root{--red:#c62828;--orange:#e65100;--yellow:#f9a825;--accent:#0b57d0;--bg:#f4f5f7;--card:#fff;--ink:#1b1b1f;--line:#dfe3e8;--muted:#5f6368}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header.page{background:#fff;border-bottom:1px solid var(--line);padding:18px 0 14px}
+h1{font-size:1.35rem;margin:0 0 6px}
+.meta{margin:0 0 8px;color:var(--muted);font-size:.92rem}
+code{background:#eef1f5;padding:1px 5px;border-radius:4px;font-size:.86em}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.badge{display:inline-block;font-size:.78rem;padding:2px 9px;border-radius:999px;color:#fff;background:#888;vertical-align:middle}
+.badge.high{background:var(--red)}
+.badge.mid{background:var(--orange)}
+.badge.low{background:var(--yellow);color:#3d3000}
+.prog-line{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted);flex-wrap:wrap}
+#progressText{flex:1 1 100%;line-height:1.35}
+.progress{flex:1 1 100%;height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.progress>div{height:100%;width:0;background:var(--accent);transition:width .25s}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:12px 0;position:sticky;top:0;background:var(--bg);z-index:5;border-bottom:1px solid var(--line)}
+button{font:inherit;font-size:.9rem;padding:7px 12px;border:1px solid var(--line);background:#fff;border-radius:8px;cursor:pointer;color:var(--ink)}
+button:hover{border-color:#b8bec7;background:#fafbfc}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+button.primary:hover{background:#0842a0}
+button.danger{color:#b3261e;border-color:#f0c4c0}
+.saveinfo{font-size:.8rem;color:var(--muted);margin-left:auto}
+section.card{background:var(--card);border:1px solid var(--line);border-left-width:6px;border-left-color:var(--line);border-radius:10px;margin:16px 0;padding:14px 16px}
+section.card.high{border-left-color:var(--red)}
+section.card.mid{border-left-color:var(--orange)}
+section.card.low{border-left-color:var(--yellow)}
+section.card.info{border-left-color:#9aa0a6}
+h2{font-size:1.02rem;margin:0 0 6px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.prio-note{font-size:.78rem;color:var(--muted);font-weight:normal}
+.item{padding:10px 0;border-top:1px dashed var(--line)}
+.item:first-child{border-top:0}
+.item ol,.item ul{margin:6px 0 0;padding-left:22px}
+.item ol li,.item ul li{margin:3px 0;font-size:.94rem}
+.row{display:flex;align-items:flex-start;gap:10px}
+.item input[type=checkbox]{width:17px;height:17px;margin:3px 0 0;flex:0 0 auto;accent-color:var(--accent);cursor:pointer}
+.txt{flex:1 1 auto;min-width:0}
+.item label{cursor:pointer;font-size:.96rem}
+.item.done label{opacity:.55}
+.item.done .status-title,.item.done .status-check{opacity:1}
+.item.done textarea.comment{opacity:.7}
+.status-pill{display:inline-block;border-radius:999px;padding:1px 7px;font-size:.7rem;font-weight:800;margin-left:6px;vertical-align:middle;color:#fff;background:#78909c}
+.status-pill.status-done{background:#2e7d32}.status-pill.status-partial{background:#ef6c00}.status-pill.status-process{background:#1565c0}.status-pill.status-open{background:#607d8b}.status-pill.status-legal{background:#6a1b9a}
+.status-title{font-size:.76rem;color:var(--muted);font-weight:800;margin:8px 0 3px;text-transform:uppercase;letter-spacing:.02em}
+.status-checks{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 2px}
+.status-check{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:3px 8px;background:#fff;color:#3c4043;font-size:.78rem;font-weight:700;cursor:pointer;user-select:none}
+.status-check:hover{border-color:#b8bec7;background:#fafbfc}
+.status-check input[type=checkbox]{width:14px;height:14px;margin:0;accent-color:var(--accent)}
+.status-check.active{color:#fff;border-color:transparent}
+.status-check.active.status-done{background:#2e7d32}.status-check.active.status-partial{background:#ef6c00}.status-check.active.status-process{background:#1565c0}.status-check.active.status-open{background:#607d8b}.status-check.active.status-legal{background:#6a1b9a}
+.notes{font-size:.88rem;color:#3c4043;background:#fbfbfc;border:1px dashed var(--line);border-radius:8px;padding:8px 10px;margin:10px 0 0}
+.sources{margin:6px 0 0;padding-left:20px;font-size:.9rem;color:#3c4043}
+.sources li{margin:4px 0}
+textarea.comment{display:block;width:100%;min-height:54px;margin-top:6px;padding:6px 8px;font:inherit;font-size:.88rem;border:1px solid var(--line);border-radius:6px;resize:vertical;background:#fcfcfd}
+textarea.comment:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+ol.sub,ul.sub{margin:6px 0 0;padding-left:22px}
+ol.sub li,ul.sub li{margin:3px 0;font-size:.94rem}
+.footer-notes{font-size:.88rem;color:#3c4043;background:#fbfbfc;border:1px dashed var(--line);border-radius:8px;padding:8px 10px;margin-top:10px}
+.footer-notes p{margin:4px 0}
+.footer-notes ul{margin:4px 0;padding-left:20px}
+footer{font-size:.85rem;color:var(--muted);padding:8px 0 32px}
+/* Layout: levý strom případu + právní dokument */
+.wrap{max-width:1380px;margin:0 auto;padding:0 16px}
+.layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:22px;align-items:start}
+aside.toc{position:sticky;top:58px;background:linear-gradient(180deg,#fff,#fbfcff);border:1px solid var(--line);border-radius:14px;padding:14px 14px 16px;font-size:.86rem;max-height:calc(100vh - 72px);overflow:auto;box-shadow:0 8px 24px rgba(31,42,68,.08)}
+aside.toc>.toc-title{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:#263238;margin:0 0 4px;font-weight:800}
+aside.toc .toc-subtitle{font-size:.76rem;color:var(--muted);margin:0 0 10px;line-height:1.35}
+aside.toc .toc-cat{margin:12px 0 0;padding-left:10px;border-left:1px solid #d6dce5}
+aside.toc .toc-cat h4{font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:#37474f;margin:0 0 5px;font-weight:800}
+aside.toc ol{list-style:none;margin:0;padding:0}
+aside.toc li{position:relative}
+aside.toc li::before{content:"";position:absolute;left:-14px;top:14px;width:9px;border-top:1px solid #d6dce5}
+aside.toc li a{display:block;padding:5px 8px 5px 9px;border-radius:8px;color:var(--ink);text-decoration:none;border-left:3px solid transparent;line-height:1.35}
+aside.toc li a .tid{display:inline-block;min-width:28px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+aside.toc li a:hover{background:#f1f5fb}
+aside.toc li a.active{background:#e8f0fe;border-left-color:var(--accent);color:#0842a0}
+aside.toc li a.active .tid{color:#0842a0}
+aside.toc li a .toc-cnt{float:right;font-size:.74rem;color:var(--muted);font-variant-numeric:tabular-nums;margin-left:6px}
+aside.toc li a.active .toc-cnt{color:#0842a0}
+aside.toc li a.toc-file{border-left-style:dotted}
+aside.toc li a.toc-file .tid{color:var(--accent)}
+aside.toc .toc-hint{font-size:.76rem;color:var(--muted);margin:8px 0 0;line-height:1.35;background:#f6f8fb;border:1px dashed var(--line);border-radius:8px;padding:7px 8px}
+main#checklist{min-width:0}
+.case-hero{background:linear-gradient(135deg,#102a43,#1d4e89);color:#fff;border-radius:16px;padding:20px 22px;margin:16px 0;box-shadow:0 12px 28px rgba(16,42,67,.22)}
+.case-hero h2{font-size:1.35rem;margin:0 0 8px;color:#fff}
+.case-hero p{margin:5px 0;color:#e9f2ff}
+.case-hero code{background:rgba(255,255,255,.14);color:#fff}
+.case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.case-fact{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:10px}
+.case-fact strong{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:#bbdefb}
+.case-fact span{display:block;margin-top:4px;font-weight:700}
+.legal-template{background:#fff;border:1px solid var(--line);border-left:6px solid #455a64;border-radius:12px;margin:16px 0;padding:14px 16px;box-shadow:0 2px 12px rgba(31,42,68,.05)}
+.legal-template h2{font-size:1.05rem;margin:0 0 8px}
+.legal-template h3{font-size:.92rem;margin:12px 0 4px;color:#263238}
+.legal-template p,.legal-template li{font-size:.93rem}
+.legal-template blockquote{margin:8px 0;padding:8px 12px;border-left:4px solid var(--accent);background:#f5f8ff;border-radius:6px;color:#263238}
+section.card{box-shadow:0 2px 12px rgba(31,42,68,.05)}
+section.card h2::after{content:"Incident / část případu";font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-left:auto}
+.item{background:#fff;border-top:1px solid #edf0f4;padding:12px 0}
+.item .txt::before{content:"Skutkový bod";display:inline-block;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:#607d8b;background:#eef3f7;border-radius:999px;padding:1px 7px;margin:0 0 4px}
+textarea.comment{min-height:64px;background:#fffdf8;border-color:#eadfca}
+textarea.comment::placeholder{color:#8a6d3b}
+@media (max-width:1180px){
+  .layout{grid-template-columns:1fr}
+  aside.toc{position:static;max-height:none;order:-1}
+  .case-grid{grid-template-columns:1fr}
+}
+/* Časová osa jednotlivých problémů */
+section.card.tl-card{border-left-color:#6a1b9a}
+.tl{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:14px 0}
+.tl h3{font-size:.96rem;margin:0 0 4px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.tl .tl-sub{font-size:.82rem;color:var(--muted);margin:0 0 8px}
+.tl ol{list-style:none;margin:0;padding:2px 0 2px 16px;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:5px 0 5px 14px}
+.tl li::before{content:"";position:absolute;left:-7px;top:11px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.tl li.ev-high::before{background:var(--red)}
+.tl li.ev-mid::before{background:var(--orange)}
+.tl li.ev-ok::before{background:#2e7d32}
+.tl .tl-date{display:block;font-size:.78rem;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.tl .tl-body{font-size:.92rem}
+.tl .tl-src{display:block;font-size:.76rem;color:var(--muted);margin-top:2px}
+.toc-cat .toc-note{font-size:.74rem;color:var(--muted);margin:0 0 4px;line-height:1.3}
+
+.auth-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(135deg,#eef3ff 0%,#f4f5f7 55%,#fff 100%)}
+.auth-card{width:min(100%,440px);background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 50px rgba(31,35,40,.12);padding:24px}
+.auth-card h1{font-size:1.25rem;margin:0 0 8px}.auth-card p{margin:0 0 14px;color:var(--muted);font-size:.92rem}
+.auth-field{display:block;margin:12px 0}.auth-field span{display:block;font-size:.82rem;font-weight:700;margin-bottom:5px;color:#3c4043}
+.auth-field input{width:100%;font:inherit;border:1px solid var(--line);border-radius:8px;padding:10px 11px;background:#fff;color:var(--ink)}
+.auth-field input:focus{outline:2px solid rgba(11,87,208,.18);border-color:var(--accent)}
+.auth-note{background:#fff8e1;border:1px solid #f2d277;color:#5f4300;border-radius:10px;padding:10px 12px;margin:12px 0;font-size:.85rem}
+.auth-error{display:none;background:#fce8e6;border:1px solid #f4c7c3;color:#8c1d18;border-radius:10px;padding:9px 11px;margin:12px 0;font-size:.9rem}
+.auth-error.show{display:block}.auth-actions{display:flex;gap:10px;align-items:center;margin-top:14px}.auth-actions button{flex:1}.app-shell{display:none}.is-authenticated .auth-screen{display:none}.is-authenticated .app-shell{display:block}.logout{margin-left:8px}
+@media print{.auth-screen,.logout{display:none!important}.app-shell{display:block!important}}
+@media print{
+  .tl,.tl-card{break-inside:avoid}
+}
+section.card[data-anchor]{scroll-margin-top:74px}
+/* Časová osa – legenda (styl položek je definován výše) */
+.tl-legend{font-size:.8rem;color:var(--muted);margin:6px 0 0}
+@media print{
+  .toolbar,textarea.comment,#restoreInput,footer,aside.toc{display:none!important}
+  body{background:#fff;font-size:11pt}
+  header.page{border-bottom:2px solid #000}
+  section.card{break-inside:avoid;box-shadow:none;border:1px solid #999}
+  .item{break-inside:avoid}
+  .saveinfo{display:none}
+  a{text-decoration:none;color:inherit}
+}
+</style>
+</head>
+<body>
+<div id="authScreen" class="auth-screen">
+  <form id="loginForm" class="auth-card" autocomplete="on">
+    <h1>Přihlášení – SVJ U Beránky 2140</h1>
+    <p>Obsah je určen pouze pro oprávněné osoby. Pozvánky se nikam neodesílají; přístup je vytvořen lokálně v této stránce.</p>
+    <label class="auth-field"><span>Uživatel / e-mail</span><input id="loginUser" name="username" type="text" inputmode="email" autocomplete="username" required></label>
+    <label class="auth-field"><span>Heslo</span><input id="loginPass" name="password" type="password" autocomplete="current-password" required></label>
+    <div id="loginError" class="auth-error" role="alert"></div>
+    <div class="auth-actions"><button class="primary" type="submit">Přihlásit</button></div>
+  </form>
+</div>
+<div id="appShell" class="app-shell">
+<header class="page">
+  <div class="wrap">
+    <h1>MASTER DOKUMENT – Kompletní případ SVJ U Beránky 2140</h1>
+    <p class="meta">Autor: <strong>Petr Ullmann</strong> · Pracovní datum: <strong>24. 9. 2026</strong> · Právně členěný spis s incidenty, důkazy, komentáři a návrhy kroků.</p>
+    <div class="legend">
+      <span class="badge high">🔴 vysoká priorita / nosný bod jednání</span>
+      <span class="badge mid">🟠 střední</span>
+      <span class="badge low">🟡 doprovodné</span>
+    </div>
+    <div class="prog-line"><span id="progressText">0 / 0 splněno</span><div class="progress"><div id="progressFill"></div></div></div>
+  </div>
+</header>
+<div class="wrap">
+  <div class="toolbar">
+    <button id="btnSave" class="primary" type="button">Uložit</button>
+    <button id="btnBackup" type="button">Záloha JSON</button>
+    <button id="btnRestore" type="button">Obnova ze zálohy</button>
+    <button id="btnTXT" type="button">Export pro datovou schránku (.txt)</button>
+    <button id="btnHTML" type="button">Export pro advokáta (HTML)</button>
+    <button id="btnPrint" type="button">Tisk / uložit jako PDF</button>
+    <button id="btnReset" type="button" class="danger">Smazat vyplnění</button>
+    <button id="btnLogout" type="button" class="logout">Odhlásit</button><span id="saveInfo" class="saveinfo"></span>
+  </div>
+  <input type="file" id="restoreInput" accept=".json,application/json" hidden>
+  <div class="layout">
+    <aside class="toc" id="toc" aria-label="Stromová navigace případu"></aside>
+    <main id="checklist"></main>
+  </div>
+  <footer>
+    <p>Checkboxy a komentáře se ukládají pouze lokálně v tomto prohlížeči (<code>localStorage</code>, klíč <code>svj-checklist-2026-09-24</code>) – nic se neodesílá na server. Pro archivaci nebo předání použijte „Záloha JSON“, pro datovou schránku export <code>.txt</code> (text zprávy, případně příloha) a pro advokáta export HTML nebo „Tisk / uložit jako PDF“.</p>
+  </footer>
+</div>
+</div>
+<script>
+"use strict";
+
+const AUTH_STORE_KEY = "svj-auth-session-2026-09-24";
+const AUTH_USERS = {
+  "ullp": {name:"Petr Ullmann", passwordHash:"ca1e4cc4fff5d86e4a863c55bda3481b1ddd0c6bdb0e834f11fb90949b3f88ef"},
+  "panuska@akpanuska.cz": {name:"Mgr. Panuška", passwordHash:"03126cdc3bde481e80999f6626dae4971e864d9ad0455db14d13c0f66f9f3235"}
+};
+
+function normalizeLogin(value){ return String(value || "").trim().toLowerCase(); }
+async function sha256Hex(value){
+  const data = new TextEncoder().encode(value);
+  const hash = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(hash)).map(function(b){ return b.toString(16).padStart(2,"0"); }).join("");
+}
+function showLoginError(message){
+  const box = document.getElementById("loginError");
+  box.textContent = message;
+  box.classList.add("show");
+}
+function setAuthenticated(userId){
+  sessionStorage.setItem(AUTH_STORE_KEY, JSON.stringify({user:userId, at:new Date().toISOString()}));
+  document.body.classList.add("is-authenticated");
+}
+function isAuthenticated(){
+  try{
+    const data = JSON.parse(sessionStorage.getItem(AUTH_STORE_KEY) || "null");
+    return !!(data && AUTH_USERS[data.user]);
+  }catch(e){ return false; }
+}
+async function handleLogin(event){
+  event.preventDefault();
+  const err = document.getElementById("loginError");
+  err.classList.remove("show");
+  const userId = normalizeLogin(document.getElementById("loginUser").value);
+  const user = AUTH_USERS[userId];
+  if(!user){ showLoginError("Neplatný uživatel nebo heslo."); return; }
+  const hash = await sha256Hex(document.getElementById("loginPass").value);
+  if(hash !== user.passwordHash){ showLoginError("Neplatný uživatel nebo heslo."); return; }
+  setAuthenticated(userId);
+  document.getElementById("loginForm").reset();
+}
+
+if(isAuthenticated()){ document.body.classList.add("is-authenticated"); }
+const SECTIONS = [
+{id:"A",title:"Nezákonné zadržení přeplatků (27 000 Kč) – vyděračský mechanismus",prio:"high",items:[
+{t:"<b>Zadržení 27 000 Kč přeplatků za energie/služby</b> podmíněné zaplacením příspěvku do fondu oprav <b>v hotovosti (3 000 Kč)</b> – bez písemné výzvy, bez platného usnesení SVJ, bez splnění podmínky usnášeníschopnosti, neuvedeno v zápisu."},
+{t:"Přiznání p. Husárka, že se „společně dohodli“ (dluhová zpráva, ID <code>1165A8D8…</code>), a naopak tvrzení v zápisu z 27. 5. 2026 (bod 3), že <b>přeplatky budou vráceny k 15. 6. 2026</b> – bez jakýchkoli podmínek. <b>Rozpor mezi zápisem a skutečným jednáním.</b>"},
+{t:"<b>Opakované zpoždění výplaty přeplatku oproti ostatním vlastníkům:</b> v rámci posledního vyúčtování byly přeplatky vlastníkovi znovu zaslány se zpožděním oproti ostatním vlastníkům a následně omluveny jako „nedopatření“. V kontextu předchozího zadržování přeplatků a selektivního postupu nejde o izolovanou administrativní chybu, ale o další indicii nerovného zacházení a pokračující kontroly plateb mimo řádný transparentní proces SVJ."},
+{t:"<code>prestupky-SVJ.txt</code>: „odhlasováno na schůzi SVJ a tak by mělo být v zápise, který chceme vidět“ – vymáhat předložení řádného zápisu."},
+{t:"Požadavky: okamžité vrácení celé částky, písemné zdůvodnění jednání výboru, zařazení bodu do programu schůze, projednání nápravy."}
+],notes:"<b>Podklady:</b> Stiznost na SVJ pro vlastniky.pages, SVJ oficialni stiznost na chuzi.pages, Zdarzovani preplatku 2025-2026.pages, prestupky-SVJ.txt, zápis 27. 5. 2026.<br><b>Právní rámec:</b> § 159, § 1175, § 1180, § 1208 OZ; neoprávněná manipulace s cizími prostředky + nátlak (kvalifikováno ve stížnosti; konzultováno s PČR)."},
+{id:"B",title:"Neplatnost schůze 27. 5. 2026 a vadný zápis",prio:"high",items:[
+{t:"<b>Oznámení o neplatnosti schůze SVJ, anulace hlasování…</b> – čtyři důvody neplatnosti:<ol><li><b>A)</b> Schůze se řídila <b>11 let starými stanovami</b> (vzorové stanovy podle zákona č. 72/1994 Sb.): přestaly být použitelné v roce 2012, od 1. 1. 2014 mimo právní rámec, neodpovídají NOZ, nebyly aktualizovány novelou NOZ z roku 2020, obsahují ustanovení v přímém rozporu se zákonem → <b>schůze proběhla podle neplatných pravidel, rozhodnutí jsou neplatná</b>.</li><li><b>B)</b> <b>Změna Prohlášení vlastníka</b> „schválena“ v rozporu s <b>§ 1169 OZ</b>: nebyl předložen návrh ani text změny, nezískán písemný souhlas dotčených vlastníků → <b>změna je neplatná a nelze ji zapsat do katastru</b>.</li><li><b>C)</b> <b>Schůze bez podkladů</b>: žádné dokumenty k hlasovaným bodům, hlasovalo se o nových smlouvách bez jejich předložení, <b>chyběly kalkulace k navýšení záloh a fondu oprav</b>, návrh stanov nev řádné podobě, nebyl čas na připomínky → <b>hlasování bez podkladů je neplatné</b>.</li><li><b>D)</b> Předseda (P. Hodek) byl <b>dlouhodobě zastupován svým otcem</b> – funkce předsedy je nezastupitelná → porušení zákona i stanov, potenciální neplatnost jednání, <b>dopad na platnost minulých i současných rozhodnutí SVJ</b>.</li></ol>"},
+{t:"<b>Žádost o anulaci všech hlasování</b> ze schůze, zejména: změna Prohlášení vlastníka, nové stanovy, nové smlouvy, <b>navýšení záloh</b>, <b>navýšení fondu oprav</b>, provoz kotelny; + <b>zastavení všech z nich vyplývajících kroků</b>."},
+{t:"<b>Návrh na svolání nové řádné schůze</b> s 5 body: 1) ověření platnosti stanov a aktualizace, 2) ověření platnosti funkce předsedy a jeho jednání, 3) zrušení neplatných hlasování, 4) nové projednání všech bodů s řádnými podklady, 5) diskuse o dalším postupu SVJ."},
+{t:"<b>Uplynutí 14denní lhůty pro připomínky</b> k zápisu, průběhu schůze a všem projednávaným bodům – požadovat písemné vyjádření výboru, doložení všech podkladů a informování advokátního zastoupení (Mgr. Panuška) o nezodpovězených zprávách na DS SVJ."},
+{t:"<b>Výzva k vyhotovení zápisu</b> – vymáhat úplný a pravdivý zápis ve lhůtě, jinak právní kroky (soud)."},
+{t:"Zápis 27. 5. 2026 je neúplný/zmanipulovaný: připomínky p. Ullmanna nezapsány („Proč to není v zápisu?“), přeplatky zmíněny bez podmínek (bod 3: „vráceny k 15. 6. 2026“), chybí body z diskuse."},
+{t:"Potvrzení o doručení datových schránek <b>29. 5. 2026</b> (2× PDZ) – doložit, že podání doručila."},
+{t:"Požadavky: oprava zápisu, projednání oznámení o neplatnosti a anulace, zařazení návrhů usnesení vlastníků."}
+]},
+{id:"C",title:"Porušování informačních povinností výboru",prio:"high",items:[
+{t:"<b>6 podání přes datovou schránku bez odpovědi</b> (ani po 30 dnech) – porušení § 1208 a § 1209 OZ."},
+{t:"<b>Odmítání dokumentů vlastníkovi jednotky:</b> stanovy SVJ, dokumentace domu, plány bytové jednotky, klíče od společných prostor – opakovaně slíbeno, poté odvoláno; vydání <b>podmíněno omluvou</b> p. Hodkovi („Kdybys se mnou mluvil uctivě, tak ti klidně vyhovím“)."},
+{t:"Neexistence předání dokumentů při vstupu člena do výboru (p. Ullmann nedostal nic)."},
+{t:"<b>Navyseni zaloh.md</b> – žádost o vysvětlení navýšení záloh: chybí smlouvy a ceníky dodavatelů, kalkulace záloh, zohlednění <b>poklesu regulovaných složek cen elektřiny a plynu v roce 2025 (ERÚ)</b> – dosud nezodpověděno."},
+{t:"Požadavky: lhůta 30 dnů na veškerá podání přes DS, zpřístupnění dokumentů k nahlédnutí, zveřejňování hospodaření."}
+]},
+{id:"D",title:"Hospodaření – předražené zálohy, transparentnost fondu oprav",prio:"high",items:[
+{t:"<b>Vyúčtování 2024 (objekt 4, SLUŽBY)</b>: předepsané zálohy <b>117 312 Kč</b> vs. skutečné náklady <b>58 763 Kč</b> → <b>přeplatky 58 548 Kč</b> u jediné jednotky:<ul><li>Teplo: záloha 54 600 / náklad 21 724 (přeplatek 32 876),</li><li>TUV: záloha 44 664 / náklad 19 911 (přeplatek 24 753),</li><li>Zálohy jsou ~2,5× vyšší než skutečné náklady, <b>přesto navýšeny</b> (viz bod C) – požadovat návrat záloh k reálné spotřebě a refundaci úroků/zadržených částek.</li></ul>"},
+{t:"<b>Vyúčtování 2024 GARÁŽ/obj. 704</b>: dlouhodobé zálohy na opravy 3 360 Kč, správní náklady 4 452 Kč – stejný model předpisů."},
+{t:"<b>Hotovostní správa fondu oprav</b> bez kontrolních mechanismů; příspěvky přebírány v hotovosti <b>bez protiúpisu</b> (přiznáno v Zdarzovani preplatku)."},
+{t:"Požadavky: <b>bezhotovostní fond oprav</b>, nezávislá kontrola hospodaření (revizní komise / externí auditor), zveřejňování rozpočtu a vyúčtování, souhrnný přehled přeplatků vlastníků."}
+]},
+{id:"E",title:"Voda – neoprávněné rozpočítání úniku mezi vlastníky",prio:"high",items:[
+{t:"Náklady na <b>dlouhodobý únik vody byly rozpočítány mezi více jednotek</b>, přestože instalace bytových vodoměrů prokázala únik <b>pouze v jedné jednotce</b>; náprava za celé období nezajištěna."},
+{t:"<b>Návrh usnesení (5 bodů)</b> – zařadit do programu:<ol><li>podklady od Pražských vodáren za celé období úniku,</li><li>propočet rozpočtu nákladů do 30 dnů,</li><li>prověření neoprávněného zatížení ostatních vlastníků,</li><li>finanční vyrovnání za celé období,</li><li>informování všech vlastníků přes DS do 60 dnů.</li></ol>"},
+{t:"Připravena <b>výzva s 30denní lhůtou</b> (jinak soudní postup dle § 1208/1209 OZ); uchovat kopii odeslané zprávy."}
+],notes:"<b>Podklad:</b> Voda.md."},
+{id:"F",title:"Havarijní stav plášťě, stříšek a zateplení",prio:"high",items:[
+{t:"<b>Výzva k nápravě havarijního stavu</b> – obvodový plášť a balkony (kuchyň, obývák včetně dlažeb)."},
+{t:"<b>Stříška nad balkonem</b>: p. Hodek tvrdí, že jde o „samostatnou stříšku“ a že si ji má vlastník opravit sám – <b>odporuje § 1160 OZ</b>: nosná deska, oplechování, hydroizolace, stříška i obvodový plášť jsou <b>společnou částí domu</b>; rekonstrukce balkonů/lodžií jinde hrazeny z fondu. Odmítnutí opravy stříšky zdokumentováno i ve stížnosti (bod III/4).<br>Kata info.md: hlasovat „všichni proti zákonu ve neprospěch jediných dvou vlastníků“ je nepřípustné (analogie: Vodrážkovi, Bohunka)."},
+{t:"<b>Zateplení domu neřešeno více než 10 let</b> (zdůvodnění na schůzi „ano, ale možná také ne“)."},
+{t:"Dlouhodobě neřešené závady: <b>nefunkční zvonky, zahrada/pískoviště, chodby, osvětlení</b>, absence koncepce oprav a investic."},
+{t:"Pravidelné revize k doložení: hromosvod (1× za 5 let), hasiči/hydrány, plyn (1× za 3 roky; hotovo 1/2023 – 4 000 Kč), pojistka na dům (1 500 Kč/rok), zápis z veřejného rejstříku (5 500 Kč) – viz 2023-10-23.md."},
+{t:"Požadavky: plán zateplení s termínem a rozpočtem, havarijní opravy ze fondu, zařazení bodu do programu."}
+]},
+{id:"G",title:"Nátlak, výhrůžky a nevhodné chování členů výboru",prio:"high",items:[
+{t:"Výrok <b>„Já na Ullmanna seru“</b> za přítomnosti svědka; <b>zvýšený hlas a náznak fyzického útoku</b> p. Hodkem."},
+{t:"<b>Večerní nenahlášená návštěva syna p. Hodka</b> s výhrůžkou, že si to s vlastníkem „vyřídí“, pokud nebude jednat „slušně“."},
+{t:"<b>Cyklické vymáhání omluv</b> jako podmínky pro výkon běžných práv vlastníka (dokumenty, klíče); po omluvě přesto odmítnuto vydání plánů; dohody měněny a rušeny (Husárek potvrdil – Hodek měnil na poslední chvíli)."},
+{t:"<b>Policie ČR</b> konzultována – postup a skutková podstata <b>vyděrávání</b> (kontakt: orp1.mop.vokovice.podatelna@pcr.cz, viz policie.md)."},
+{t:"prestupky-SVJ.txt: předseda <b>Pavel Hodek od roku 2011</b> jedná v zástupu otcem <b>Václavem Hodkem</b> – otec realizoval „pouze věci, které se mu hodily“; pravidla vytvářena s <b>Vítězslavem Husárkem</b>, neplnění = trest (zadržení přeplatků); <b>„Vyhrožování Pavlem Hodkem.“</b>"},
+{t:"Požadavky: projednání stížnosti na schůzi, písemné vyjádření výboru do 30 dnů, omluva, personální změny ve výboru při potvrzení porušování, zákaz jednání jménem jiného člena bez plné moci."}
+]},
+{id:"H",title:"Služby, garáž a stanovy – doprovodné body",prio:"mid",items:[
+{t:"<b>Stanovy</b>: 11 let starý vzor podle zákona č. 72/1994 Sb., mimo rámec NOZ a neaktualizované po novele 2020 – na schůzi nebyl předložen řádný návrh nových stanov; změna stanov patří do pravomoci členské schůze, ne výboru (02-dokumenty/stanovy/, Oznámení bod A + C)."},
+{t:"<b>Služby/GARÁŽ</b>: ověřit správnost předpisů za služby související s bytem a správu domu vůči vyúčtování 2024 (obj. 4 a 704)."},
+{t:"<b>Plná moc</b> – 02-dokumenty/PlnaMoc.pdf ze 18. 5. 2026: Mgr. Martin Panuška (advokát, CAK 13030) zastupuje vlastníka jednotek 2140/9 a 2140/12 ve věci oprav a údržby společných částí domu a vedení SVJ (plné oprávnění včetně soudu) – využít pro komunikaci s výborem."}
+]},
+{id:"I",title:"Návrhy usnesení / konkrétní kroky pro schůzi (hrubý soupis)",prio:"high",ordered:true,items:[
+{t:"Okamžité vrácení zadržených přeplatků (27 000 Kč) bez podmínek + písemné odůvodnění jednání výboru."},
+{t:"Projednání <b>oznámení o neplatnosti schůze 27. 5. 2026</b> (důvody A–D), <b>anulace všech hlasování</b> (Prohlášení vlastníka, stanovy, smlouvy, zálohy, fond oprav, kotelna) a návrhu na svolání nové řádné schůze."},
+{t:"Úprava/oprava zápisu ze 27. 5. 2026 do 15 dnů včetně všech připomínek vlastníků."},
+{t:"Povinnost výboru odpovídat na DS do 30 dnů; zpřístupnění všech dokumentů (stanovy, plány, dokumentace) do 15 dnů."},
+{t:"Předložení podkladů k navýšení záloh (smlouvy, ceníky, kalkulace, vliv ERÚ 2025) a návrat záloh k reálné spotřebě."},
+{t:"Voda: přijetí návrhu usnesení (5 bodů viz bod E)."},
+{t:"Havarijní opravy plášťě/balkonů + stříšek ze společného fondu; termín plánu zateplení."},
+{t:"Zavedení <b>bezhotovostního fondu oprav</b> a nezávislé kontroly hospodaření (revizní komise/auditor)."},
+{t:"Prověření plateb/odměn Pavlu Hodkovi a Josefu Martincovi za období 2011–2026: právní titul, schválení, účetní evidence, daňové vypořádání; předložení smluv, dohod, pokladních dokladů, bankovních výpisů a případných zápočtů."},
+{t:"Přijetí stížnosti na jednání členů výboru k projednání a písemné vyjádření do 30 dnů."},
+{t:"Zákaz člena výboru zastupovat jiného člena bez písemné plné moci; personální zhodnocení výboru."}
+]}
+];
+/* Nové sekce J–M – doplněno 22. 9. 2026 z dokumentů zařazených do repozitáře (viz Changelog) */
+const SECTIONS_EXTRA = [
+{id:"J",title:"Orgány SVJ – podpisové pravomoci, funkce předsedy a svolání schůze",prio:"high",items:[
+{t:"<b>Návrh na zařazení bodu na program nejbližšího shromáždění dle § 1207 OZ</b> (<code>01-zapisy/svj_navrh_bodu_schuze.pdf</code>): „<b>Přezkum aktuálního stavu rozdělení podpisových a rozhodovacích pravomocí mezi členy výboru a zajištění transparentnosti jednání za SVJ</b>“. Důvod: dochází ke zpochybnění nebo jednostrannému omezení oprávnění člena výboru jednat za SVJ → <b>zařadit jako samostatný bod programu</b>."},
+{t:"<b>Neoprávněné omezení podpisového práva člena výboru</b> (<code>02-dokumenty/svj_vyzva_k_naprave.pdf</code>): jako člen statutárního orgánu SVJ jsem dle stanov jedním ze <b>tří oprávněných zástupců SVJ</b> s právem podpisu smluv a zastupování navenek. Požadováno: 1) předložení zápisu z výboru nebo shromáždění, kde bylo rozhodnutí o omezení učiněno, 2) odůvodnění tohoto rozhodnutí, 3) obnovení oprávnění, bylo-li odebráno v rozporu se stanovami nebo zákonem; výhrada právních kroků."},
+{t:"<b>Právní stanovisko k podpisovému právu</b> (<code>03-podklady-dukazy/svj_pravni_stanovisko_podpisove_pravo.pdf</code>): dle § 1205 a násl. OZ je statutárním orgánem SVJ výbor; práva a povinnosti jeho členů musí být v souladu se stanovami a <b>nesmí být svévolně měněna jinými členy bez rozhodnutí příslušného orgánu</b> (shromáždění vlastníků) – trvat na doložení rozhodnutí orgánu a na nápravě."},
+{t:"<b>Odstoupení člena výboru z 10. 3. 2026</b> (<code>02-dokumenty/Odstoupeni z SVJ.pages.pdf</code>, dle § 159 a § 160 OZ, doručeno do DS SVJ 10. 3. 2026): součástí byla <b>žádost o svolání mimořádné schůze v průběhu března 2026</b> s hlavním bodem „řádné, úřadem ověřené potvrzení ukončení působení v orgánu SVJ nejpozději ke dni <b>31. 3. 2026</b>“ a s povinností zveřejnit termín na domovní nástěnce v zákonné lhůtě → <b>doložit, zda a jak bylo vyřízeno</b>."},
+{t:"<b>Funkce předsedy SVJ</b> – bod 5 svolání shromáždění na 27. 11. 2025 (<code>01-zapisy/Svolání shromáždění vlastníků jednotek.docx/.md</code>): „Projednání situace – <b>neexistence předsedy SVJ</b> a návrh dalšího postupu“; na schůzi 27. 5. 2026 přesto jednal p. Hodek (zastupován otcem) → žádat <b>volbu / potvrzení statutárního orgánu</b> a doložení, kdo je oprávněn za SVJ jednat a podepisovat."},
+{t:"<b>Pokračující zásahy Václava Hodka do plateb a procesů SVJ:</b> na poslední schůzi za přítomnosti advokáta vlastníka bylo uvedeno, že platby i nadále fakticky provádí <b>Václav Hodek</b>. Skutečný předseda <b>Pavel Hodek</b> na této schůzi přítomen nebyl. Jakékoli prohlášení či „zplnomocnění“ Václava Hodka k vystupování v roli předsedy je třeba považovat za právně vadné/neplatné, protože funkce předsedy a výkon statutárního orgánu nejsou volně převoditelné na třetí osobu bez řádného mandátu SVJ. Václav Hodek by proto neměl zasahovat do plateb, vyúčtování, komunikace ani rozhodovacích procesů SVJ; přesto k tomu dle dostupných skutečností dochází i nyní."},
+{t:"<b>Zápis ze 27. 5. 2026 nebyl řádně ověřen</b> – ověřovatel (p. Andrej Valko) zaslal <b>12. 6. 2026</b> e-mailem písemné připomínky k zápisu (<code>01-zapisy/schuze vybaervene.pdf</code>: „Níže posílám poznámky jako ověřovatel následujícího zápisu…“) → trvat na zapracování připomínek <b>zapisovatele i ověřovatele</b> a na opravě zápisu (bod B)."},
+{t:"Námitky vlastníka proti průběhu shromáždění z <b>30. 5. 2026</b> výbor pouze „bere na vědomí“ a dále je neřeší (<code>01-zapisy/priloha_1706957024_0_Výzva k vyhotovení zápisu.pdf</code>) → požadovat jejich vypořádání a zápis do zápisu."},
+{t:"Požadavky: zařadit bod dle § 1207 OZ, předložit rozhodnutí orgánu o pravomocích, obnovit podpisové právo, vyřešit personální stav výboru (volba / mimořádná schůze) a doložit ukončení členství odstoupivšího člena."}
+]},
+{id:"K",title:"Svolání shromáždění na 27. 11. 2025 – nenaplněný program vlastníků",prio:"high",items:[
+{t:"<b>Svolání řádného shromáždění vlastníků na 27. 11. 2025, 18:30, sušárna</b> (§ 1207 OZ; svolavatelé P. Ullmann, B. Buriánková, J. Martinec) se <b>15 body programu</b> (<code>01-zapisy/Svolání shromáždění vlastníků jednotek.docx</code> + <code>.md</code>): hospodaření SVJ; <b>rozpočet a příspěvky do fondu oprav na rok 2026</b>; <b>neexistence předsedy SVJ</b>; <b>neprovedené vyúčtování a zadržování přeplatků (Václav Hodek, Miroslav Husárek)</b>; návrh usnesení k nápravě a svolání mimořádné volby statutárního orgánu; stav oprav a <b>zateplení</b>; zpřístupnění dokumentace a plánů domu; pravidla užívání společných prostor; plán oprav a investic."},
+{t:"<b>Doložit, zda se toto shromáždění konalo a s jakým výsledkem</b> (zápis, prezenční listina, výsledky hlasování). Dosud doložená schůze je až 27. 5. 2026 s odlišným programem, bez podkladů a s vadným zápisem (bod B) → pokud se svolané shromáždění nekonalo, <b>požadovat svolání nového se stejným programem</b> a řádnými podklady."},
+{t:"<b>Znovu zařadit návrhy usnesení z tohoto svolání</b>: rozpočet a příspěvky do fondu oprav 2026, mimořádná volba statutárního orgánu, zveřejnění stavu oprav a zateplení (zpráva do 31. 1. 2026), zpřístupnění projektové dokumentace a schémat rozvodů, revizních zpráv a měření spotřeb, pravidla užívání společných prostor (kočárkárna, sušárna, chodby)."},
+{t:"Povinnosti výboru k tomuto svolání: sdělit <b>písemně stav vyřízení</b> jednotlivých bodů, oznámit termín konání shromáždění a předložit zápis (lhůty dle bodu C); na nečinnost upozornit advokáta (Mgr. Panuška)."}
+]},
+{id:"L",title:"Vyúčtování 2025, provozní náklady a stav fondu oprav",prio:"high",items:[
+{t:"<b>Souhrn vyúčtování 2025</b> (<code>03-podklady-dukazy/vyuctovani-2025/Scan.pdf</code>, vyhotovení <b>17. 3. 2026</b>, E. Boučková): <b>celkem přeplatky 115 247,21 Kč</b> (za služby 85 236,85 Kč + za provozní náklady 30 010,36 Kč). Po jednotkách: Husárková Lucie 27 727,40; Hodek 20 618,14; Vodrážková 20 238,54; Martinec 14 962,98; Ullmann 10 920,48; Buriánková 10 793,15; Valko 10 016,50; Husárková Hana 3 596,12; Vodičková <b>nedoplatek −3 626,10</b> → <b>požadovat vyplacení přeplatků všem vlastníkům</b>, nejen tomu, kdo se přihlásil, a doložení data úhrad."},
+{t:"<b>Nerovné vyplacení přeplatků v posledním vyúčtování:</b> vlastníkovi byly přeplatky zaslány později než ostatním vlastníkům; následně byla uvedena omluva za „nedopatření“. Požadovat přesný přehled dat odeslání přeplatků všem vlastníkům, identifikaci osoby, která platby zadala/provedla, a vysvětlení, proč byl vlastník opět vyčleněn od ostatních."},
+{t:"<b>Fond oprav roku 2025</b> (vyhotovení <b>19. 1. 2026, podepsán jen p. Hodek</b>): stav k 1. 1. 2025 <b>1 014 461,07 Kč</b>, měsíční platby vlastníků leden–prosinec 2025 <b>+59 988,00 Kč</b>, <b>čerpání – fakturace v roce 2025 = 0,00 Kč</b>, stav k 31. 12. 2025 <b>1 074 449,07 Kč</b>. → Za celý rok 2025 <b>nebylo z fondu oprav čerpáno nic</b>, přestože opravy šly z provozních nákladů (ventily v kotelně 3 600 Kč, servis kotle 4 480 Kč) a havarijní vady nejsou řešeny (bod F) → vysvětlit nečerpání, předložit plán oprav s termíny a doložit, kdo o použití fondu rozhodl."},
+{t:"<b>Provozní náklady 2025 (celkem 29 628,67 Kč; na vlastníky předepsáno 30 010,36 Kč)</b>: pojištění domu 5 213,00; členství v SMBD 1 500,00; servis sekačky 810,00; revize komínů 1 210,00; výměna ventilů v kotelně 3 600,00; servis kotle 4 480,00; <b>účetnictví 10 000,00</b>; revize hasicích přístrojů 2 815,67; proti tomu <b>úroky ze spořicího účtu 29 603,03 Kč</b> → doložit faktury, smlouvu s SMBD, rozsah služeb účetnictví a <b>výpočet úroků (dobropis vlastníkům)</b>."},
+{t:"<b>Voda a TUV 2025</b>: studená voda náklady <b>95 903,00 Kč / 634 m³</b> (151,27 Kč/m³) proti zálohám 64 800,00 Kč = <b>nedoplatek −31 103,00 Kč</b>; TUV (ohřev) 80 115,04 Kč / 218 m³ (367,50 Kč/m³) proti zálohám 102 600,00 Kč = přeplatek 22 484,96 Kč; odpad 6 240,00 Kč (2 faktury) proti 7 440,00 Kč. → <b>nesoulad záloh na vodu</b> (nedoplatek) a současně vysoká spotřeba – prověřit u dodavatele a ve vztahu k úniku vody (bod E); vyžádat rozpis spotřeby po jednotkách."},
+{t:"<b>Kotelna 2025</b>: plyn celkem 304 578,16 Kč (faktury č. <code>1225150870</code> za 1. 1.–19. 3. 2025 a č. <code>1226100106</code> za 20. 3.–31. 12. 2025), elektřina 15 882,00 Kč (2 faktury) = <b>320 460,16 Kč</b>; rozdělení <b>topení 75 % (240 345,11 Kč) / teplá voda 25 % (80 115,04 Kč)</b> → doložit smlouvy k dodávkám, odečty a výpočet rozdělovacího klíče (v Prohlášení vlastníka není uveden výkon kotle)."},
+{t:"<b>Nesoulad v evidenci vlastníků</b>: jednotka s koeficientem <b>8,10 %</b> je ve vyúčtování přeplatků a ve vyúčtování služeb vedena jako <b>Valko</b>, ve fondu oprav jako <b>Podhaiský</b> → vyžádat <b>aktuální seznam vlastníků a bytových jednotek</b> (evidence pro hlasování, doručování a vyúčtování) a doložit, kdo je oprávněn za jednotku jednat."},
+{t:"Požadavky: vyúčtování pro každou jednotku, <b>nezávislá revize vyúčtování 2024 i 2025</b> (revizní komise / externí auditor), zveřejnění pohybů fondu oprav, souhrnný přehled přeplatků a nedoplatků, úroky z prodlení (viz bod A)."}
+],notes:"<b>Navazuje na body A a D.</b> Podklad: <code>03-podklady-dukazy/vyuctovani-2025/Scan.pdf</code> (vyúčtování služeb, provozních nákladů, fondu oprav a kotelny; vyhotovení 17. 3. 2026 a 20. 3. 2026 E. Boučková, fond oprav a náklady kotelny 19. 1. 2026 Hodek) – čísla před schůzí přepočítat proti originálu."},
+{id:"M",title:"Provoz, kotelna, odpady a kontrolní mechanismus (z rozpracovaného zápisu a podkladů)",prio:"mid",items:[
+{t:"<b>Kotelna a vytápění</b> (<code>01-zapisy/SVJ meet.md</code>, bod 8; <code>03-podklady-dukazy/kotel-info.md</code>): porovnat náklady na provoz kotelny, kotelníka a jednotlivá technická řešení (plyn / tepelné čerpadlo / pelety) – plynová varianta cca o 100 000 Kč levnější, tepelné čerpadlo s akumulační nádrží cca <b>1,5 mil. Kč</b>, nabídka na peletový systém (zásobník 400 l), odhad spotřeby plynu 250–280 tis. Kč / 3 roky; radiátory se spádem mohou být pro tepelné čerpadlo nedostatečné. Navazuje na skutečné náklady 2025 (bod L: plyn + elektřina <b>320 460,16 Kč</b>) → <b>rozhodovat až s doloženými nabídkami a propočtem návratnosti</b>."},
+{t:"<b>Odpady a společné prostory</b>: původní velikost nádob nevyhovuje (požadavek p. Bohunky), zvážit biopopelnici (GreenBox) – náklady na odvoz odpadu 2025 byly 6 240,00 Kč (bod L); <b>žádost o vrácení odpadkového koše a osobních věcí</b> vlastníka (<code>02-dokumenty/Žádost o vrácení odpadkového koše a osobních věcí.pages</code>); pravidla užívání kočárkárny, sušárny a chodeb dle požárních předpisů a jejich viditelné vyvěšení."},
+{t:"<b>Odměny, smluvní forma a hotovostní fond</b> (SVJ meet bod 7): návrh <b>zrušit hotovostní fond</b> a převést příspěvky na bankovní účet; odměny uklízečka 1 000–2 000 Kč a p. Martinec 4 000 Kč/měs.; smlouvy <b>DPP/DPČ</b> po právním posouzení (advokát); s ohledem na nečerpání fondu (bod L) požadovat vyčíslení rizik hotovostní správy a přehled úročení."},
+{t:"<b>Podezření na neřádně evidované nebo daňově nevypořádané odměny Hodka a Martince:</b> podle dosavadních informací měl p. Hodek pobírat 2 000 Kč/měs. (24 000 Kč/rok) a p. Martinec 1 000 Kč/měs. (12 000 Kč/rok); za období 2011–2026 jde orientačně o 384 000 Kč u p. Hodka a 192 000 Kč u p. Martince. Požadovat ověření, zda byly platby schváleny, smluvně doloženy, účetně evidovány a daňově vypořádány; právně bezpečně formulovat jako <b>podezření a požadavek na prověření</b>, nikoli jako předem uzavřené obvinění."},
+{t:"<b>Vnější označení a zásahy do společných částí</b>: žádost o odstranění označení cizí společnosti ze společných částí domu (DS 3. 12. 2025, ID <code>1614809866</code>) → doložit vyřízení a odstranění; žádné zásahy do společných částí bez souhlasu shromáždění."},
+{t:"<b>Provozní závady a komunikace s vlastníky</b>: oprava studené vody <b>21. 7. 2025 (8–15 h)</b> nebyla ze strany SVJ včas komunikována (<code>02-dokumenty/Aktualni informace.pages</code>); evidence počtu osob žijících v jednotkách (podklad pro rozpočet odpadu a vody); úklid a údržba; <b>světelný a hlukový smog</b> – vozidlo bezpečnostní služby s běžícím motorem a svícením na stále stejném místě (<code>03-podklady-dukazy/Svetelny a hlukovy smog.md</code>) → projednat s výborem a bezpečnostní službou."},
+{t:"<b>Kontrolní mechanismus SVJ</b> (<code>04-stiznosti/Sniznost a navrh na kontrolni mechanismus SVJ.pages</code>, <code>03-podklady-dukazy/Stanovisko_k_pravomoci_SVJ.pages</code>, <code>03-podklady-dukazy/fond-oprav-podklady.md</code>): zavést <b>kolektivní kontrolu</b> dokumentů, finančních toků a rozhodnutí (revizní komise + přístup k dokumentům pro všechny vlastníky) tak, aby o financích ani o pravidlech nemohl rozhodovat jediný člen výboru; výslovně upravit <b>bezhotovostní správu fondu oprav</b> (viz <code>03-podklady-dukazy/Je v pořádku.docx</code>)."},
+{t:"<b>Návrh nových stanov</b> (<code>03-podklady-dukazy/Zmeny stanov - navrh.pages</code>, <code>03-podklady-dukazy/analyza-stanov.md</code>): do návrhu promítnout transparentnost hospodaření, kontrolní mechanismus a souhlas vlastníků u zásadních rozhodnutí; změna stanov patří do pravomoci shromáždění (bod H)."}
+],
+notes:"<b>Podklady:</b> <code>01-zapisy/SVJ meet.md</code> (body 6–9), <code>03-podklady-dukazy/kotel-info.md</code>, <code>2023-10-23.md</code>, <code>Svetelny a hlukovy smog.md</code>, <code>fotky/</code> a nové dokumenty zařazené 22. 9. 2026."},
+{id:"N",title:"Závěr schůze – komunikace p. Martince k psovi a doložení pohybu",prio:"mid",items:[
+{t:"<b>Zařadit na závěr schůze jako samostatný informativní bod:</b> komunikace pana Martince týkající se psa je vlastníkem vnímána jako nepřiměřené vměšování do soukromého života. Není zřejmé, z jakého důvodu se p. Martinec vyjadřuje k psovi vlastníka, obzvlášť za situace, kdy se svého vlastního psa v minulosti sám zbavil."},
+{t:"<b>Doložení časového přehledu pohybu:</b> vlastník předkládá přesný časový přehled svého pohybu včetně míst a časů. Tento přehled vyvrací tvrzení, že by byl mimo domov celý den. Podklad je uložen v <code>03-podklady-dukazy/martinec-pes-vmesovani.md</code> a screenshot časové osy v <code>03-podklady-dukazy/fotky/martinec_pes.png</code>."},
+{t:"<b>Monitoring bytu / robotická chůvička:</b> vlastník uvádí, že pořídil robotickou chůvičku / kamerový monitoring bytu, díky kterému má přehled o dění v jednotlivých místnostech. Z dostupných informací nemá za to, že by docházelo k situaci obdobné dřívějším případům dlouhodobého štěkání psa po celý den."},
+{t:"<b>Požadavek pro zápis:</b> vzít informaci na vědomí, nepokračovat v osobních poznámkách k soukromému životu vlastníka a případné stížnosti na hluk řešit pouze věcně, konkrétně, s uvedením data, času, délky trvání a objektivních podkladů."}
+],
+notes:"<b>Podklady:</b> <code>03-podklady-dukazy/martinec-pes-vmesovani.md</code>, <code>03-podklady-dukazy/fotky/martinec_pes.png</code>."},
+{id:"O",title:"Závěr schůze – výpadek teplé vody, opožděná komunikace předsedy a skutečná koordinace opravy",prio:"high",items:[
+{t:"<b>Zařadit na závěr schůze jako samostatný bod:</b> vyhodnocení průběhu řešení posledního výpadku teplé vody, opožděné komunikace předsedy výboru SVJ, skutečné koordinace výměny vadného bojleru a přijetí opatření pro informování vlastníků při závadách v domě."},
+{t:"<b>Problém není jen technická závada, ale způsob řízení:</b> porucha zařízení se může stát, avšak vlastníci nebyli včas informováni o rozsahu výpadku, předpokládané době obnovení dodávky teplé vody ani o tom, kdo závadu řeší. Předseda výboru Pavel Hodek informoval vlastníky až <b>18. 9. 2026 ve 13:15</b>, tedy až po dokončení opravy."},
+{t:"<b>Rozpor ve formulaci „plánovaná výměna“:</b> ve zprávě předsedy bylo uvedeno, že „dnes proběhla plánovaná výměna vadného bojleru v kotelně“. Pokud šlo o plánovanou výměnu, měli být vlastníci informováni předem; pokud šlo o akutní nebo havarijní řešení závady, je nutné vysvětlit, proč byla zpětně označena jako plánovaná."},
+{t:"<b>Nejasná role předsedy a dalších osob:</b> z průběhu komunikace vzniká důvodná pochybnost, zda předseda situaci aktivně řídil od začátku, nebo zda pouze dodatečně rozeslal informaci o výsledku opravy koordinované jinými osobami. Požadovat vyjasnění role pana Martince a pana Husárka, včetně toho, kdo dal pokyn k opravě, kdo objednal servis a kdo byl skutečným koordinátorem odstranění závady."},
+{t:"<b>Odkaz na právní kancelář nenahrazuje provozní komunikaci SVJ:</b> následná reakce předsedy, že má být další komunikace vedena přes advokátní kancelář, nemůže nahradit povinnost výboru informovat vlastníky o běžných provozních záležitostech domu, závadách, odstávkách a jejich řešení."},
+{t:"<b>Otázky pro výbor:</b><ol><li>Kdy přesně byla závada na ohřevu teplé vody zjištěna?</li><li>Kdo ji zjistil jako první a komu byla oznámena?</li><li>Kdy byl informován předseda SVJ Pavel Hodek?</li><li>Kdy byli informováni pan Martinec a pan Husárek?</li><li>Kdo rozhodl o výměně vadného bojleru a kdo ji objednal?</li><li>Kdo opravu fakticky koordinoval?</li><li>Proč vlastníci nebyli informováni ihned po zjištění závady?</li><li>Proč nebyl sdělen předpokládaný čas obnovení dodávky teplé vody?</li><li>Existuje servisní protokol, objednávka a faktura k výměně bojleru a budou zpřístupněny vlastníkům?</li><li>Jaký závazný postup informování vlastníků bude zaveden do budoucna?</li></ol>"},
+{t:"<b>Návrh usnesení:</b> Shromáždění ukládá výboru SVJ, aby do <b>15 dnů</b> předložil vlastníkům písemnou časovou osu posledního výpadku teplé vody včetně data zjištění závady, informovaných osob, rozhodnutí o výměně bojleru, objednání a koordinace opravy, vysvětlení opožděného informování a zpřístupnění servisních podkladů. Současně ukládá výboru, aby do <b>30 dnů</b> předložil závazný postup informování vlastníků při haváriích, odstávkách a poruchách základních služeb v domě."}
+],
+notes:"<b>Podklady:</b> e-mail Pavla Hodka ze dne <b>18. 9. 2026 ve 13:15</b> o dokončení „plánované výměny vadného bojleru“, navazující komunikace s vlastníkem a reakce předsedy odkazující komunikaci na právní zástupce SVJ."},
+];
+SECTIONS.push.apply(SECTIONS, SECTIONS_EXTRA);
+const SOURCES = [
+"01-zapisy/Schuze-SVJ-2026-05-27.pdf (zápis), 02-dokumenty/Oznámení o neplatnosti schůze SVJ, anulace hlasování a návrh na svolání nové schůze.pdf, 01-zapisy/priloha_1706957024_0_Výzva k vyhotovení zápisu.pdf, 02-dokumenty/Výzva k nápravě.pdf",
+"04-stiznosti/Stiznost na SVJ pro vlastniky.pages, 04-stiznosti/SVJ oficialni stiznost na chuzi.pages, 04-stiznosti/Zdarzovani preplatku 2025-2026.pages",
+"03-podklady-dukazy/vyuctovani-2024/06-04-2025 20-07-23 SLUŽBY .pdf, 03-podklady-dukazy/vyuctovani-2024/06-04-2025 20-06-56 GARÁŽ .pdf (vyúčtování 2024)",
+"04-stiznosti/prestupky-SVJ.txt, 03-podklady-dukazy/Navyseni zaloh.md, 03-podklady-dukazy/Voda.md, 03-podklady-dukazy/Strisky balkonu.md, 03-podklady-dukazy/Správa budovy pochybnosti.md, 03-podklady-dukazy/Svetelny a hlukovy smog.md, 03-podklady-dukazy/2023-10-23.md, 03-podklady-dukazy/Kata info.md, 04-stiznosti/policie.md",
+ "Stanovy s poznámkami (02-dokumenty/stanovy/), plná moc a další dokumenty (02-dokumenty/), potvrzení o doručení DS (03-podklady-dukazy/datove-schranky/)",
+ "03-podklady-dukazy/martinec-pes-vmesovani.md a 03-podklady-dukazy/fotky/martinec_pes.png (závěrečný bod schůze – komunikace p. Martince k psovi a doložení pohybu)",
+ "E-mail Pavla Hodka ze dne 18. 9. 2026 ve 13:15 k dokončení výměny vadného bojleru a navazující komunikace k opožděnému informování vlastníků o výpadku teplé vody"
+];
+const NOTES = [
+"Prostřední část narativu Zdarzovani preplatku (přibližně 11,5 tis. znaků – průběh sporu o vyúčtování) se nepodařilo vytáhnout jedním čtením; klíčová tvrzení (27 000 Kč, podmínka 3 000 Kč hotovostně, „společně dohodli“, výhrůžky, 6 nezodpovězených podání) jsou ale potvrzena jak koncem tohoto dokumentu, tak oběma stížnostmi a prestupky-SVJ.txt.",
+"Právní odkazy vycházejí ze stížností a poznámek v 04-stiznosti/ a 03-podklady-dukazy/ – před jednáním doporučeno ověřit u právníka (kontakt na Lucii Pražákovou a bytovadruzstva.cz v 03-podklady-dukazy/Kata info.md)."
+];
+/* Navigace v pravém sloupci: kategorie sekcí, časová osa, zdroje a dokumenty projektu */
+const TOC_CATS = [
+ {title:"I. Nezákonné postupy výboru", ids:["A","B","C","G"]},
+ {title:"II. Hospodaření a finance", ids:["D","L","H"]},
+ {title:"III. Společné části domu a provoz", ids:["E","F","M"]},
+ {title:"IV. Orgány SVJ a svolání schůze", ids:["J","K"]},
+ {title:"V. Návrhy usnesení a závěr schůze", ids:["I","N","O"]}
+];
+const TOC_LABELS = {
+ A:"Zadržené přeplatky a nátlak (27 000 Kč)",
+ B:"Neplatnost schůze 27. 5. 2026 a zápis",
+ C:"Informační povinnosti výboru a DS",
+ D:"Předražené zálohy, fond oprav",
+ E:"Voda – rozpočítaný únik",
+ F:"Havarijní stav pláště, stříšek, zateplení",
+ G:"Nátlak, výhrůžky, chování členů výboru",
+ H:"Stanovy, služby, garáž, plná moc",
+ I:"Návrhy usnesení pro schůzi",
+ J:"Orgány SVJ, podpisové právo, předseda",
+ K:"Svolání shromáždění 27. 11. 2025",
+ L:"Vyúčtování 2025 a fond oprav",
+ M:"Provoz, kotelna, odpady, kontrola",
+ N:"Závěr schůze – Martinec, pes, doložení pohybu",
+ O:"Závěr schůze – výpadek teplé vody a komunikace"
+};
+const TOC_ANCHORS = [
+ {id:"sources", tid:"§", label:"Zdroje (důkazy)"},
+ {id:"notes", tid:"§", label:"Poznámky k úplnosti"}
+];
+const TOC_FILES = [
+ {href:"#top", tid:"↥", label:"Nahoru / exporty a ukládání"},
+ {href:"00-pravidla/checklist-porada-svj.md", tid:"MD", label:"Checklist – zdrojová verze"},
+ {href:"00-pravidla/pravidla-zpracovani-svj-2026-09-24.md", tid:"MD", label:"Pravidla zpracování repozitáře"},
+ {href:"README.md", tid:"MD", label:"README – mapa repozitáře"},
+ {href:"file:///Users/ullp/git/svj/01-zapisy/", tid:"→", label:"01-zapisy (zápisy, svolání, média)"},
+ {href:"file:///Users/ullp/git/svj/02-dokumenty/", tid:"→", label:"02-dokumenty (stanovy, výzvy, žádosti)"},
+ {href:"file:///Users/ullp/git/svj/03-podklady-dukazy/", tid:"→", label:"03-podklady-dukazy (důkazy, vyúčtování)"},
+ {href:"file:///Users/ullp/git/svj/04-stiznosti/", tid:"→", label:"04-stiznosti (stížnosti, podání)"},
+ {href:"file:///Users/ullp/git/svj/x-duplicates/", tid:"→", label:"x-duplicates (archiv starších verzí)"}
+];
+const LEGAL_ANCHORS = [
+ {id:"master", tid:"1", label:"Úvod a rámec případu"},
+ {id:"legal-frame", tid:"§", label:"Právní rámec"},
+ {id:"timeline", tid:"5", label:"Časová osa incidentů"},
+ {id:"legal-steps", tid:"6", label:"Návrh právních kroků"},
+ {id:"record-addendum", tid:"7", label:"Návrh na doplnění zápisu"},
+ {id:"challenge-meeting", tid:"8", label:"Návrh na napadení schůze"},
+ {id:"remove-chair", tid:"9", label:"Návrh na odvolání předsedy"},
+ {id:"technical-audit", tid:"10", label:"Žádost o technický audit domu"}
+];
+const INCIDENT_LEGAL = {
+ A:{date:"2025–2026", people:"Petr Ullmann, výbor SVJ, Pavel/Václav Hodek, Vítězslav Husárek", law:"§ 159, § 1175, § 1180, § 1208 OZ; ochrana majetku vlastníka; zákaz nátlakového jednání", remedy:"Vrácení celé zadržené částky, písemné odůvodnění, zákaz hotovostního podmiňování a projednání odpovědnosti výboru."},
+ B:{date:"27. 5. 2026", people:"Vlastníci jednotek, výbor SVJ, advokát Mgr. Martin Panuška", law:"§ 1169, § 1207, § 1208, § 1209 OZ; stanovy SVJ", remedy:"Anulace vadných hlasování, oprava zápisu, nové řádné shromáždění s podklady."},
+ C:{date:"2025–2026", people:"Výbor SVJ, vlastníci, adresáti datových zpráv", law:"§ 1179, § 1208, § 1209 OZ; informační povinnosti orgánů SVJ", remedy:"Lhůta 30 dnů pro odpovědi, zpřístupnění dokumentace, evidence doručených a vyřízených podání."},
+ D:{date:"2024–2026", people:"Výbor SVJ, účetní, vlastníci", law:"§ 1180, § 1181, § 1208, § 159 OZ", remedy:"Doložení kalkulací, smluv, vyúčtování a zavedení transparentní bezhotovostní kontroly fondu oprav."},
+ E:{date:"2025–2026", people:"Vlastníci jednotek, SVJ, dodavatel vody", law:"§ 1180, § 1208 OZ; pravidla rozúčtování služeb", remedy:"Přepočet úniku vody, doložení podkladů od vodáren, finanční vyrovnání dotčeným vlastníkům."},
+ F:{date:"dlouhodobě", people:"SVJ, vlastníci dotčených jednotek", law:"§ 1160, § 1189, § 1208 OZ; správa společných částí domu", remedy:"Technický audit, plán oprav, financování z fondu oprav a termíny odstranění havarijních vad."},
+ G:{date:"2025–2026", people:"Petr Ullmann, Pavel/Václav Hodek, Vítězslav Husárek", law:"§ 159 OZ; ochrana osobnosti a pokojného výkonu vlastnických práv", remedy:"Projednání stížnosti, omluva, zákaz zastupování bez mandátu a případné personální změny."},
+ H:{date:"2025–2026", people:"SVJ, vlastníci, advokát", law:"§ 1200 a násl. OZ; § 1208 OZ; stanovy SVJ", remedy:"Aktualizace stanov a prověření služeb/garáže podle skutečných podkladů."},
+ I:{date:"24. 9. 2026", people:"Vlastníci a výbor SVJ", law:"§ 1207, § 1208, § 1209 OZ", remedy:"Převést body do návrhů usnesení a hlasovat pouze s kompletními podklady."},
+ J:{date:"2011–2026", people:"Pavel Hodek, Václav Hodek, výbor SVJ", law:"§ 159, § 160, § 1205, § 1208 OZ; stanovy SVJ", remedy:"Prověřit mandát, podpisové právo a odpovědnost; vyloučit neoprávněné zásahy Václava Hodka do procesů SVJ; předložit návrh na odvolání předsedy."},
+ K:{date:"27. 11. 2025", people:"Vlastníci, výbor SVJ", law:"§ 1207, § 1208 OZ", remedy:"Doložit, zda schůze proběhla, a obnovit nevyřízené body programu."},
+ L:{date:"2025–2026", people:"Výbor SVJ, účetní, vlastníci, Václav Hodek", law:"§ 1180, § 1181, § 1208, § 159 OZ; rovné zacházení s vlastníky", remedy:"Předložit vyúčtování, doklady, stav fondu oprav, výpočet úroků, termíny výplat přeplatků a identifikaci osoby, která platby skutečně zadává/provádí."},
+ M:{date:"2025–2026", people:"SVJ, vlastníci, dodavatelé služeb", law:"§ 1189, § 1208 OZ; stanovy SVJ", remedy:"Kontrola provozu kotelny, odpadů, společných prostor a zavedení kontrolního mechanismu."},
+ N:{date:"bez přesného data / závěr nejbližší schůze", people:"Petr Ullmann, Josef Martinec, vlastníci SVJ", law:"ochrana soukromí a osobnosti; pokojný výkon vlastnických práv; věcné projednávání podnětů na shromáždění", remedy:"Vzít doložený časový přehled na vědomí, ukončit osobní poznámky k soukromému životu vlastníka a případné stížnosti na hluk řešit pouze konkrétními a doloženými údaji."},
+ O:{date:"18. 9. 2026 / závěr nejbližší schůze", people:"Pavel Hodek, Josef Martinec, Vítězslav Husárek, výbor SVJ, vlastníci", law:"§ 159, § 1189, § 1208 OZ; povinnost řádné správy domu a informování vlastníků", remedy:"Předložit časovou osu závady, servisní podklady, vyjasnit skutečnou koordinaci opravy a přijmout závazný postup informování vlastníků při haváriích a odstávkách."}
+};
+
+/* Časová osa jednotlivých problémů – jen doložené údaje s datem a zdrojem */
+const TIMELINE = [
+{id:"T1",prio:"high",title:"Zadržené přeplatky a nátlak na vlastníka (bod A)",sub:"Klíčová otázka: byla výplata přeplatku vázána na další platbu a jaký je stav vysvětlení?",ev:[
+ {d:"21. 7. 2025 · 15:08",t:"Výzva k vrácení přeplatku 2 400 Kč odeslána do DS SVJ.",src:"04-stiznosti/… / 03-podklady-dukazy/datove-schranky/Datové schránky - vyzva k vraceni preplatku.pdf (ID 1554851272)",k:"high"},
+ {d:"21. 7. 2025 · 15:10",t:"Stížnost na činnost Václava Hodka v rámci SVJ odeslána do DS SVJ (2 minuty po výzvě).",src:"datove-schranky/Datové schránky - stiznost na V Hodka.pdf (ID 1554852371)",k:"high"},
+ {d:"25. 3. 2026 (dle data přílohy)",t:"Komunikace o platbách: pravidelné platby nebudou ponižovány o přeplatek; dlužná částka se bude zvyšovat o <b>úrok z prodlení</b> (2 400 Kč + cca 27,50 Kč/měs.) a <b>úrok nelze odebrat z peněz fondu, ale „z vlastní kapsy“</b>.",src:"04-stiznosti/Stiznost Vasek.md (příloha Pasted image 20260325120328.png)",k:"high"},
+ {d:"21. 7. 2025 (a dále)",t:"Nástěnka „Aktualni informace“: <b>p. Hodek dluží p. Ullmannovi 2 400 Kč</b>, částka byla <b>zaúrokována</b> – úrok z prodlení (repo sazba ČNB 5,75 % + 8 p. b. = 13,75 %, odkaz na kalkulačku vymaha.cz); dále uvedeno, že <b>oprava studené vody 21. 7. 2025 (8–15 h) nebyla ze strany SVJ včas komunikována</b>.",src:"02-dokumenty/Aktualni informace.pages",k:"high"},
+ {d:"21. 7. 2025",t:"Žádost o vrácení odpadkového koše a osobních věcí adresovaná p. Hodkovi (koš umístěný u popelnic byl odstraněn bez souhlasu vlastníka); výhrada dalších kroků k ochraně majetku.",src:"02-dokumenty/Žádost o vrácení odpadkového koše a osobních věcí.pages",k:"mid"},
+ {d:"(do 22. 9. 2026)",t:"Dle stížností a nástěnky bylo vrácení přeplatku vázáno na <b>zaplacení příspěvku do fondu oprav v hotovosti (cca 3 000 Kč)</b>, ačkoli mělo jít o vzájemný zápočet; vlastník čekal na vrácení přeplatků <b>27 000 Kč</b>.",src:"04-stiznosti/Zdarzovani preplatku 2025-2026.pages, 02-dokumenty/Nastěnka V2.md, checklist bod A",k:"high"},
+ {d:"27. 5. 2026",t:"Zápis ze schůze, bod 3: přeplatky „vráceny k 15. 6. 2026“ – bez jakýchkoli podmínek.",src:"01-zapisy/Schuze-SVJ-2026-05-27.pdf",k:"mid"},
+ {d:"15. 6. 2026",t:"Termín vrácení přeplatků dle zápisu – stav a podmínky je nutné doložit (datum skutečné úhrady).",src:"01-zapisy/Schuze-SVJ-2026-05-27.pdf",k:""},
+ {d:"22. 9. 2026",t:"Stav dle komentáře v checklistu: přeplatek vrácen, ale <b>vysvětlení k navýšení a krátkým platbám dosud nepodáno</b>; tvrzení p. Husárka o vyřešení věci za SVJ bez písemného vyjádření.",src:"komentář k bodu A v tomto checklistu (záloha JSON 22. 9. 2026)",k:"high"}
+]},
+{id:"T2",prio:"high",title:"Neplatnost schůze 27. 5. 2026 a vadný zápis (bod B)",sub:"Klíčová otázka: bude zápis opraven a hlasování anulována, nebo se bude jednat podle vadných podkladů?",ev:[
+ {d:"10. 3. 2026",t:"Odstoupení člena výboru (§ 159, § 160 OZ) doručeno do DS SVJ + žádost o svolání mimořádné schůze v březnu 2026 a o úředně ověřené potvrzení ukončení členství nejpozději k 31. 3. 2026.",src:"02-dokumenty/Odstoupeni z SVJ.pages.pdf",k:"high"},
+ {d:"18. 5. 2026",t:"Plná moc pro Mgr. Martina Panušku (CAK 13030) pro jednotky 2140/9 a 2140/12 – opravy a údržba společných částí, vedení SVJ, zastoupení u soudu.",src:"02-dokumenty/PlnaMoc.pdf",k:""},
+ {d:"26. 5. 2026",t:"Výzva k nápravě havarijního stavu (obvodový plášť, balkony) zaslána advokátem členům výboru datovou schránkou.",src:"02-dokumenty/Výzva k nápravě.pdf",k:"high"},
+ {d:"27. 5. 2026",t:"Schůze SVJ: hlasováno o změně Prohlášení vlastníka, stanovách, smlouvách, navyšení záloh a fondu oprav a o provozu kotelny – bez předložení podkladů, podle 11 let starých stanov, jednáním pověřen otec předsedy.",src:"01-zapisy/Schuze-SVJ-2026-05-27.pdf, 02-dokumenty/Oznámení o neplatnosti schůze….pdf",k:"high"},
+ {d:"poslední schůze za přítomnosti advokáta",t:"Na schůzi nebyl přítomen skutečný předseda <b>Pavel Hodek</b>; bylo však uvedeno, že platby i nadále provádí <b>Václav Hodek</b>. To podporuje námitku, že Václav Hodek neoprávněně zasahuje do procesů SVJ a že případné prohlášení o zplnomocnění k roli předsedy je neplatné.",src:"nově doplněné skutkové tvrzení vlastníka; ověřit zápisem/nahrávkou ze schůze a vyjádřením advokáta",k:"high"},
+ {d:"29. 5. 2026 · 16:53",t:"Oznámení o neplatnosti schůze, anulace hlasování a návrh na svolání nové schůze – podáno do DS (důvody A–D).",src:"datove-schranky/Datové schránky-oznameni o neplatnosti schůze.pdf (ID 1705552301)",k:"high"},
+ {d:"29. 5. 2026 · 17:36",t:"Totéž podání zaevidováno znovu (2× PDZ) – doloženo potvrzeními o doručení.",src:"datove-schranky/Datové schránky.pdf (ID 1705563355)",k:""},
+ {d:"30. 5. 2026",t:"Námitky vlastníka proti průběhu shromáždění zaslány výboru.",src:"01-zapisy/priloha_1706957024_0_Výzva k vyhotovení zápisu.pdf",k:"mid"},
+ {d:"12. 6. 2026 · 13:48",t:"Ověřovatel zápisu (p. Valko) zaslal e-mailem písemné připomínky k zápisu – zápis dosud nebyl podle připomínek opraven.",src:"01-zapisy/schuze vybaervene.pdf",k:"high"}
+]},
+{id:"T3",prio:"high",title:"Voda – neoprávněné rozpočítání úniku mezi vlastníky (bod E)",sub:"Klíčová otázka: za které období byl únik rozpočítán mezi ostatní vlastníky a jak proběhne vyrovnání?",ev:[
+ {d:"2015–2016",t:"Dle podkladu: pokyn „Cca.“ a zjištění, že v 1. patře <b>vysychá voda</b> – zejména u p. Hrušky (závada v rozvodech).",src:"03-podklady-dukazy/Voda.md",k:"high"},
+ {d:"3. 2. 2021",t:"Zjištěn <b>únik vody v podlaze pod vanou</b>; dle sdělení SVJ bylo nutné hasicím přístrojem rozbít obklady a odhalit rozvod.",src:"03-podklady-dukazy/Voda.md",k:"high"},
+ {d:"15. 2. 2021",t:"Proběhla <b>revize vodovodu / instalatérské práce</b>, při nichž byl únik potvrzen (viz doklad).",src:"03-podklady-dukazy/Voda.md",k:"high"},
+ {d:"několik let (blíže neurčeno)",t:"Účet od Pražských vodáren byl zasílán jako <b>úhrn za celou spotřebu domu</b> a teprve poté rozpočítán na jednotky; náklady na <b>únik</b> tak nesly <b>tři jednotky</b> místo jedné.",src:"03-podklady-dukazy/Voda.md",k:"high"},
+ {d:"po instalaci bytových vodoměrů",t:"Bytové vodoměry prokázaly únik <b>pouze u jedné jednotky</b>; vlastník jej uhradil, avšak <b>jen za jedno období</b> – vyrovnání za celé období úniku chybí.",src:"03-podklady-dukazy/Voda.md",k:"high"},
+ {d:"bez data (do 22. 9. 2026)",t:"<b>Odběrné místo s trvalým odběrem</b>: instalací bytových vodoměrů zjištěno, že voda protéká nepřetržitě ve <b>třech jednotkách</b>, zatímco ostatní měřily nulu; naměřený únik odpovídá cca <b>15 m³/rok</b> – dle podkladu se jednalo o únik mimo byty (společné rozvody) a náklady byly rozpočítány mezi ostatní vlastníky.",src:"03-podklady-dukazy/Voda.md, 03-podklady-dukazy/analyza-stanov.md",k:"high"},
+ {d:"17. 3. 2026",t:"Vyúčtování studené vody a TUV 2025 (E. Boučková): studená voda celkem <b>634 m³ / 95 903 Kč</b> (151,27 Kč/m³), TUV <b>218 m³ / 80 115,04 Kč</b> (367,50 Kč/m³); u vlastníka 50 m³ studené vody → náklady 7 563,33 Kč vs. zálohy 4 200 Kč (<b>nedoplatek 3 363,33 Kč</b>), 22 m³ TUV → 8 085 Kč vs. 6 600 Kč (<b>nedoplatek 1 485 Kč</b>).",src:"03-podklady-dukazy/vyuctovani-2025/Scan.pdf (str. 2–3: vodné, TUV)",k:"high"},
+ {d:"17. 3. 2026",t:"Způsob vyúčtování: řádek je veden jako „<b>spotřeba dle vodoměrů vč. navýšení</b>“ – z podkladu <b>není patrné, jaká část připadá na vlastní spotřebu a jaká na únik ve společných částech</b> (součet bytových vodoměrů proti hlavnímu vodoměru a faktuře vodáren není doložen).",src:"03-podklady-dukazy/vyuctovani-2025/Scan.pdf",k:"high"},
+ {d:"bez data (do 22. 9. 2026)",t:"<b>Návrh usnesení (5 bodů)</b> připraven k zařazení do programu: podklady od Pražských vodáren za celé období, propočet rozpočtu nákladů do 30 dnů, prověření neoprávněného zatížení ostatních vlastníků, finanční vyrovnání za celé období, informování vlastníků přes DS do 60 dnů.",src:"03-podklady-dukazy/Voda.md",k:"high"},
+ {d:"22. 9. 2026",t:"Stav: <b>náprava za celé období nezajištěna</b>; požadovat přijetí návrhu usnesení a vyčíslení dopadu na jednotlivé vlastníky.",src:"checklist bod E",k:"high"}
+]},
+{id:"T4",prio:"high",title:"Zálohy, vyúčtování a fond oprav (body A, C, D, L)",sub:"Klíčová otázka: jaké jsou skutečné náklady, proč byly zálohy navýšeny a proč fond oprav nečerpá?",ev:[
+ {d:"13. 4. 2024 – 3. 2. 2025",t:"Účetní/platební doklady za služby a provoz domu (vodné, teplo, úklid) – vystavení a úhrady 2024; podklad k ověření předpisu záloh.",src:"03-podklady-dukazy/vyuctovani-2024/",k:""},
+ {d:"6. 4. 2025",t:"<b>Vyúčtování 2024</b> (SLUŽBY obj. 4 a GARÁŽ obj. 704): předepsané zálohy 117 312 Kč vs. skutečné náklady 58 763 Kč → <b>přeplatek 58 548 Kč</b>; u garáže dlouhodobé zálohy na opravy 3 360 Kč a správní náklady 4 452 Kč.",src:"03-podklady-dukazy/vyuctovani-2024/06-04-2025 … SLUŽBY.pdf / … GARÁŽ.pdf",k:"high"},
+ {d:"21. 7. 2025 · 15:08",t:"<b>Výzva k vrácení přeplatku</b> 2 400 Kč za vyúčtování 2025 odeslána do DS SVJ (ID 1554851272) – na přeplatek navazuje mechanismus nátlaku (viz T1).",src:"03-podklady-dukazy/datove-schranky/Datové schránky - vyzva k vraceni preplatku.pdf",k:"high"},
+ {d:"27. 11. 2025 · 18:30",t:"Svoláno shromáždění (sušárna) mj. s body <b>„Informace o hospodaření SVJ“</b> a <b>„Schválení rozpočtu a příspěvků do fondu oprav na rok 2026“</b> – doložit výsledek (viz T8/K).",src:"01-zapisy/Svolání shromáždění vlastníků jednotek.docx/.md",k:"mid"},
+ {d:"3. 12. 2025 · 11:59",t:"<b>Žádost o podání vysvětlení k navýšení záloh na energie</b> odeslána do DS SVJ (ID 1614775797) – zdrojem sporu o cca +400 Kč/měs. (oficiální ceníky dodavatelů ukazují jen mírné navýšení, elektřina spíše zlevnila).",src:"datove-schranky/2025 - Navyseni Zaloh Datovka podani vysvetleni od SVJ.pdf, 03-podklady-dukazy/Ceny energií.md, Doložení záloh pro SVJ.md",k:"high"},
+ {d:"17. 3. 2026 (resp. 20. 3. 2026)",t:"<b>Souhrn vyúčtování roku 2025</b>: celkem přeplatky <b>115 247,21 Kč</b> (služby 85 236,85 + provozní náklady 30 010,36); u jednotky vlastníka 10 920,48 Kč, u jedné jednotky nedoplatek −3 626,10 Kč.",src:"03-podklady-dukazy/vyuctovani-2025/Scan.pdf",k:"high"},
+ {d:"po posledním vyúčtování přeplatků",t:"<b>Přeplatek vlastníka byl opět odeslán se zpožděním oproti ostatním vlastníkům</b> a následně omluven jako „nedopatření“. Současně je dle tvrzení ze schůze za přítomnosti advokáta zřejmé, že platby fakticky i nadále provádí <b>Václav Hodek</b>, ačkoli skutečný předseda <b>Pavel Hodek</b> na schůzi nebyl přítomen a zplnomocnění k výkonu role předsedy je právně vadné/neplatné.",src:"nově doplněné skutkové tvrzení vlastníka; ověřit bankovními daty plateb a zápisem/nahrávkou ze schůze",k:"high"},
+ {d:"25. 3. 2026 · 12:03",t:"Komunikace o <b>úroku z prodlení</b> (13,75 %; repo 7,75 %) a o nemožnosti krátit přeplatek z fondu oprav (viz T1).",src:"04-stiznosti/Stiznost Vasek.md",k:"high"},
+ {d:"27. 5. 2026",t:"Hlasováno o <b>navýšení záloh a navýšení fondu oprav</b> bez předložení kalkulací a smluv – jeden z důvodů neplatnosti schůze (důvod C).",src:"02-dokumenty/Oznámení o neplatnosti schůze….pdf",k:"high"},
+ {d:"31. 12. 2025 (stav)",t:"<b>Fond oprav</b>: stav k 31. 12. 2024 <b>1 014 461,07 Kč</b>, tvorba 2025 <b>59 988 Kč</b>, <b>čerpání 2025 = 0 Kč</b> – při nečerpaném fondu nejsou provedeny havarijní opravy ani zateplení.",src:"03-podklady-dukazy/vyuctovani-2025/Scan.pdf, 03-podklady-dukazy/fond-oprav-podklady.md",k:"high"}
+]},
+{id:"T5",prio:"high",title:"Havarijní stav pláště, balkonů, stříšek a zateplení (bod F)",sub:"Klíčová otázka: kdo hradí opravy stříšek a obvodového pláště a kdy bude plán zateplení?",ev:[
+ {d:"25. 1. 2023",t:"Revize plynu provedena (4 000 Kč) – souvisí s provozem kotelny; ostatní revize (hromosvod 1×/5 let, hasicí zařízení, hydranty) k doložení.",src:"03-podklady-dukazy/2023-10-23.md",k:"mid"},
+ {d:"před lety (blíže neurčeno)",t:"Poškozená <b>stříška nad balkonem</b>: p. Hodek sdělil, že opravy balkonů a stříšek si vlastníci hradí sami (nad rámec střechy); vlastník dostal <b>4 cihly</b>, stav neopraven. Odborné stanovisko: stříška patří <b>k plášti domu</b> (společná část).",src:"02-dokumenty/Nástěnka.md, 03-podklady-dukazy/Strisky balkonu.md",k:"high"},
+ {d:"26. 5. 2026",t:"<b>Výzva k nápravě havarijního stavu</b> (obvodový plášť, balkony vč. dlažeb) zaslána advokátem (Mgr. Panuška) členům výboru datovou schránkou.",src:"02-dokumenty/Výzva k nápravě.pdf",k:"high"},
+ {d:"27. 5. 2026",t:"Na schůzi nebyly k opravám předloženy podklady; <b>zateplení domu neřešeno více než 10 let</b>; stříška nadále neopravena.",src:"01-zapisy/Schuze-SVJ-2026-05-27.pdf, 04-stiznosti/Hodek 10 bodu.pages",k:"high"},
+ {d:"22. 9. 2026",t:"Stav: náprava havarijního stavu <b>nezajištěna</b>, a to i přes <b>nečerpaný fond oprav</b> (viz T4/L) – požadovat havarijní opravy ze fondu a plán zateplení s termínem a rozpočtem.",src:"checklist bod F",k:"high"}
+]},
+{id:"T6",prio:"high",title:"Informační povinnosti výboru a podání přes datovou schránku (bod C)",sub:"Klíčová otázka: kolik podání zůstalo bez odpovědi a jaká lhůta platí dál?",ev:[
+ {d:"21. 7. 2025 · 15:08 a 15:10",t:"Odeslána <b>výzva k vrácení přeplatku</b> (ID 1554851272) a <b>stížnost na činnost Václava Hodka</b> (ID 1554852371) do DS SVJ.",src:"datove-schranky/Datové schránky - vyzva k vraceni preplatku.pdf, Datové schránky - stiznost na V Hodka.pdf",k:"high"},
+ {d:"3. 12. 2025 · 11:59 až 12:49",t:"Odeslána <b>čtyři podání</b> do DS SVJ: podání vysvětlení k navýšení záloh (1614775797), odstranění označení cizí společnosti (1614809866), stav řešení úkolů k opravám (1614812583) a předání technických plánů bytu (1614821582); k podáním přiloženy přepisy textových zpráv (mj. klíče).",src:"datove-schranky/*.pdf + 03-podklady-dukazy/attachments/priloha_1614…PDF",k:"high"},
+ {d:"29. 5. 2026 · 16:53 a 17:36",t:"Oznámení o neplatnosti schůze a návrh na svolání nové schůze podáno do DS SVJ (2× PDZ, ID 1705552301 a 1705563355).",src:"datove-schranky/Datové schránky-oznameni o neplatnosti schůze.pdf, Datové schránky.pdf",k:"high"},
+ {d:"12. 6. 2026",t:"Výbor vyzval zapisovatele k vyhotovení zápisu; námitky vlastníka z 30. 5. 2026 vzal pouze „na vědomí“ a nijak je neřešil; připomínky ověřovatele zápisu zůstaly nezapracované.",src:"01-zapisy/priloha_1706957024_0_Výzva k vyhotovení zápisu.pdf, 01-zapisy/schuze vybaervene.pdf",k:"high"},
+ {d:"22. 9. 2026",t:"Stav: dle checklistu <b>6 podání bez odpovědi</b> (ani po 30 dnech) – porušení § 1208 a § 1209 OZ; dokumenty (stanovy, plány, klíče) nadále nevydány; trvat na lhůtě 30 dnů a na zpřístupnění dokumentů.",src:"checklist bod C",k:"high"}
+]},
+{id:"T7",prio:"high",title:"Orgány SVJ, pravomoci a funkce předsedy (body B, J)",sub:"Klíčová otázka: kdo je oprávněn jednat za SVJ a kdo rozhodl o omezení pravomocí?",ev:[
+ {d:"od roku 2011 (dle podkladu)",t:"Předseda <b>Pavel Hodek</b> je dle podkladu v jednání zastupován otcem <b>Václavem Hodkem</b> – funkce předsedy je přitom nezastupitelná; otec dle podkladu realizoval „pouze věci, které se mu hodily“.",src:"04-stiznosti/prestupky-SVJ.txt, 02-dokumenty/Pavel Hodek je předsedou výboru SVJ od 26.gdoc",k:"high"},
+ {d:"10. 3. 2026",t:"<b>Odstoupení člena výboru</b> (§ 159, § 160 OZ) doručeno do DS SVJ + žádost o svolání mimořádné schůze v březnu 2026 a o ověřené potvrzení ukončení členství nejpozději k 31. 3. 2026.",src:"02-dokumenty/Odstoupeni z SVJ.pages.pdf",k:"high"},
+ {d:"18. 5. 2026",t:"Plná moc pro Mgr. Martina Panušku (CAK 13030) k zastupování vlastníka jednotek 2140/9 a 2140/12 (společné části domu, vedení SVJ, soud).",src:"02-dokumenty/PlnaMoc.pdf",k:""},
+ {d:"bez data (do 22. 9. 2026)",t:"Výzva k nápravě <b>neoprávněného omezení podpisového práva</b> člena výboru (žádost o předložení rozhodnutí orgánu, odůvodnění a obnovení oprávnění) a <b>právní stanovisko</b>: dle § 1205 a násl. OZ nelze pravomoci člena výboru svévolně měnit bez rozhodnutí orgánu.",src:"02-dokumenty/svj_vyzva_k_naprave.pdf, 03-podklady-dukazy/svj_pravni_stanovisko_podpisove_pravo.pdf",k:"high"},
+ {d:"27. 5. 2026",t:"Schůzi vedl a za SVJ jednal otec předsedy; hlasováno o zásadních věcech bez podkladů (důvody A–D v oznámení o neplatnosti).",src:"01-zapisy/Schuze-SVJ-2026-05-27.pdf, 02-dokumenty/Oznámení o neplatnosti schůze….pdf",k:"high"},
+ {d:"bez data (do 22. 9. 2026)",t:"<b>Návrh na zařazení bodu dle § 1207 OZ</b>: „Přezkum aktuálního stavu rozdělení podpisových a rozhodovacích pravomocí mezi členy výboru a zajištění transparentnosti jednání za SVJ“.",src:"01-zapisy/svj_navrh_bodu_schuze.pdf",k:"high"}
+]},
+{id:"T8",prio:"high",title:"Svolání shromáždění na 27. 11. 2025 – stav a (ne)konání (bod K)",sub:"Klíčová otázka: konalo se svolané shromáždění a existuje k němu zápis?",ev:[
+ {d:"27. 11. 2025 · 18:30",t:"<b>Svolání řádného shromáždění vlastníků</b> (§ 1207 OZ, místo: sušárna) svolavateli P. Ullmann, B. Buriánková a J. Martinec se <b>15 body programu</b>: hospodaření SVJ, rozpočet a příspěvky do fondu oprav na rok 2026, <b>neexistence předsedy SVJ</b>, neprovedené vyúčtování a zadržování přeplatků (Václav Hodek, Miroslav Husárek), návrh usnesení k nápravě a svolání mimořádné volby statutárního orgánu, plán oprav a zateplení.",src:"01-zapisy/Svolání shromáždění vlastníků jednotek.docx / .md",k:"high"},
+ {d:"10. 3. 2026",t:"Nenaplněná žádost o svolání: člen výboru odstoupil (§ 159, § 160 OZ) a výslovně požádal o svolání <b>mimořádné schůze v průběhu března 2026</b> s ověřeným potvrzením ukončení členství k 31. 3. 2026.",src:"02-dokumenty/Odstoupeni z SVJ.pages.pdf",k:"high"},
+ {d:"27. 5. 2026",t:"Doložená schůze měla jiný program, hlasovalo se <b>bez podkladů</b> a zápis je vadný (viz T2) – body ze svolání 27. 11. 2025 nebyly řádně projednány.",src:"01-zapisy/Schuze-SVJ-2026-05-27.pdf, 02-dokumenty/Oznámení o neplatnosti schůze….pdf",k:"high"},
+ {d:"22. 9. 2026",t:"Stav: v podkladech <b>není zápis ani doklad o konání</b> svolaného shromáždění → výbor vyzvat k doložení (zápis, prezenční listina, výsledky hlasování) a při absenci požadovat <b>nové svolání se stejným programem</b>.",src:"checklist bod K",k:"high"}
+]},
+{id:"T9",prio:"mid",title:"Kotelna, odpady a provozní náklady (bod M)",sub:"Klíčová otázka: jsou náklady na kotelnu a provoz doložené a je zvolené řešení výhodné?",ev:[
+ {d:"25. 1. 2023",t:"Revize plynu provedena za 4 000 Kč; ostatní pravidelné revize (hromosvod 1×/5 let, hasicí přístroje a hydranty) a pojistka domu 1 500 Kč/rok – podklad pro kontrolu Provozních nákladů 2025.",src:"03-podklady-dukazy/2023-10-23.md",k:"mid"},
+ {d:"19. 1. 2026",t:"Dle listu podepsaného p. Hodkem činily <b>náklady na provoz kotelny 2025 celkem 320 460,16 Kč</b> (plyn 304 578,15 + elektřina 15 882) s rozdělením <b>topení 75 % (240 345,12) a TUV 25 % (80 115,04)</b>; dále náklady na vodné a stočné 95 903 Kč a odvoz odpadu 6 240 Kč.",src:"03-podklady-dukazy/vyuctovani-2025/Scan.pdf",k:"mid"},
+ {d:"17. 3. 2026",t:"Přehled provozních nákladů 2025 (E. Boučková) celkem <b>29 628,67 Kč</b>: pojištění domu 5 213, členství v SMBD 1 500, servis sekačky 810, revize komínů 1 210, <b>výměna ventilů v kotelně 3 600</b>, <b>servis kotle 4 480</b>, účetnictví 10 000, revize hasicích přístrojů 2 815,67 – k položkám požadovat faktury a smlouvy.",src:"03-podklady-dukazy/vyuctovani-2025/Scan.pdf (provoz 2025)",k:"mid"},
+ {d:"bez data (do 22. 9. 2026)",t:"<b>Rozpracovaný zápis</b> (<code>SVJ meet.md</code>): porovnat varianty vytápění (plyn / tepelné čerpadlo / pelety) – plynová varianta o cca <b>100 000 Kč levnější</b>, tepelné čerpadlo s akumulací cca <b>1,5 mil. Kč</b>, nabídka peletového systému (zásobník 400 l); odhad spotřeby plynu 250–280 tis. Kč/3 roky; <b>zrušit hotovostní fond</b>, odměny (uklízečka 1 000–2 000 Kč, p. Martinec 4 000 Kč/měs.) formou DPP/DPČ po právním posouzení.",src:"01-zapisy/SVJ meet.md (body 7–8), 03-podklady-dukazy/kotel-info.md",k:"mid"},
+ {d:"bez data (do 22. 9. 2026)",t:"<b>Odpady a společné prostory</b>: původní velikost nádob nevyhovuje (požadavek p. Bohunky), zvážit biopopelnici (GreenBox); žádost vlastníka o vrácení odpadkového koše a osobních věcí; <b>světelný a hlukový smog</b> – vozidlo bezpečnostní služby s běžícím motorem a svícením na stejném místě (§ 32 zák. č. 361/2000 Sb.).",src:"01-zapisy/SVJ meet.md (bod 9.1), 02-dokumenty/Žádost o vrácení odpadkového koše….pages, 03-podklady-dukazy/Svetelny a hlukovy smog.md",k:"mid"}
+]}
+];
+const STORE_KEY = "svj-checklist-2026-09-24";
+const state = { checks: {}, statuses: {}, comments: {} };
+
+function uid(si, ii){ return si + ":" + ii; }
+const STATUS_DEFS = [
+  {id:"done", label:"Splněno", short:"splněno", weight:1},
+  {id:"partial", label:"Částečně", short:"částečně", weight:.5},
+  {id:"process", label:"V procesu", short:"v procesu", weight:.35},
+  {id:"open", label:"Nesplněno", short:"nesplněno", weight:0},
+  {id:"legal", label:"Právní / soudní postup", short:"právní/soudní postup", weight:.2}
+];
+const STATUS_MAP = STATUS_DEFS.reduce(function(m, x){ m[x.id] = x; return m; }, {});
+function statusOf(id){
+  if(state.statuses && state.statuses[id]) return state.statuses[id];
+  return state.checks && state.checks[id] ? "done" : "open";
+}
+function setStatus(id, value){
+  state.statuses[id] = value;
+  state.checks[id] = value === "done";
+}
+function statusLabel(value){ return (STATUS_MAP[value] || STATUS_MAP.open).short; }
+function statusWeight(value){ return (STATUS_MAP[value] || STATUS_MAP.open).weight; }
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(raw){
+      const data = JSON.parse(raw);
+      if(data && typeof data === "object"){
+        state.checks = data.checks || {};
+        state.statuses = data.statuses || {};
+        state.comments = data.comments || {};
+      }
+    }
+  }catch(e){ console.warn("Nepodařilo se načíst uložený stav:", e); }
+}
+
+function saveState(msg){
+  try{
+    localStorage.setItem(STORE_KEY, JSON.stringify({checks: state.checks, statuses: state.statuses, comments: state.comments, savedAt: new Date().toISOString()}));
+    if(msg){ document.getElementById("saveInfo").textContent = msg + " · " + new Date().toLocaleString("cs-CZ"); }
+    updateProgress();
+  }catch(e){
+    document.getElementById("saveInfo").textContent = "Chyba ukládání: " + e.message;
+  }
+}
+
+function statusStats(){
+  const stats = {total: 0, score: 0};
+  STATUS_DEFS.forEach(function(x){ stats[x.id] = 0; });
+  SECTIONS.forEach(function(s, si){
+    s.items.forEach(function(it, ii){
+      const st = statusOf(uid(si, ii));
+      stats.total++;
+      if(stats[st] === undefined) stats[st] = 0;
+      stats[st]++;
+      stats.score += statusWeight(st);
+    });
+  });
+  stats.percent = stats.total ? Math.round(stats.score * 100 / stats.total) : 0;
+  return stats;
+}
+
+function updateProgress(){
+  const stats = statusStats();
+  document.getElementById("progressText").textContent =
+    stats.percent + "% · splněno " + stats.done + "/" + stats.total +
+    " · částečně " + stats.partial +
+    " · v procesu " + stats.process +
+    " · právní/soudní postup " + stats.legal +
+    " · nesplněno " + stats.open;
+  document.getElementById("progressFill").style.width = stats.percent + "%";
+  updateTocCounts();
+}
+
+function prioLabel(p){ return p === "high" ? "vysoká priorita" : (p === "mid" ? "střední priorita" : "doprovodné"); }
+
+function escapeHtml(text){
+  return String(text).replace(/[&<>"]/g, function(ch){
+    return {"&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;"}[ch];
+  });
+}
+
+function pathToHref(path){
+  return "../" + path.split("/").map(encodeURIComponent).join("/");
+}
+
+function linkifySource(text){
+  const prefixes = "(?:01-zapisy|02-dokumenty|03-podklady-dukazy|04-stiznosti|x-duplicates|tools)";
+  const filePattern = new RegExp(prefixes + "\\/[^,;()]+?\\.(?:pdf|pages|md|txt|docx|gdoc|mp3|mov|aup3)", "g");
+  const dirPattern = new RegExp(prefixes + "(?:\\/[^,;()]+)*\\/", "g");
+  const matches = [];
+  function collect(re){
+    let m;
+    while((m = re.exec(text))){ matches.push({start:m.index, end:m.index + m[0].length, value:m[0]}); }
+  }
+  collect(filePattern);
+  collect(dirPattern);
+  matches.sort(function(a,b){ return a.start - b.start || b.end - a.end; });
+  const filtered = [];
+  matches.forEach(function(m){
+    if(filtered.length && m.start < filtered[filtered.length - 1].end) return;
+    filtered.push(m);
+  });
+  let out = "", pos = 0;
+  filtered.forEach(function(m){
+    out += escapeHtml(text.slice(pos, m.start));
+    out += '<a href="' + pathToHref(m.value) + '">' + escapeHtml(m.value) + '</a>';
+    pos = m.end;
+  });
+  out += escapeHtml(text.slice(pos));
+  return out;
+}
+
+/* ---- Navigace v pravém sloupci ---- */
+
+function sectionCount(si){
+  const s = SECTIONS[si];
+  let done = 0, total = s.items.length, score = 0, legal = 0;
+  s.items.forEach(function(it, ii){
+    const st = statusOf(uid(si, ii));
+    if(st === "done") done++;
+    if(st === "legal") legal++;
+    score += statusWeight(st);
+  });
+  return {done: done, total: total, legal: legal, percent: total ? Math.round(score * 100 / total) : 0};
+}
+
+function updateTocCounts(){
+  TOC_CATS.forEach(function(cat){
+    cat.ids.forEach(function(id){
+      const si = SECTIONS.findIndex(function(s){ return s.id === id; });
+      if(si < 0) return;
+      const span = document.querySelector('#toc a[data-target="sec-' + id + '"] .toc-cnt');
+      if(span){ const c = sectionCount(si); span.textContent = c.percent + "%" + (c.legal ? " ⚖" + c.legal : ""); }
+    });
+  });
+}
+
+function renderToc(){
+  const toc = document.getElementById("toc");
+  const parts = [];
+  parts.push('<p class="toc-title">Spis SVJ U Beránky 2140</p>');
+  parts.push('<p class="toc-subtitle">Stromová navigace: master dokument → právní rámec → incidenty → časová osa → návrhy právních kroků → důkazy.</p>');
+  parts.push('<div class="toc-cat"><h4>Master dokument</h4><ol>' + LEGAL_ANCHORS.map(function(a){
+    return '<li><a href="#' + a.id + '" data-target="' + a.id + '"><span class="tid">' + a.tid + '</span>' + a.label + '</a></li>';
+  }).join("") + '</ol></div>');
+  TOC_CATS.forEach(function(cat){
+    const items = [];
+    cat.ids.forEach(function(id){
+      const si = SECTIONS.findIndex(function(s){ return s.id === id; });
+      if(si < 0) return;
+      const c = sectionCount(si);
+      items.push('<li><a href="#sec-' + id + '" data-target="sec-' + id + '"><span class="tid">' + id + '</span>' +
+        (TOC_LABELS[id] || SECTIONS[si].title) + '<span class="toc-cnt">' + c.percent + "%" + (c.legal ? " ⚖" + c.legal : "") + '</span></a></li>');
+    });
+    if(items.length){ parts.push('<div class="toc-cat"><h4>' + cat.title + '</h4><ol>' + items.join("") + '</ol></div>'); }
+  });
+  parts.push('<div class="toc-cat"><h4>Časová osa problémů</h4><ol>' +
+    '<li><a href="#timeline" data-target="timeline"><span class="tid">⏱</span>Všechny problémy chronologicky</a></li>' +
+    TIMELINE.map(function(g){ return '<li><a href="#tl-' + g.id + '" data-target="tl-' + g.id + '"><span class="tid">' + g.id + '</span>' + g.title + '</a></li>'; }).join("") + '</ol></div>');
+  parts.push('<div class="toc-cat"><h4>Přehledy</h4><ol>' + TOC_ANCHORS.map(function(a){
+    return '<li><a href="#' + a.id + '" data-target="' + a.id + '"><span class="tid">' + a.tid + '</span>' + a.label + '</a></li>';
+  }).join("") + '</ol></div>');
+  parts.push('<div class="toc-cat"><h4>Dokumenty projektu</h4><ol>' + TOC_FILES.map(function(f){
+    const external = f.href.indexOf("file://") === 0;
+    return '<li><a class="toc-file" href="' + f.href + '"' + (external ? ' target="_blank" rel="noopener"' : '') + '><span class="tid">' + f.tid + '</span>' + f.label + '</a></li>';
+  }).join("") + '</ol></div>');
+  parts.push('<p class="toc-hint">Komentáře u jednotlivých bodů slouží jako právní poznámky nebo doplnění důkazů. Ukládají se pouze lokálně v prohlížeči.</p>');
+  toc.innerHTML = parts.join("");
+  Array.prototype.forEach.call(toc.querySelectorAll("a[data-target]"), function(a){
+    a.addEventListener("click", function(ev){
+      const t = document.getElementById(a.getAttribute("data-target"));
+      if(t){ ev.preventDefault(); t.scrollIntoView({behavior: "smooth", block: "start"}); }
+    });
+  });
+  initScrollSpy();
+}
+
+function initScrollSpy(){
+  const links = Array.prototype.slice.call(document.querySelectorAll("#toc a[data-target]"));
+  if(!links.length || !("IntersectionObserver" in window)) return;
+  const map = {};
+  links.forEach(function(a){ map[a.getAttribute("data-target")] = a; });
+  const obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      const a = map[en.target.id];
+      if(!a || !en.isIntersecting) return;
+      links.forEach(function(x){ x.classList.remove("active"); });
+      a.classList.add("active");
+    });
+  }, {rootMargin: "-70px 0px -70% 0px", threshold: 0});
+  Object.keys(map).forEach(function(id){
+    const el = document.getElementById(id);
+    if(el) obs.observe(el);
+  });
+}
+
+function renderMaster(root){
+  const sec = document.createElement("section");
+  sec.className = "case-hero";
+  sec.id = "master";
+  sec.setAttribute("data-anchor", "master");
+  sec.innerHTML = '<h2>1. Úvod – master dokument případu</h2>' +
+    '<p><strong>Úvodní shrnutí:</strong> Tento dokument sdružuje incidenty, právní vady, požadavky a návrhy kroků ve věci SVJ U Beránky 2140. Je strukturován jako pracovní právní spis: vlevo je stromová navigace, v hlavní části jsou incidenty, právní kvalifikace, dopady, požadovaná náprava, důkazy a komentáře.</p>' +
+    '<p>Rozsah zahrnuje zejména schůzi 27. 5. 2026, hospodaření a vyúčtování 2024–2025, zadržování přeplatků, informační povinnosti výboru, společné části domu, orgány SVJ a návrhy usnesení.</p>' +
+    '<div class="case-grid"><div class="case-fact"><strong>Dotčený subjekt</strong><span>SVJ U Beránky 2140</span></div><div class="case-fact"><strong>Autor / vlastník</strong><span>Petr Ullmann</span></div><div class="case-fact"><strong>Účel</strong><span>Podklad pro schůzi, advokáta a právní kroky</span></div></div>';
+  root.appendChild(sec);
+}
+
+function renderLegalIntro(root){
+  const sec = document.createElement("section");
+  sec.className = "legal-template";
+  sec.id = "legal-frame";
+  sec.setAttribute("data-anchor", "legal-frame");
+  sec.innerHTML = '<h2><span class="badge high">§</span> 3. Právní rámec</h2>' +
+    '<p><strong>Relevantní rámec:</strong> zejména § 159 OZ (péče řádného hospodáře), § 1160 a § 1169 OZ (společné části a prohlášení vlastníka), § 1175 a § 1179 OZ (práva/povinnosti vlastníka a nahlížení), § 1180–1181 OZ (příspěvky a služby), § 1189 OZ (správa domu), § 1207–1209 OZ (shromáždění, působnost a soudní ochrana), stanovy SVJ a pravidla rozúčtování služeb.</p>' +
+    '<p><strong>Pracovní poznámka:</strong> právní kvalifikace vychází z dostupných podkladů v repozitáři a má být před použitím v řízení ověřena advokátem.</p>';
+  root.appendChild(sec);
+}
+
+function legalBoxForSection(s){
+  const x = INCIDENT_LEGAL[s.id] || {};
+  return '<div class="notes"><strong>Šablona incidentu:</strong> Datum: ' + (x.date || '[doplnit]') +
+    ' · Dotčené osoby: ' + (x.people || '[doplnit]') + '<br>' +
+    '<strong>Právní kvalifikace:</strong> ' + (x.law || '[doplnit relevantní paragrafy]') + '<br>' +
+    '<strong>Požadovaná náprava:</strong> ' + (x.remedy || '[doplnit]') + '</div>';
+}
+
+function renderLegalTemplates(root){
+  const blocks = [
+    {id:"legal-steps", title:"6. Návrh právních kroků", html:"<h3>1. Identifikace právních vad</h3><p>Neplatná či vadná usnesení, nedostatečné podklady pro hlasování, zadržování přeplatků, neodpovídání na datové zprávy, netransparentní hospodaření a neřešení společných částí domu.</p><h3>2. Doporučené právní kroky</h3><ul><li>písemná výzva výboru k nápravě a doložení podkladů,</li><li>žádost o opravu zápisu a anulaci vadných hlasování,</li><li>příprava návrhu dle § 1209 OZ, pokud SVJ neprovede nápravu dobrovolně.</li></ul><h3>3. Lhůty a postup</h3><p>U každého podání evidovat datum doručení, lhůtu pro odpověď a navazující právní krok.</p>"},
+    {id:"record-addendum", title:"7. Návrh na doplnění zápisu", html:"<h3>1. Chybějící skutečnosti</h3><p>Připomínky vlastníka, podmínky vrácení přeplatků, absence podkladů, námitky ke stanovám, prohlášení vlastníka, fondu oprav a zálohám.</p><h3>2. Návrh přesného znění doplnění</h3><blockquote>Vlastník Petr Ullmann vznesl námitky k platnosti schůze, úplnosti podkladů, zadržování přeplatků a požaduje jejich zaprotokolování včetně návrhů usnesení a hlasování.</blockquote><h3>3. Právní odůvodnění</h3><p>Zápis musí věrně zachycovat průběh shromáždění a přijatá rozhodnutí, aby bylo možné ověřit jejich platnost a soudně je přezkoumat.</p>"},
+    {id:"challenge-meeting", title:"8. Návrh na napadení schůze SVJ", html:"<h3>1. Důvody neplatnosti schůze</h3><p>Jednání podle zastaralých stanov, hlasování bez podkladů, změna prohlášení vlastníka bez zákonných náležitostí a pochybnosti o mandátu/podpisovém právu.</p><h3>2. Právní rámec</h3><ul><li>§ 1207 OZ</li><li>§ 1208 OZ</li><li>§ 1169 OZ</li><li>§ 1209 OZ</li></ul><h3>3. Návrh na zrušení rozhodnutí</h3><p>Požadovat anulaci všech vadných hlasování ze dne 27. 5. 2026 a svolání nové řádné schůze.</p>"},
+    {id:"remove-chair", title:"9. Návrh na odvolání předsedy výboru", html:"<h3>1. Důvody odvolání</h3><p>Dlouhodobé zastupování jinou osobou, neodpovídání vlastníkům, netransparentní hospodaření, nátlakové jednání a neřešení zákonných povinností.</p><h3>2. Právní rámec</h3><ul><li>§ 159 OZ (péče řádného hospodáře)</li><li>§ 1208 OZ</li><li>Stanovy SVJ</li></ul><h3>4. Návrh usnesení</h3><blockquote>Shromáždění odvolává Pavla Hodka z funkce předsedy výboru.</blockquote>"},
+    {id:"technical-audit", title:"10. Žádost o technický audit domu", html:"<h3>1. Důvod žádosti</h3><p>Havarijní stav pláště, balkonů/stříšek, dlouhodobě neřešené opravy, nejasná koncepce zateplení a provozní závady.</p><h3>2. Právní rámec</h3><ul><li>§ 1189 OZ</li><li>§ 1208 OZ</li><li>Stanovy SVJ</li></ul><h3>4. Požadavek na provedení auditu</h3><p>Objednat nezávislý technický audit společných částí domu, předložit výsledky vlastníkům a navrhnout plán oprav včetně rozpočtu a priorit.</p>"}
+  ];
+  blocks.forEach(function(b){
+    const sec = document.createElement("section");
+    sec.className = "legal-template";
+    sec.id = b.id;
+    sec.setAttribute("data-anchor", b.id);
+    sec.innerHTML = '<h2><span class="badge high">§</span> ' + b.title + '</h2>' + b.html;
+    root.appendChild(sec);
+  });
+}
+
+/* ---- Časová osa jednotlivých problémů ---- */
+
+function renderTimeline(root){
+  const sec = document.createElement("section");
+  sec.className = "card tl-card low";
+  sec.id = "timeline";
+  sec.setAttribute("data-anchor", "timeline");
+  const h = document.createElement("h2");
+  h.innerHTML = '<span class="badge low">5</span> Časová osa jednotlivých problémů ' +
+    '<span class="prio-note">chronologie doložených kroků se zdroji a otevřenými otázkami</span>';
+  sec.appendChild(h);
+  const intro = document.createElement("p");
+  intro.className = "notes";
+  intro.innerHTML = "Chronologický přehled je samostatná část spisu. Slouží k rychlému dohledání data, zdroje a návaznosti jednotlivých incidentů před přípravou právních kroků.";
+  sec.appendChild(intro);
+  TIMELINE.forEach(function(g){
+    const box = document.createElement("div");
+    box.className = "tl";
+    box.id = "tl-" + g.id;
+    const gh = document.createElement("h3");
+    gh.innerHTML = '<span class="badge ' + g.prio + '">' + g.id + '</span> ' + g.title;
+    box.appendChild(gh);
+    if(g.sub){
+      const sub = document.createElement("p");
+      sub.className = "tl-sub";
+      sub.innerHTML = g.sub;
+      box.appendChild(sub);
+    }
+    const ol = document.createElement("ol");
+    g.ev.forEach(function(e){
+      const li = document.createElement("li");
+      if(e.k){ li.className = "ev-" + e.k; }
+      li.innerHTML = '<span class="tl-date">' + e.d + '</span><span class="tl-body">' + e.t + '</span>' +
+        '<span class="tl-src">Zdroj: ' + e.src + '</span>';
+      ol.appendChild(li);
+    });
+    box.appendChild(ol);
+    sec.appendChild(box);
+  });
+  const leg = document.createElement("p");
+  leg.className = "tl-legend";
+  leg.innerHTML = "Legenda: červený bod = klíčová skutečnost, oranžový = dílčí krok, modrý = informativní. " +
+    "Datace vycházejí z podkladů v repozitáři; u položek bez přesného data je uvedeno „bez data“.";
+  sec.appendChild(leg);
+  root.appendChild(sec);
+}
+
+function render(){
+  const root = document.getElementById("checklist");
+  root.innerHTML = "";
+  renderMaster(root);
+  renderLegalIntro(root);
+  SECTIONS.forEach(function(s, si){
+    const sec = document.createElement("section");
+    sec.className = "card " + s.prio;
+    sec.id = "sec-" + s.id;
+    sec.setAttribute("data-anchor", s.id);
+    const h = document.createElement("h2");
+    h.innerHTML = '<span class="badge ' + s.prio + '">' + s.id + '</span> ' + s.title +
+      ' <span class="prio-note">' + prioLabel(s.prio) + '</span>';
+    sec.appendChild(h);
+    const meta = document.createElement("div");
+    meta.innerHTML = legalBoxForSection(s);
+    sec.appendChild(meta.firstChild);
+    const list = document.createElement(s.ordered ? "ol" : "ul");
+    if(!s.ordered){ list.style.listStyle = "none"; list.style.margin = "0"; list.style.padding = "0"; }
+    s.items.forEach(function(it, ii){
+      const id = uid(si, ii);
+      const st0 = statusOf(id);
+      const li = document.createElement("li");
+      li.className = "item" + (st0 === "done" ? " done" : "");
+      const statusChecks = document.createElement("div");
+      statusChecks.className = "status-checks";
+      const statusTitle = document.createElement("div");
+      statusTitle.className = "status-title";
+      statusTitle.textContent = "Míra splnění";
+      function refreshStatusChecks(selected){
+        Array.prototype.forEach.call(statusChecks.querySelectorAll(".status-check"), function(wrap){
+          const input = wrap.querySelector("input");
+          const isActive = input.value === selected;
+          input.checked = isActive;
+          wrap.classList.toggle("active", isActive);
+        });
+        li.classList.toggle("done", selected === "done");
+      }
+      STATUS_DEFS.forEach(function(def){
+        const wrap = document.createElement("label");
+        wrap.className = "status-check status-" + def.id + (st0 === def.id ? " active" : "");
+        wrap.title = "Míra splnění: " + def.label;
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.name = "status-" + id;
+        input.value = def.id;
+        input.checked = st0 === def.id;
+        input.addEventListener("change", function(){
+          const nextStatus = input.checked ? def.id : "open";
+          setStatus(id, nextStatus);
+          refreshStatusChecks(nextStatus);
+          saveState("Uloženo");
+        });
+        const span = document.createElement("span");
+        span.textContent = def.label;
+        wrap.appendChild(input);
+        wrap.appendChild(span);
+        statusChecks.appendChild(wrap);
+      });
+      const lab = document.createElement("label");
+      lab.innerHTML = it.t;
+      const ta = document.createElement("textarea");
+      ta.className = "comment";
+      ta.placeholder = "Právní komentář / skutkové doplnění / výsledek jednání / důkaz…";
+      ta.value = state.comments[id] || "";
+      ta.addEventListener("input", function(){
+        state.comments[id] = ta.value;
+        saveState("Uloženo");
+      });
+      const row = document.createElement("div");
+      row.className = "row";
+      const txt = document.createElement("div");
+      txt.className = "txt";
+      txt.appendChild(lab);
+      txt.appendChild(statusTitle);
+      txt.appendChild(statusChecks);
+      row.appendChild(txt);
+      li.appendChild(row);
+      li.appendChild(ta);
+      list.appendChild(li);
+    });
+    sec.appendChild(list);
+    if(s.notes){
+      const n = document.createElement("p");
+      n.className = "notes";
+      n.innerHTML = s.notes;
+      sec.appendChild(n);
+    }
+    root.appendChild(sec);
+  });
+  renderTimeline(root);
+  renderLegalTemplates(root);
+  const src = document.createElement("section");
+  src.className = "card low";
+  src.id = "sources";
+  src.setAttribute("data-anchor", "sources");
+  src.innerHTML = '<h2><span class="badge low">§</span> Zdroje (důkazy)</h2><ul class="sources"><li>' +
+    SOURCES.map(linkifySource).join("</li><li>") + "</li></ul>";
+  root.appendChild(src);
+  const nt = document.createElement("section");
+  nt.className = "card low";
+  nt.id = "notes";
+  nt.setAttribute("data-anchor", "notes");
+  nt.innerHTML = '<h2><span class="badge low">§</span> Poznámky k úplnosti</h2><ul class="sources"><li>' +
+    NOTES.join("</li><li>") + "</li></ul>";
+  root.appendChild(nt);
+  updateProgress();
+  renderToc();
+}
+
+/* ---- Exporty ---- */
+
+function download(filename, content, mime){
+  const blob = new Blob([content], {type: mime || "text/plain;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+}
+
+function stripHtml(html){
+  const d = document.createElement("div");
+  d.innerHTML = html;
+  const t = d.textContent || d.innerText || "";
+  return String(t).replace(/\s+/g, " ").trim();
+}
+
+function buildText(exportDate){
+  const L = [];
+  L.push("CHECKLIST – Porušování povinností SVJ U Beránky");
+  L.push("Podklad pro schůzi dne 24. 9. 2026");
+  L.push("Vygenerováno: " + exportDate);
+  const stats = statusStats();
+  L.push("Celkový stav: " + stats.percent + "% váženého dokončení; splněno " + stats.done + "/" + stats.total + ", částečně " + stats.partial + ", v procesu " + stats.process + ", právní/soudní postup " + stats.legal + ", nesplněno " + stats.open);
+  L.push("");
+  L.push("Legenda stavů: splněno / částečně / v procesu / nesplněno / právní-soudní postup");
+  L.push("==================================================================");
+  SECTIONS.forEach(function(s, si){
+    L.push("");
+    L.push(s.id + ". " + s.title.toUpperCase() + "  (" + prioLabel(s.prio) + ")");
+    L.push("------------------------------------------------------------------");
+    s.items.forEach(function(it, ii){
+      const id = uid(si, ii);
+      const mark = "[" + statusLabel(statusOf(id)).toUpperCase() + "]";
+      L.push(mark + " " + stripHtml(it.t));
+      const c = (state.comments[id] || "").trim();
+      if(c){
+        L.push("     Komentář: " + c.replace(/\n/g, "\n              "));
+      }
+    });
+    if(s.notes){ L.push("  " + stripHtml(s.notes)); }
+  });
+  L.push("");
+  L.push("==================================================================");
+  L.push("ČASOVÁ OSA JEDNOTLIVÝCH PROBLÉMŮ");
+  L.push("==================================================================");
+  TIMELINE.forEach(function(g){
+    L.push("");
+    L.push(g.id + ") " + stripHtml(g.title));
+    if(g.sub){ L.push("   " + stripHtml(g.sub)); }
+    g.ev.forEach(function(e){
+      L.push("   " + e.d + " – " + stripHtml(e.t) + "  [zdroj: " + e.src + "]");
+    });
+  });
+  L.push("");
+  L.push("==================================================================");
+  L.push("Zdroje (důkazy):");
+  SOURCES.forEach(function(x){ L.push(" - " + x); });
+  L.push("");
+  L.push("Poznámky k úplnosti:");
+  NOTES.forEach(function(x){ L.push(" - " + x); });
+  return L.join("\r\n");
+}
+
+function exportTxt(){
+  const now = new Date().toLocaleString("cs-CZ");
+  download("checklist-svj-datova-schranka-2026-09-24.txt", "\ufeff" + buildText(now), "text/plain;charset=utf-8");
+  document.getElementById("saveInfo").textContent = "TXT export vytvořen · " + now;
+}
+
+function staticTocHtml(){
+  const blocks = [];
+  blocks.push('<div class="toc-cat"><h4>Master dokument</h4><ol>' + LEGAL_ANCHORS.map(function(a){ return '<li><a href="#' + a.id + '"><span class="tid">' + a.tid + '</span>' + a.label + '</a></li>'; }).join("") + '</ol></div>');
+  TOC_CATS.forEach(function(cat){
+    const items = cat.ids.filter(function(id){
+      return SECTIONS.some(function(s){ return s.id === id; });
+    }).map(function(id){
+      return '<li><a href="#sec-' + id + '"><span class="tid">' + id + '</span>' + (TOC_LABELS[id] || id) + '</a></li>';
+    });
+    if(items.length){ blocks.push('<div class="toc-cat"><h4>' + cat.title + '</h4><ol>' + items.join("") + '</ol></div>'); }
+  });
+  blocks.push('<div class="toc-cat"><h4>Přehledy</h4><ol>' + TOC_ANCHORS.map(function(a){
+    return '<li><a href="#' + a.id + '"><span class="tid">' + a.tid + '</span>' + a.label + '</a></li>';
+  }).join("") + '</ol></div>');
+  blocks.push('<div class="toc-cat"><h4>Časová osa</h4><ol><li><a href="#timeline"><span class="tid">5</span>Celá časová osa</a></li>' + TIMELINE.map(function(g){
+    return '<li><a href="#tl-' + g.id + '"><span class="tid">' + g.id + '</span>' + g.title + '</a></li>';
+  }).join("") + '</ol></div>');
+  return '<aside class="toc"><p class="toc-title">Navigace projektu SVJ</p>' + blocks.join("") + '</aside>';
+}
+
+function exportHtml(){
+  const now = new Date().toLocaleString("cs-CZ");
+  const css = document.querySelector("style").innerHTML;
+  const bodyHtml = document.getElementById("checklist").outerHTML;
+  const doc = "<!DOCTYPE html>\n<html lang=\"cs\">\n<head>\n<meta charset=\"utf-8\">\n" +
+    "<title>SVJ U Beránky 2140 – index</title>\n<style>" + css + "\n</style>\n</head>\n<body>\n" +
+    "<header class=\"page\"><div class=\"wrap\"><h1>MASTER DOKUMENT – Kompletní případ SVJ U Beránky 2140</h1>" +
+    "<p class=\"meta\">Podklad pro schůzi <strong>24. 9. 2026</strong> · Vygenerováno " + now + "</p></div></header>\n" +
+    "<div class=\"wrap\"><div class=\"layout\">" + staticTocHtml() + bodyHtml + "</div>" +
+    "<footer><p>Statický export checklistu včetně časové osy jednotlivých problémů – odkazy v levém stromovém menu vedou na jednotlivé sekce " +
+    "(fungují i bez JavaScriptu). Vygenerováno " + now + " z <code>00-pravidla/checklist-porada-svj.html</code>.</p></footer>" +
+    "</div>\n</body>\n</html>";
+  download("checklist-svj-advokat-2026-09-24.html", "\ufeff" + doc, "text/html;charset=utf-8");
+  document.getElementById("saveInfo").textContent = "HTML export pro advokáta vytvořen · " + now;
+}
+
+function exportJson(){
+  const now = new Date().toLocaleString("cs-CZ");
+  const data = {checks: state.checks, statuses: state.statuses, comments: state.comments, savedAt: new Date().toISOString()};
+  download("checklist-svj-zaloha-2026-09-24.json", JSON.stringify(data, null, 2), "application/json");
+  document.getElementById("saveInfo").textContent = "Záloha JSON vytvořena · " + now;
+}
+
+function importJson(file){
+  const reader = new FileReader();
+  reader.onload = function(){
+    try{
+      const data = JSON.parse(String(reader.result));
+      if(data && typeof data === "object"){
+        state.checks = data.checks || {};
+        state.statuses = data.statuses || {};
+        state.comments = data.comments || {};
+        render();
+        saveState("Obnoveno ze zálohy");
+      }else{
+        alert("Soubor neobsahuje platnou zálohu.");
+      }
+    }catch(e){
+      alert("Nepodařilo se načíst zálohu: " + e.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+/* Inicializace */
+loadState();
+render();
+document.getElementById("loginForm").addEventListener("submit", handleLogin);
+document.getElementById("btnLogout").addEventListener("click", function(){ sessionStorage.removeItem(AUTH_STORE_KEY); document.body.classList.remove("is-authenticated"); });
+document.getElementById("btnSave").addEventListener("click", function(){ saveState("Uloženo"); });
+document.getElementById("btnBackup").addEventListener("click", exportJson);
+document.getElementById("btnTXT").addEventListener("click", exportTxt);
+document.getElementById("btnHTML").addEventListener("click", exportHtml);
+document.getElementById("btnPrint").addEventListener("click", function(){ window.print(); });
+document.getElementById("btnReset").addEventListener("click", function(){
+  if(confirm("Opravdu smazat všechna zaškrtnutí a komentáře? Tato akce je nevratná.")){
+    state.checks = {};
+    state.statuses = {};
+    state.comments = {};
+    render();
+    saveState("Smazáno");
+  }
+});
+document.getElementById("btnRestore").addEventListener("click", function(){
+  document.getElementById("restoreInput").click();
+});
+document.getElementById("restoreInput").addEventListener("change", function(e){
+  if(e.target.files && e.target.files[0]){ importJson(e.target.files[0]); e.target.value = ""; }
+});
+if(localStorage.getItem(STORE_KEY)){
+  try{
+    const d = JSON.parse(localStorage.getItem(STORE_KEY));
+    if(d && d.savedAt){ document.getElementById("saveInfo").textContent = "Načteno uložení · " + new Date(d.savedAt).toLocaleString("cs-CZ"); }
+  }catch(e){}
+}
+</script>
+</body>
+</html>

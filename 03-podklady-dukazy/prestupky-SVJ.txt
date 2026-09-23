@@ -1,0 +1,305 @@
+Uživatel	Heslo
+ullp
+SVJ-2026-Ullp!
+
+panuska@akpanuska.cz
+SVJ-2026-Panuska!
+
+
+
+Mělo by se jednat o:
+
+Působení předsedy Pavla Hodka od roku 2011 v zástupu jeho otcem Václave Hodkem, kdy jeho jménem otec realizoval pouze ty věci, které se mu hodily. Vytvářel ve spolupráci s Vítězslavem Husárkem pravidla, která pokdu někdo nerespektoval, byl potrestán, viz. zadržování přeplatků ve výši 27000 Kč vs. příspěvek do "hotovostního" fondu oprav ve výši 3 tis. Kč. Odhlasováno na schůzi SVJ a tak by mělo být v zápise, který chceme vidět.
+
+Havarijní stav obvodového plášťě a balkónů kuchyň a obývák včetně dlažeb.
+
+Vyhrožování Pavlem Hodkem.
+
+
+MASTER ŠABLONA PRO CELÝ PŘÍPAD
+(hlavní dokument, který shrnuje všechny incidenty, právní vady, požadavky a návrhy)
+
+md
+# MASTER DOKUMENT – Kompletní případ SVJ U Beránky 2140  
+Autor: Petr Ullmann  
+Datum: [doplnit]
+
+---
+
+# 1. Úvod
+Stručné shrnutí celého případu, jeho rozsah, časové období, dotčené osoby a důvody, proč je dokument vytvářen.
+
+**Úvodní shrnutí:**  
+[doplnit]
+
+---
+
+# 2. Seznam všech incidentů a pochybení
+Zde se uvedou všechny incidenty, které budou rozpracovány v jednotlivých šablonách.
+
+**Incidenty:**  
+- [doplnit]  
+- [doplnit]  
+- [doplnit]
+
+---
+
+# 3. Právní rámec
+Seznam všech zákonů, paragrafů, vyhlášek a ustanovení stanov, které se na případ vztahují.
+
+**Právní rámec:**  
+[doplnit]
+
+---
+
+# 4. Detailní rozpracování jednotlivých incidentů
+Každý incident se vloží podle šablony „Jednotlivý incident“.
+
+**Incident č. 1:**  
+[vložit šablonu]
+
+**Incident č. 2:**  
+[vložit šablonu]
+
+---
+
+# 5. Analýza dopadů na SVJ a vlastníky
+Jak incidenty ovlivnily vlastníky, správu domu, bezpečnost, hospodaření, právní odpovědnost.
+
+**Dopady:**  
+[doplnit]
+
+---
+
+# 6. Návrh právních kroků
+Zde se vloží šablona „Právní kroky“.
+
+---
+
+# 7. Návrh na doplnění zápisu
+Zde se vloží šablona „Doplnění zápisu“.
+
+---
+
+# 8. Návrh na napadení schůze
+Zde se vloží šablona „Napadení schůze“.
+
+---
+
+# 9. Návrh na odvolání předsedy
+Zde se vloží šablona „Odvolání předsedy“.
+
+---
+
+# 10. Návrh na technický audit domu
+Zde se vloží šablona „Technický audit“.
+
+---
+
+# 11. Závěr
+Stručné shrnutí celého dokumentu.
+
+**Závěr:**  
+[doplnit]
+ŠABLONA PRO JEDNOTLIVÉ INCIDENTY
+md
+# Incident: [název]  
+Datum: [doplnit]  
+Dotčené osoby: [doplnit]
+
+---
+
+# 1. Stručný popis incidentu
+[doplnit]
+
+---
+
+# 2. Detailní popis skutkového stavu
+[doplnit]
+
+---
+
+# 3. Právní kvalifikace
+Relevantní paragrafy:  
+- § [doplnit]  
+- § [doplnit]
+
+Právní závěr:  
+[doplnit]
+
+---
+
+# 4. Dopad na SVJ a vlastníky
+[doplnit]
+
+---
+
+# 5. Požadovaná náprava
+[doplnit]
+
+---
+
+# 6. Doplnění do zápisu SVJ
+[doplnit]
+
+---
+
+# 7. Důkazy / přílohy
+[doplnit]
+ŠABLONA PRO PRÁVNÍ KROKY
+md
+# Návrh právních kroků  
+Datum: [doplnit]
+
+---
+
+# 1. Identifikace právních vad
+[doplnit]
+
+---
+
+# 2. Doporučené právní kroky
+- [doplnit]  
+- [doplnit]  
+- [doplnit]
+
+---
+
+# 3. Lhůty a postup
+[doplnit]
+
+---
+
+# 4. Možné soudní kroky
+[doplnit]
+
+---
+
+# 5. Doporučení pro vlastníky
+[doplnit]
+ŠABLONA PRO DOPLNĚNÍ ZÁPISU
+md
+# Návrh na doplnění zápisu SVJ  
+Datum: [doplnit]
+
+---
+
+# 1. Chybějící skutečnosti
+[doplnit]
+
+---
+
+# 2. Návrh přesného znění doplnění
+„[doplnit přesné znění]“
+
+---
+
+# 3. Právní odůvodnění
+[doplnit]
+
+---
+
+# 4. Požadavek na přepracování zápisu
+[doplnit]
+ŠABLONA PRO NAPADENÍ SCHŮZE
+md
+# Návrh na napadení schůze SVJ  
+Datum: [doplnit]
+
+---
+
+# 1. Důvody neplatnosti schůze
+[doplnit]
+
+---
+
+# 2. Právní rámec
+Relevantní paragrafy:  
+- § 1207 OZ  
+- § 1208 OZ  
+- § 1169 OZ  
+- další
+
+---
+
+# 3. Návrh na zrušení rozhodnutí
+[doplnit]
+
+---
+
+# 4. Požadavek na svolání nové schůze
+[doplnit]
+
+---
+
+# 5. Důkazy
+[doplnit]
+ŠABLONA PRO ODVOLÁNÍ PŘEDSedy
+md
+# Návrh na odvolání předsedy výboru  
+Datum: [doplnit]
+
+---
+
+# 1. Důvody odvolání
+[doplnit]
+
+---
+
+# 2. Právní rámec
+Relevantní paragrafy:  
+- § 159 OZ (péče řádného hospodáře)  
+- § 1208 OZ  
+- Stanovy SVJ
+
+---
+
+# 3. Skutkový stav
+[doplnit]
+
+---
+
+# 4. Návrh usnesení
+„Shromáždění odvolává Pavla Hodka z funkce předsedy výboru.“
+
+---
+
+# 5. Požadavek na volbu nového předsedy
+[doplnit]
+ŠABLONA PRO ŽÁDOST O TECHNICKÝ AUDIT DOMU
+md
+# Žádost o technický audit domu  
+Datum: [doplnit]
+
+---
+
+# 1. Důvod žádosti
+[doplnit]
+
+---
+
+# 2. Popis havarijního stavu
+[doplnit]
+
+---
+
+# 3. Právní rámec
+Relevantní paragrafy:  
+- § 1189 OZ  
+- § 1208 OZ  
+- Stanovy SVJ
+
+---
+
+# 4. Požadavek na provedení auditu
+[doplnit]
+
+---
+
+# 5. Požadavek na předložení výsledků
+[doplnit]
+
+---
+
+# 6. Požadavek na následné kroky
+[doplnit]

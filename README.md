@@ -12,9 +12,25 @@ git clone https://github.com/ullp/svj.git
 cd svj
 ```
 
-Pokud klonování skončí chybou `Repository not found`, je repozitář na GitHubu stále privátní. V GitHub UI je potřeba změnit **Settings → General → Danger Zone → Change repository visibility → Public**.
+Pro živé zveřejnění je doplněný GitHub Actions workflow `.github/workflows/pages.yml`, který publikuje statický web z rootu repozitáře na GitHub Pages po pushi do větve `main`. V GitHub UI nastav:
 
-Repozitář nevyžaduje instalaci závislostí ani build. Jedná se o dokumentační archiv; hlavní vstupní bod je tento `README.md` a interaktivní checklist `00-pravidla/checklist-porada-svj.html`, který lze otevřít přímo v prohlížeči.
+1. **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+2. Commitni a pushni změny do `main`; GitHub Actions nasadí web.
+
+### Login
+
+V `index.html` je doplněná klientská přihlašovací brána bez dalších ověřovacích widgetů. Vytvořené účty bez odeslání pozvánky:
+
+| Uživatel | Dočasné heslo | Poznámka |
+|---|---|---|
+| `ullp` | `SVJ-2026-Ullp!` | účet pro autora |
+| `panuska@akpanuska.cz` | `SVJ-2026-Panuska!` | účet pro Mgr. Panušku, pozvánka se neodesílá |
+
+Hesla jsou v HTML uložena pouze jako SHA-256 hash. Po prvním nasazení je doporučeno je změnit a nepředávat veřejně.
+
+> **Bezpečnostní upozornění:** GitHub Pages je statický hosting bez backendu. Klientský login skryje obsah pro běžného návštěvníka, ale neposkytuje skutečnou ochranu citlivých právních dokumentů – HTML, PDF a další soubory jsou stále technicky součástí publikovaného webu/repozitáře. Pro skutečně neveřejný spis použij privátní GitHub repozitář s přístupy, nebo hosting s backend autentizací (např. Cloudflare Access, Netlify/Vercel s auth middlewarem, vlastní server).
+
+Repozitář nevyžaduje instalaci závislostí ani build. Jedná se o dokumentační archiv; hlavní vstupní bod je tento `README.md`, kořenový `index.html` a interaktivní checklist `00-pravidla/checklist-porada-svj.html`, který lze otevřít přímo v prohlížeči.
 
 ## Kde co najdu
 
