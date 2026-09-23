@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SVJ U Beránky 2140 – index</title>
 <style>
-:root{--red:#c62828;--orange:#e65100;--yellow:#f9a825;--accent:#0b57d0;--bg:#f4f5f7;--card:#fff;--ink:#1b1b1f;--line:#dfe3e8;--muted:#5f6368}
+:root{--red:#c62828;--orange:#e65100;--yellow:#f9a825;--accent:#0b57d0;--bg:#f4f5f7;--card:#fff;--ink:#1b1b1f;--line:#dfe3e8;--muted:#5f6368;--status-done:#2e7d32;--status-partial:#ef6c00;--status-process:#1565c0;--status-open:#607d8b;--status-legal:#6a1b9a;--topbar-height:176px}
 *{box-sizing:border-box}
 body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+.wrap{width:100%;max-width:none;margin:0 auto;padding:0 20px}
+.topbar{position:sticky;top:0;z-index:20;background:var(--bg);box-shadow:0 8px 22px rgba(31,42,68,.08)}
 header.page{background:#fff;border-bottom:1px solid var(--line);padding:18px 0 14px}
 h1{font-size:1.35rem;margin:0 0 6px}
 .meta{margin:0 0 8px;color:var(--muted);font-size:.92rem}
@@ -20,9 +21,14 @@ code{background:#eef1f5;padding:1px 5px;border-radius:4px;font-size:.86em}
 .badge.low{background:var(--yellow);color:#3d3000}
 .prog-line{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted);flex-wrap:wrap}
 #progressText{flex:1 1 100%;line-height:1.35}
-.progress{flex:1 1 100%;height:8px;background:var(--line);border-radius:4px;overflow:hidden}
-.progress>div{height:100%;width:0;background:var(--accent);transition:width .25s}
-.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:12px 0;position:sticky;top:0;background:var(--bg);z-index:5;border-bottom:1px solid var(--line)}
+.progress{display:flex;flex:1 1 100%;height:10px;background:var(--line);border-radius:999px;overflow:hidden}
+.progress-segment{height:100%;min-width:0;transition:width .25s}
+.progress-segment.status-done{background:var(--status-done)}
+.progress-segment.status-partial{background:var(--status-partial)}
+.progress-segment.status-process{background:var(--status-process)}
+.progress-segment.status-open{background:var(--status-open)}
+.progress-segment.status-legal{background:var(--status-legal)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:12px 0;background:var(--bg);border-bottom:1px solid var(--line)}
 button{font:inherit;font-size:.9rem;padding:7px 12px;border:1px solid var(--line);background:#fff;border-radius:8px;cursor:pointer;color:var(--ink)}
 button:hover{border-color:#b8bec7;background:#fafbfc}
 button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -40,26 +46,30 @@ h2{font-size:1.02rem;margin:0 0 6px;display:flex;gap:8px;align-items:baseline;fl
 .item:first-child{border-top:0}
 .item ol,.item ul{margin:6px 0 0;padding-left:22px}
 .item ol li,.item ul li{margin:3px 0;font-size:.94rem}
-.row{display:flex;align-items:flex-start;gap:10px}
+.row{display:flex;align-items:flex-start;gap:12px}
 .item input[type=checkbox]{width:17px;height:17px;margin:3px 0 0;flex:0 0 auto;accent-color:var(--accent);cursor:pointer}
 .txt{flex:1 1 auto;min-width:0}
 .item label{cursor:pointer;font-size:.96rem}
 .item.done label{opacity:.55}
 .item.done .status-title,.item.done .status-check{opacity:1}
-.item.done textarea.comment{opacity:.7}
+.item.done textarea.comment{opacity:.82}
 .status-pill{display:inline-block;border-radius:999px;padding:1px 7px;font-size:.7rem;font-weight:800;margin-left:6px;vertical-align:middle;color:#fff;background:#78909c}
-.status-pill.status-done{background:#2e7d32}.status-pill.status-partial{background:#ef6c00}.status-pill.status-process{background:#1565c0}.status-pill.status-open{background:#607d8b}.status-pill.status-legal{background:#6a1b9a}
-.status-title{font-size:.76rem;color:var(--muted);font-weight:800;margin:8px 0 3px;text-transform:uppercase;letter-spacing:.02em}
-.status-checks{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 2px}
-.status-check{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:3px 8px;background:#fff;color:#3c4043;font-size:.78rem;font-weight:700;cursor:pointer;user-select:none}
+.status-pill.status-done{background:var(--status-done)}.status-pill.status-partial{background:var(--status-partial)}.status-pill.status-process{background:var(--status-process)}.status-pill.status-open{background:var(--status-open)}.status-pill.status-legal{background:var(--status-legal)}
+.status-panel{flex:0 0 210px;max-width:210px;margin-left:auto;padding:5px 6px;border:1px solid #edf0f4;border-radius:9px;background:#fbfcff;align-self:flex-start}
+.status-title{font-size:.62rem;color:var(--muted);font-weight:800;margin:0 0 3px;text-transform:uppercase;letter-spacing:.04em;line-height:1.05}
+.status-checks{display:flex;gap:3px;flex-wrap:wrap;margin:0}
+.status-check{display:inline-flex;align-items:center;gap:3px;border:1px solid var(--line);border-radius:999px;padding:1px 5px;background:#fff;color:#3c4043;font-size:.65rem;font-weight:700;line-height:1.15;cursor:pointer;user-select:none;white-space:nowrap}
 .status-check:hover{border-color:#b8bec7;background:#fafbfc}
-.status-check input[type=checkbox]{width:14px;height:14px;margin:0;accent-color:var(--accent)}
+.status-check input[type=checkbox]{width:11px;height:11px;margin:0;accent-color:var(--accent)}
 .status-check.active{color:#fff;border-color:transparent}
-.status-check.active.status-done{background:#2e7d32}.status-check.active.status-partial{background:#ef6c00}.status-check.active.status-process{background:#1565c0}.status-check.active.status-open{background:#607d8b}.status-check.active.status-legal{background:#6a1b9a}
+.status-check.active.status-done{background:var(--status-done)}.status-check.active.status-partial{background:var(--status-partial)}.status-check.active.status-process{background:var(--status-process)}.status-check.active.status-open{background:var(--status-open)}.status-check.active.status-legal{background:var(--status-legal)}
 .notes{font-size:.88rem;color:#3c4043;background:#fbfbfc;border:1px dashed var(--line);border-radius:8px;padding:8px 10px;margin:10px 0 0}
 .sources{margin:6px 0 0;padding-left:20px;font-size:.9rem;color:#3c4043}
 .sources li{margin:4px 0}
-textarea.comment{display:block;width:100%;min-height:54px;margin-top:6px;padding:6px 8px;font:inherit;font-size:.88rem;border:1px solid var(--line);border-radius:6px;resize:vertical;background:#fcfcfd}
+.comment-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin-top:7px}
+.comment-field{min-width:0}
+.comment-field-title{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 3px}
+textarea.comment{display:block;width:100%;min-height:54px;margin:0;padding:6px 8px;font:inherit;font-size:.88rem;border:1px solid var(--line);border-radius:6px;resize:vertical;background:#fcfcfd}
 textarea.comment:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
 ol.sub,ul.sub{margin:6px 0 0;padding-left:22px}
 ol.sub li,ul.sub li{margin:3px 0;font-size:.94rem}
@@ -68,13 +78,27 @@ ol.sub li,ul.sub li{margin:3px 0;font-size:.94rem}
 .footer-notes ul{margin:4px 0;padding-left:20px}
 footer{font-size:.85rem;color:var(--muted);padding:8px 0 32px}
 /* Layout: levý strom případu + právní dokument */
-.wrap{max-width:1380px;margin:0 auto;padding:0 16px}
-.layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:22px;align-items:start}
-aside.toc{position:sticky;top:58px;background:linear-gradient(180deg,#fff,#fbfcff);border:1px solid var(--line);border-radius:14px;padding:14px 14px 16px;font-size:.86rem;max-height:calc(100vh - 72px);overflow:auto;box-shadow:0 8px 24px rgba(31,42,68,.08)}
+.wrap{width:100%;max-width:none;margin:0 auto;padding:0 20px}
+.layout{display:grid;grid-template-columns:360px minmax(0,1fr);gap:24px;align-items:start}
+aside.toc{position:sticky;top:calc(var(--topbar-height) + 14px);background:linear-gradient(180deg,#fff,#fbfcff);border:1px solid var(--line);border-radius:14px;padding:14px 14px 16px;font-size:.86rem;max-height:calc(100vh - var(--topbar-height) - 28px);overflow:auto;box-shadow:0 8px 24px rgba(31,42,68,.08)}
 aside.toc>.toc-title{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:#263238;margin:0 0 4px;font-weight:800}
 aside.toc .toc-subtitle{font-size:.76rem;color:var(--muted);margin:0 0 10px;line-height:1.35}
 aside.toc .toc-cat{margin:12px 0 0;padding-left:10px;border-left:1px solid #d6dce5}
 aside.toc .toc-cat h4{font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:#37474f;margin:0 0 5px;font-weight:800}
+aside.toc details.toc-cat{padding-left:10px}
+aside.toc details.toc-cat>summary{cursor:pointer;list-style:none;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:#37474f;margin:0 0 5px;font-weight:800;display:flex;align-items:center;gap:6px}
+aside.toc details.toc-cat>summary::-webkit-details-marker{display:none}
+aside.toc details.toc-cat>summary::before{content:"▸";color:var(--accent);font-size:.82rem;transition:transform .15s}
+aside.toc details.toc-cat[open]>summary::before{transform:rotate(90deg)}
+aside.toc .toc-docs{background:#fff;border:1px solid #dce5f2;border-left:4px solid var(--accent);border-radius:10px;padding:10px;margin:10px 0 0;box-shadow:0 4px 14px rgba(31,42,68,.05)}
+aside.toc .toc-docs h4{color:#0842a0;margin-bottom:3px}
+aside.toc .toc-docs .toc-note{margin:0 0 8px}
+aside.toc details.toc-folder{margin:7px 0;border:1px solid #edf0f4;border-radius:8px;background:#fbfcff;overflow:hidden}
+aside.toc details.toc-folder>summary{cursor:pointer;list-style:none;padding:6px 8px;font-size:.76rem;font-weight:800;color:#263238;display:flex;align-items:center;gap:6px}
+aside.toc details.toc-folder>summary::-webkit-details-marker{display:none}
+aside.toc details.toc-folder>summary::before{content:"📁";font-size:.9rem}
+aside.toc details.toc-folder[open]>summary::before{content:"📂"}
+aside.toc details.toc-folder ol{padding:0 8px 8px 8px}
 aside.toc ol{list-style:none;margin:0;padding:0}
 aside.toc li{position:relative}
 aside.toc li::before{content:"";position:absolute;left:-14px;top:14px;width:9px;border-top:1px solid #d6dce5}
@@ -89,6 +113,7 @@ aside.toc li a.toc-file{border-left-style:dotted}
 aside.toc li a.toc-file .tid{color:var(--accent)}
 aside.toc .toc-hint{font-size:.76rem;color:var(--muted);margin:8px 0 0;line-height:1.35;background:#f6f8fb;border:1px dashed var(--line);border-radius:8px;padding:7px 8px}
 main#checklist{min-width:0}
+section.card,.case-hero,.legal-template{scroll-margin-top:calc(var(--topbar-height) + 16px)}
 .case-hero{background:linear-gradient(135deg,#102a43,#1d4e89);color:#fff;border-radius:16px;padding:20px 22px;margin:16px 0;box-shadow:0 12px 28px rgba(16,42,67,.22)}
 .case-hero h2{font-size:1.35rem;margin:0 0 8px;color:#fff}
 .case-hero p{margin:5px 0;color:#e9f2ff}
@@ -103,15 +128,23 @@ main#checklist{min-width:0}
 .legal-template p,.legal-template li{font-size:.93rem}
 .legal-template blockquote{margin:8px 0;padding:8px 12px;border-left:4px solid var(--accent);background:#f5f8ff;border-radius:6px;color:#263238}
 section.card{box-shadow:0 2px 12px rgba(31,42,68,.05)}
-section.card h2::after{content:"Incident / část případu";font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-left:auto}
+.incident-heading{flex:1 1 auto;min-width:0}
+.incident-kicker{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;line-height:1.1;margin:0 0 3px}
 .item{background:#fff;border-top:1px solid #edf0f4;padding:12px 0}
 .item .txt::before{content:"Skutkový bod";display:inline-block;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:#607d8b;background:#eef3f7;border-radius:999px;padding:1px 7px;margin:0 0 4px}
 textarea.comment{min-height:64px;background:#fffdf8;border-color:#eadfca}
+textarea.comment.lawyer-comment{background:#f7fbff;border-color:#cfe0f5}
 textarea.comment::placeholder{color:#8a6d3b}
+textarea.comment.lawyer-comment::placeholder{color:#476582}
 @media (max-width:1180px){
   .layout{grid-template-columns:1fr}
   aside.toc{position:static;max-height:none;order:-1}
   .case-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .row{flex-wrap:wrap}
+  .status-panel{flex:1 1 100%;max-width:none;margin-left:0}
+  .comment-grid{grid-template-columns:1fr}
 }
 /* Časová osa jednotlivých problémů */
 section.card.tl-card{border-left-color:#6a1b9a}
@@ -128,6 +161,42 @@ section.card.tl-card{border-left-color:#6a1b9a}
 .tl .tl-body{font-size:.92rem}
 .tl .tl-src{display:block;font-size:.76rem;color:var(--muted);margin-top:2px}
 .toc-cat .toc-note{font-size:.74rem;color:var(--muted);margin:0 0 4px;line-height:1.3}
+.timeline-details{margin:10px 0 0;border:1px solid var(--line);border-radius:10px;background:#fbfcff;overflow:hidden}
+.timeline-details>summary{cursor:pointer;list-style:none;padding:9px 11px;font-weight:800;color:#263238;display:flex;align-items:center;gap:8px}
+.timeline-details>summary::-webkit-details-marker{display:none}
+.timeline-details>summary::before{content:"▸";color:var(--accent);font-size:.9rem;transition:transform .15s}
+.timeline-details[open]>summary::before{transform:rotate(90deg)}
+.timeline-details .tl{margin:0 10px 10px;padding:10px 12px;background:#fff}
+.timeline-details.compact-archive>summary{background:#f6f8fb}
+
+body.compact-mode section.card{margin:10px 0;padding:10px 12px}
+body.compact-mode section.card h2{margin-bottom:2px}
+body.compact-mode .legal-box,body.compact-mode .item .txt::before{display:none!important}
+body.compact-mode .item{padding:7px 0}
+body.compact-mode .item label{font-size:.94rem;line-height:1.42}
+body.compact-mode .comment-grid{gap:7px;margin-top:5px}
+body.compact-mode .comment-field-title{font-size:.62rem;margin-bottom:2px}
+body.compact-mode textarea.comment{min-height:42px;margin-top:5px;padding:5px 7px;font-size:.82rem}
+body.compact-mode .status-title{margin:0 0 3px;font-size:.6rem}
+body.compact-mode .status-checks{margin:0;gap:3px}
+body.compact-mode .status-check{padding:1px 5px;font-size:.63rem}
+body.compact-mode .notes{font-size:.82rem;margin-top:7px;padding:6px 8px}
+body.compact-mode .case-hero,body.compact-mode .legal-template{padding:12px 14px;margin:10px 0}
+body.compact-mode .case-grid{display:none}
+body.compact-mode .timeline-details{margin-top:7px}
+button.toggle-on{background:#e8f0fe;border-color:#b8cdfc;color:#0842a0;font-weight:700}
+
+section.card.incident-card{padding:0;overflow:hidden}
+section.card.incident-card>details.incident-details>summary{cursor:pointer;list-style:none;padding:12px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+section.card.incident-card>details.incident-details>summary::-webkit-details-marker{display:none}
+section.card.incident-card>details.incident-details>summary::before{content:"▸";color:var(--accent);font-weight:900;transition:transform .15s}
+section.card.incident-card>details.incident-details[open]>summary::before{transform:rotate(90deg)}
+section.card.incident-card>details.incident-details>summary h2{margin:0}
+section.card.incident-card .incident-body{padding:0 16px 14px}
+section.card.incident-card:not(.is-open){box-shadow:none;background:#fbfcff}
+body.compact-mode section.card.incident-card>details.incident-details>summary{padding:9px 12px}
+body.compact-mode section.card.incident-card .incident-body{padding:0 12px 10px}
+body.compact-mode section.card.incident-card:not(.is-open){margin:7px 0}
 
 .auth-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(135deg,#eef3ff 0%,#f4f5f7 55%,#fff 100%)}
 .auth-card{width:min(100%,440px);background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 50px rgba(31,35,40,.12);padding:24px}
@@ -146,7 +215,7 @@ section.card[data-anchor]{scroll-margin-top:74px}
 /* Časová osa – legenda (styl položek je definován výše) */
 .tl-legend{font-size:.8rem;color:var(--muted);margin:6px 0 0}
 @media print{
-  .toolbar,textarea.comment,#restoreInput,footer,aside.toc{display:none!important}
+  .toolbar,#restoreInput,footer,aside.toc{display:none!important}
   body{background:#fff;font-size:11pt}
   header.page{border-bottom:2px solid #000}
   section.card{break-inside:avoid;box-shadow:none;border:1px solid #999}
@@ -168,6 +237,7 @@ section.card[data-anchor]{scroll-margin-top:74px}
   </form>
 </div>
 <div id="appShell" class="app-shell">
+<div class="topbar" id="topbar">
 <header class="page">
   <div class="wrap">
     <h1>MASTER DOKUMENT – Kompletní případ SVJ U Beránky 2140</h1>
@@ -177,11 +247,12 @@ section.card[data-anchor]{scroll-margin-top:74px}
       <span class="badge mid">🟠 střední</span>
       <span class="badge low">🟡 doprovodné</span>
     </div>
-    <div class="prog-line"><span id="progressText">0 / 0 splněno</span><div class="progress"><div id="progressFill"></div></div></div>
+    <div class="prog-line"><span id="progressText">0 / 0 splněno</span><div class="progress" id="progressFill" aria-label="Míra splnění podle stavů"></div></div>
   </div>
 </header>
 <div class="wrap">
   <div class="toolbar">
+    <button id="btnCompact" type="button" class="toggle-on">Kompaktní režim</button>
     <button id="btnSave" class="primary" type="button">Uložit</button>
     <button id="btnBackup" type="button">Záloha JSON</button>
     <button id="btnRestore" type="button">Obnova ze zálohy</button>
@@ -191,6 +262,9 @@ section.card[data-anchor]{scroll-margin-top:74px}
     <button id="btnReset" type="button" class="danger">Smazat vyplnění</button>
     <button id="btnLogout" type="button" class="logout">Odhlásit</button><span id="saveInfo" class="saveinfo"></span>
   </div>
+</div>
+</div>
+<div class="wrap">
   <input type="file" id="restoreInput" accept=".json,application/json" hidden>
   <div class="layout">
     <aside class="toc" id="toc" aria-label="Stromová navigace případu"></aside>
@@ -246,7 +320,7 @@ async function handleLogin(event){
 
 if(isAuthenticated()){ document.body.classList.add("is-authenticated"); }
 const SECTIONS = [
-{id:"A",title:"Nezákonné zadržení přeplatků (27 000 Kč) – vyděračský mechanismus",prio:"high",items:[
+{id:"A",title:"Přeplatky a nátlak při platbách (27 000 Kč)",prio:"high",items:[
 {t:"<b>Zadržení 27 000 Kč přeplatků za energie/služby</b> podmíněné zaplacením příspěvku do fondu oprav <b>v hotovosti (3 000 Kč)</b> – bez písemné výzvy, bez platného usnesení SVJ, bez splnění podmínky usnášeníschopnosti, neuvedeno v zápisu."},
 {t:"Přiznání p. Husárka, že se „společně dohodli“ (dluhová zpráva, ID <code>1165A8D8…</code>), a naopak tvrzení v zápisu z 27. 5. 2026 (bod 3), že <b>přeplatky budou vráceny k 15. 6. 2026</b> – bez jakýchkoli podmínek. <b>Rozpor mezi zápisem a skutečným jednáním.</b>"},
 {t:"<b>Opakované zpoždění výplaty přeplatku oproti ostatním vlastníkům:</b> v rámci posledního vyúčtování byly přeplatky vlastníkovi znovu zaslány se zpožděním oproti ostatním vlastníkům a následně omluveny jako „nedopatření“. V kontextu předchozího zadržování přeplatků a selektivního postupu nejde o izolovanou administrativní chybu, ale o další indicii nerovného zacházení a pokračující kontroly plateb mimo řádný transparentní proces SVJ."},
@@ -270,13 +344,13 @@ const SECTIONS = [
 {t:"<b>Navyseni zaloh.md</b> – žádost o vysvětlení navýšení záloh: chybí smlouvy a ceníky dodavatelů, kalkulace záloh, zohlednění <b>poklesu regulovaných složek cen elektřiny a plynu v roce 2025 (ERÚ)</b> – dosud nezodpověděno."},
 {t:"Požadavky: lhůta 30 dnů na veškerá podání přes DS, zpřístupnění dokumentů k nahlédnutí, zveřejňování hospodaření."}
 ]},
-{id:"D",title:"Hospodaření – předražené zálohy, transparentnost fondu oprav",prio:"high",items:[
+{id:"D",title:"Vyúčtování 2024, zálohy a hotovostní fond oprav",prio:"high",items:[
 {t:"<b>Vyúčtování 2024 (objekt 4, SLUŽBY)</b>: předepsané zálohy <b>117 312 Kč</b> vs. skutečné náklady <b>58 763 Kč</b> → <b>přeplatky 58 548 Kč</b> u jediné jednotky:<ul><li>Teplo: záloha 54 600 / náklad 21 724 (přeplatek 32 876),</li><li>TUV: záloha 44 664 / náklad 19 911 (přeplatek 24 753),</li><li>Zálohy jsou ~2,5× vyšší než skutečné náklady, <b>přesto navýšeny</b> (viz bod C) – požadovat návrat záloh k reálné spotřebě a refundaci úroků/zadržených částek.</li></ul>"},
 {t:"<b>Vyúčtování 2024 GARÁŽ/obj. 704</b>: dlouhodobé zálohy na opravy 3 360 Kč, správní náklady 4 452 Kč – stejný model předpisů."},
 {t:"<b>Hotovostní správa fondu oprav</b> bez kontrolních mechanismů; příspěvky přebírány v hotovosti <b>bez protiúpisu</b> (přiznáno v Zdarzovani preplatku)."},
 {t:"Požadavky: <b>bezhotovostní fond oprav</b>, nezávislá kontrola hospodaření (revizní komise / externí auditor), zveřejňování rozpočtu a vyúčtování, souhrnný přehled přeplatků vlastníků."}
 ]},
-{id:"E",title:"Voda – neoprávněné rozpočítání úniku mezi vlastníky",prio:"high",items:[
+{id:"E",title:"Voda – únik, rozúčtování a finanční vyrovnání",prio:"high",items:[
 {t:"Náklady na <b>dlouhodobý únik vody byly rozpočítány mezi více jednotek</b>, přestože instalace bytových vodoměrů prokázala únik <b>pouze v jedné jednotce</b>; náprava za celé období nezajištěna."},
 {t:"<b>Návrh usnesení (5 bodů)</b> – zařadit do programu:<ol><li>podklady od Pražských vodáren za celé období úniku,</li><li>propočet rozpočtu nákladů do 30 dnů,</li><li>prověření neoprávněného zatížení ostatních vlastníků,</li><li>finanční vyrovnání za celé období,</li><li>informování všech vlastníků přes DS do 60 dnů.</li></ol>"},
 {t:"Připravena <b>výzva s 30denní lhůtou</b> (jinak soudní postup dle § 1208/1209 OZ); uchovat kopii odeslané zprávy."}
@@ -345,7 +419,7 @@ const SECTIONS_EXTRA = [
 {t:"<b>Nesoulad v evidenci vlastníků</b>: jednotka s koeficientem <b>8,10 %</b> je ve vyúčtování přeplatků a ve vyúčtování služeb vedena jako <b>Valko</b>, ve fondu oprav jako <b>Podhaiský</b> → vyžádat <b>aktuální seznam vlastníků a bytových jednotek</b> (evidence pro hlasování, doručování a vyúčtování) a doložit, kdo je oprávněn za jednotku jednat."},
 {t:"Požadavky: vyúčtování pro každou jednotku, <b>nezávislá revize vyúčtování 2024 i 2025</b> (revizní komise / externí auditor), zveřejnění pohybů fondu oprav, souhrnný přehled přeplatků a nedoplatků, úroky z prodlení (viz bod A)."}
 ],notes:"<b>Navazuje na body A a D.</b> Podklad: <code>03-podklady-dukazy/vyuctovani-2025/Scan.pdf</code> (vyúčtování služeb, provozních nákladů, fondu oprav a kotelny; vyhotovení 17. 3. 2026 a 20. 3. 2026 E. Boučková, fond oprav a náklady kotelny 19. 1. 2026 Hodek) – čísla před schůzí přepočítat proti originálu."},
-{id:"M",title:"Provoz, kotelna, odpady a kontrolní mechanismus (z rozpracovaného zápisu a podkladů)",prio:"mid",items:[
+{id:"M",title:"Provoz domu – kotelna, odpady a kontrolní mechanismus",prio:"mid",items:[
 {t:"<b>Kotelna a vytápění</b> (<code>01-zapisy/SVJ meet.md</code>, bod 8; <code>03-podklady-dukazy/kotel-info.md</code>): porovnat náklady na provoz kotelny, kotelníka a jednotlivá technická řešení (plyn / tepelné čerpadlo / pelety) – plynová varianta cca o 100 000 Kč levnější, tepelné čerpadlo s akumulační nádrží cca <b>1,5 mil. Kč</b>, nabídka na peletový systém (zásobník 400 l), odhad spotřeby plynu 250–280 tis. Kč / 3 roky; radiátory se spádem mohou být pro tepelné čerpadlo nedostatečné. Navazuje na skutečné náklady 2025 (bod L: plyn + elektřina <b>320 460,16 Kč</b>) → <b>rozhodovat až s doloženými nabídkami a propočtem návratnosti</b>."},
 {t:"<b>Odpady a společné prostory</b>: původní velikost nádob nevyhovuje (požadavek p. Bohunky), zvážit biopopelnici (GreenBox) – náklady na odvoz odpadu 2025 byly 6 240,00 Kč (bod L); <b>žádost o vrácení odpadkového koše a osobních věcí</b> vlastníka (<code>02-dokumenty/Žádost o vrácení odpadkového koše a osobních věcí.pages</code>); pravidla užívání kočárkárny, sušárny a chodeb dle požárních předpisů a jejich viditelné vyvěšení."},
 {t:"<b>Odměny, smluvní forma a hotovostní fond</b> (SVJ meet bod 7): návrh <b>zrušit hotovostní fond</b> a převést příspěvky na bankovní účet; odměny uklízečka 1 000–2 000 Kč a p. Martinec 4 000 Kč/měs.; smlouvy <b>DPP/DPČ</b> po právním posouzení (advokát); s ohledem na nečerpání fondu (bod L) požadovat vyčíslení rizik hotovostní správy a přehled úročení."},
@@ -363,7 +437,7 @@ notes:"<b>Podklady:</b> <code>01-zapisy/SVJ meet.md</code> (body 6–9), <code>0
 {t:"<b>Požadavek pro zápis:</b> vzít informaci na vědomí, nepokračovat v osobních poznámkách k soukromému životu vlastníka a případné stížnosti na hluk řešit pouze věcně, konkrétně, s uvedením data, času, délky trvání a objektivních podkladů."}
 ],
 notes:"<b>Podklady:</b> <code>03-podklady-dukazy/martinec-pes-vmesovani.md</code>, <code>03-podklady-dukazy/fotky/martinec_pes.png</code>."},
-{id:"O",title:"Závěr schůze – výpadek teplé vody, opožděná komunikace předsedy a skutečná koordinace opravy",prio:"high",items:[
+{id:"O",title:"Havárie a komunikace – výpadek teplé vody",prio:"high",items:[
 {t:"<b>Zařadit na závěr schůze jako samostatný bod:</b> vyhodnocení průběhu řešení posledního výpadku teplé vody, opožděné komunikace předsedy výboru SVJ, skutečné koordinace výměny vadného bojleru a přijetí opatření pro informování vlastníků při závadách v domě."},
 {t:"<b>Problém není jen technická závada, ale způsob řízení:</b> porucha zařízení se může stát, avšak vlastníci nebyli včas informováni o rozsahu výpadku, předpokládané době obnovení dodávky teplé vody ani o tom, kdo závadu řeší. Předseda výboru Pavel Hodek informoval vlastníky až <b>18. 9. 2026 ve 13:15</b>, tedy až po dokončení opravy."},
 {t:"<b>Rozpor ve formulaci „plánovaná výměna“:</b> ve zprávě předsedy bylo uvedeno, že „dnes proběhla plánovaná výměna vadného bojleru v kotelně“. Pokud šlo o plánovanou výměnu, měli být vlastníci informováni předem; pokud šlo o akutní nebo havarijní řešení závady, je nutné vysvětlit, proč byla zpětně označena jako plánovaná."},
@@ -390,28 +464,27 @@ const NOTES = [
 ];
 /* Navigace v pravém sloupci: kategorie sekcí, časová osa, zdroje a dokumenty projektu */
 const TOC_CATS = [
- {title:"I. Nezákonné postupy výboru", ids:["A","B","C","G"]},
- {title:"II. Hospodaření a finance", ids:["D","L","H"]},
- {title:"III. Společné části domu a provoz", ids:["E","F","M"]},
- {title:"IV. Orgány SVJ a svolání schůze", ids:["J","K"]},
- {title:"V. Návrhy usnesení a závěr schůze", ids:["I","N","O"]}
+ {title:"I. Finance, vyúčtování a peníze vlastníků", ids:["A","D","L","E"]},
+ {title:"II. Schůze, zápisy, stanovy a dokumenty", ids:["B","C","H","I","K"]},
+ {title:"III. Orgány SVJ, mandát a komunikace", ids:["J","G","N","O"]},
+ {title:"IV. Technický stav, společné části a provoz domu", ids:["F","M"]}
 ];
 const TOC_LABELS = {
- A:"Zadržené přeplatky a nátlak (27 000 Kč)",
- B:"Neplatnost schůze 27. 5. 2026 a zápis",
- C:"Informační povinnosti výboru a DS",
- D:"Předražené zálohy, fond oprav",
- E:"Voda – rozpočítaný únik",
- F:"Havarijní stav pláště, stříšek, zateplení",
- G:"Nátlak, výhrůžky, chování členů výboru",
- H:"Stanovy, služby, garáž, plná moc",
- I:"Návrhy usnesení pro schůzi",
+ A:"Přeplatky a nátlak při platbách",
+ B:"Neplatnost schůze a vadný zápis",
+ C:"Informační povinnosti a DS",
+ D:"Vyúčtování 2024, zálohy, hotovost",
+ E:"Voda – únik a rozúčtování",
+ F:"Plášť, balkony, stříšky, zateplení",
+ G:"Nátlak a chování členů výboru",
+ H:"Stanovy, služby, garáž, advokát",
+ I:"Návrhy usnesení",
  J:"Orgány SVJ, podpisové právo, předseda",
  K:"Svolání shromáždění 27. 11. 2025",
- L:"Vyúčtování 2025 a fond oprav",
- M:"Provoz, kotelna, odpady, kontrola",
- N:"Závěr schůze – Martinec, pes, doložení pohybu",
- O:"Závěr schůze – výpadek teplé vody a komunikace"
+ L:"Vyúčtování 2025, voda/TUV, fond oprav",
+ M:"Kotelna, odpady, provoz, kontrola",
+ N:"Soukromí – Martinec, pes, pohyb",
+ O:"Výpadek teplé vody a komunikace"
 };
 const TOC_ANCHORS = [
  {id:"sources", tid:"§", label:"Zdroje (důkazy)"},
@@ -428,10 +501,52 @@ const TOC_FILES = [
  {href:"file:///Users/ullp/git/svj/04-stiznosti/", tid:"→", label:"04-stiznosti (stížnosti, podání)"},
  {href:"file:///Users/ullp/git/svj/x-duplicates/", tid:"→", label:"x-duplicates (archiv starších verzí)"}
 ];
+const MEETING_DOC_FOLDERS = [
+ {title:"Stanovy a pravidla SVJ", open:true, files:[
+  {href:"02-dokumenty/stanovy/SVJ stanovy 2026.pdf", tid:"2026", label:"SVJ stanovy 2026"},
+  {href:"02-dokumenty/stanovy/Stanovy_SVJ_U_Beránky_V2 úplné znění II (Kom AK Panuška).pdf", tid:"AK", label:"Stanovy – úplné znění II s komentáři AK Panuška"},
+  {href:"02-dokumenty/stanovy/stanovy-2-full.pdf", tid:"PDF", label:"Stanovy – plné znění"},
+  {href:"02-dokumenty/stanovy/stanovy-2-uvod.pdf", tid:"PDF", label:"Stanovy – úvod"},
+  {href:"02-dokumenty/Pravidla SVJ.pages", tid:"PAGES", label:"Pravidla SVJ"}
+ ]},
+ {title:"2025 – podání a informační povinnosti", open:false, files:[
+  {href:"03-podklady-dukazy/datove-schranky/Datové schránky - vyzva k vraceni preplatku.pdf", tid:"21.7.", label:"Výzva k vrácení přeplatku"},
+  {href:"03-podklady-dukazy/datove-schranky/Datové schránky - stiznost na V Hodka.pdf", tid:"21.7.", label:"Stížnost na činnost V. Hodka"},
+  {href:"03-podklady-dukazy/datove-schranky/2025 - Navyseni Zaloh Datovka podani vysvetleni od SVJ.pdf", tid:"3.12.", label:"Navýšení záloh – podání vysvětlení"},
+  {href:"03-podklady-dukazy/datove-schranky/Datové schránky - odstrani ciziho sro.pdf", tid:"3.12.", label:"Odstranění označení cizí společnosti"},
+  {href:"03-podklady-dukazy/datove-schranky/Datové schránky - vyzva k podani informaci k opravam.pdf", tid:"3.12.", label:"Výzva k podání informací k opravám"},
+  {href:"03-podklady-dukazy/datove-schranky/Datové schránky - plany bytu.pdf", tid:"3.12.", label:"Předání technických plánů bytu"}
+ ]},
+ {title:"2026 – schůze, zápisy a námitky", open:true, files:[
+  {href:"02-dokumenty/Odstoupeni z SVJ.pages.pdf", tid:"10.3.", label:"Odstoupení člena výboru / žádost o svolání"},
+  {href:"01-zapisy/Schuze-SVJ-2026-05-27.pdf", tid:"27.5.", label:"Zápis ze schůze SVJ 27. 5. 2026"},
+  {href:"01-zapisy/schuze vybaervene.pdf", tid:"27.5.", label:"Schůze – vybarvený/pracovní podklad"},
+  {href:"02-dokumenty/Oznámení o neplatnosti schůze SVJ, anulace hlasování a návrh na svolání nové schůze.pdf", tid:"29.5.", label:"Oznámení o neplatnosti schůze a návrh nové schůze"},
+  {href:"03-podklady-dukazy/datove-schranky/Datové schránky-oznameni o neplatnosti schůze.pdf", tid:"29.5.", label:"Datová schránka – oznámení o neplatnosti schůze"},
+  {href:"01-zapisy/priloha_1706957024_0_Výzva k vyhotovení zápisu.pdf", tid:"12.6.", label:"Výzva k vyhotovení zápisu"},
+  {href:"01-zapisy/svj_navrh_bodu_schuze.pdf", tid:"PDF", label:"Návrh bodu schůze"},
+  {href:"01-zapisy/Svolání shromáždění vlastníků jednotek.docx", tid:"DOCX", label:"Svolání shromáždění vlastníků jednotek"}
+ ]},
+ {title:"Plné moci a pravomoci orgánů", open:false, files:[
+  {href:"02-dokumenty/PlnaMoc.pdf", tid:"18.5.", label:"Plná moc – Mgr. Martin Panuška"},
+  {href:"02-dokumenty/Plná moc Ullmann - společné části.docx", tid:"DOCX", label:"Plná moc Ullmann – společné části"},
+  {href:"02-dokumenty/Pavel Hodek je předsedou výboru SVJ od 26.gdoc", tid:"GDOC", label:"Pavel Hodek je předsedou výboru SVJ od 26"},
+  {href:"02-dokumenty/svj_vyzva_k_naprave.pdf", tid:"PDF", label:"Výzva k nápravě podpisového práva"},
+  {href:"03-podklady-dukazy/svj_pravni_stanovisko_podpisove_pravo.pdf", tid:"PDF", label:"Právní stanovisko – podpisové právo"}
+ ]},
+ {title:"Vyúčtování a hospodaření", open:false, files:[
+  {href:"03-podklady-dukazy/vyuctovani-2024/06-04-2025 20-07-23 SLUŽBY .pdf", tid:"2024", label:"Vyúčtování 2024 – služby"},
+  {href:"03-podklady-dukazy/vyuctovani-2024/06-04-2025 20-06-56 GARÁŽ .pdf", tid:"2024", label:"Vyúčtování 2024 – garáž"},
+  {href:"03-podklady-dukazy/vyuctovani-2024/00004341 00401C_2024T TEPLO.pdf", tid:"2024", label:"Vyúčtování 2024 – teplo"},
+  {href:"03-podklady-dukazy/vyuctovani-2024/00004341 00401C_2024V VODA.pdf", tid:"2024", label:"Vyúčtování 2024 – voda"},
+  {href:"03-podklady-dukazy/vyuctovani-2025/Scan.pdf", tid:"2025", label:"Vyúčtování 2025 – scan"},
+  {href:"02-dokumenty/Vyzva k vraceni preplatku.pdf", tid:"PDF", label:"Výzva k vrácení přeplatku"}
+ ]}
+];
 const LEGAL_ANCHORS = [
  {id:"master", tid:"1", label:"Úvod a rámec případu"},
  {id:"legal-frame", tid:"§", label:"Právní rámec"},
- {id:"timeline", tid:"5", label:"Časová osa incidentů"},
+ {id:"timeline", tid:"5", label:"Archiv časové osy"},
  {id:"legal-steps", tid:"6", label:"Návrh právních kroků"},
  {id:"record-addendum", tid:"7", label:"Návrh na doplnění zápisu"},
  {id:"challenge-meeting", tid:"8", label:"Návrh na napadení schůze"},
@@ -541,7 +656,27 @@ const TIMELINE = [
 ]}
 ];
 const STORE_KEY = "svj-checklist-2026-09-24";
-const state = { checks: {}, statuses: {}, comments: {} };
+const state = { checks: {}, statuses: {}, comments: {}, lawyerComments: {} };
+
+const DEFAULT_LAWYER_COMMENTS = {
+  "7:0": "Komentáře advokáta ke stanovám – souhrn k bodu stanov: [MP1] Ustanovení o povinnostech vlastníka ke společným částem považuje advokát za přinejmenším sporné. Odkazuje na § 1175 odst. 2 a vztah k § 1189 odst. 2 OZ: údržba společných částí vlastníkem nemá vést k nápravě závadného stavu, ale jen k běžné údržbě; povinnost k nezávadnému stavu a vzhledu domu se má vztahovat k jednotce, nikoli ke společným částem ve výlučném užívání. Navrhuje použít textaci dle § 1175 odst. 2 OZ. [MP3/UH5] Dále doporučuje sjednotit pojmy ve stanovách – výbor, statutární orgán, orgány SVJ, osoba odpovědná za správu domu – aby nevznikaly pochybnosti. Podklad změn má být dostupný vlastníkům v rámci práva kontrolovat správu domu. [UH15] Pravidla užívání společných částí jsou spíše domovní řád; podle § 1200 odst. 2 písm. f) OZ jde o povinný bod stanov a mělo by být upraveno pevněji přímo ve stanovách, nikoli ad hoc ponecháno rozhodování shromáždění. [MP24/UH26] Část o změně prohlášení vlastníka a hlasování je právně problematická: § 1169 OZ řeší přímo zákon a shromáždění o tom podle současné úpravy vůbec nehlasuje tak, jak tomu bylo před 7/2020. Doporučení: stanovy v této podobě nepřebírat bez přepracování, požadovat právně čistou úpravu § 1175, § 1169, jednotnou terminologii a odstranění sporných ustanovení.",
+  "7:1": "Komentáře advokáta ke službám / vyúčtování: [MP42] Formulace ve stanovách může dopadat i na služby, nejen na služby spojené nebo související s užíváním bytu. Takové služby musí být podle názoru advokáta vyúčtovány a vypořádány přeplatky či nedoplatky dle § 7 zákona č. 67/2013 Sb. [UH44] Potvrzeno: může jít i o jiné služby, např. vedení účetnictví nebo právní služby; ty se musí vyúčtovat a nelze o nich jen hlasovat na shromáždění. [MP45] K dokladům doplnit stejnou lhůtu od doložení dokladů podle následujícího odstavce, pokud o ně bylo ve lhůtě zažádáno. Doporučení: u služeb/GARÁŽE a předpisů trvat na vyúčtování, vypořádání přeplatků/nedoplatků a doložení podkladů; stav je právně sporný a vyžaduje úpravu stanov i praxe SVJ.",
+  "11:3": "Komentáře advokáta k provozním nákladům/službám: [MP42/UH44] Pokud stanovy/formulace dopadají i na služby mimo služby přímo spojené s užíváním bytu – např. účetnictví, právní služby či jiné provozní služby – musí být vyúčtovány a přeplatky/nedoplatky vypořádány dle § 7 zákona č. 67/2013 Sb.; nelze je pouze schválit hlasováním na shromáždění. Doporučení: u provozních nákladů 2025 požadovat faktury, smlouvy, vyúčtování a vypořádání přeplatků/nedoplatků včetně jasného rozlišení služeb, provozních nákladů a příspěvků na správu domu.",
+  "12:1": "Komentáře advokáta k pravidlům užívání společných částí: [UH15] Jde spíše o domovní řád – např. zákaz kouření ve společných částech, klidné chování vlastníků a návštěv, zákaz způsobování škod. Nejde o údržbu společných částí. § 1200 odst. 2 písm. f) OZ řadí pravidla pro užívání společných částí mezi povinné náležitosti stanov, proto mají být upravena pevněji přímo ve stanovách a nemá se o nich jen volně rozhodovat na shromáždění. Doporučení: dopracovat pravidla společných prostor do stanov/domovního řádu právně určitě a předem, nikoli účelově podle aktuální většiny.",
+  "12:2": "Komentáře advokáta k odměnám a nákladům: [MP10] Přiléhavější formulace je, že o odměnách statutárního orgánu a jejich výši rozhoduje shromáždění; nestačí neurčité schválení. [UH12] Odměny statutárního orgánu nejsou totéž co náklady na údržbu společných částí či pozemku; ostatní náklady mají být řešeny transparentně a v rámci péče řádného hospodáře. [MP33/UH35/UH37] U částek, o nichž může výbor rozhodovat sám, je třeba pevně stanovit limit ve stanovách; pokud stanovy limit neurčí, platí § 13 nařízení vlády č. 366/2013 Sb. Vše nad takovou částku by výbor neměl rozhodovat bez souhlasu shromáždění. Doporučení: požadovat přesné rozlišení odměn, služeb, údržby a limitů pro rozhodování výboru; bez toho je bod právně a kontrolně rizikový.",
+  "12:4": "Komentáře advokáta k návrhu nových stanov: [MP1] Upravit povinnost vlastníka podle § 1175 odst. 2 OZ; společné části ve výlučném užívání nelze formulovat jako povinnost vlastníka napravovat závadný stav společných částí. [MP3] Sjednotit terminologii orgánů a osoby odpovědné za správu domu. [MP24/UH26] Část o změně prohlášení vlastníka a hlasování upravit podle § 1169 OZ; současné znění může nesprávně vyvolávat dojem, že o tom hlasuje shromáždění. [UH30/UH32] Per rollam musí být formulováno smysluplně; pokud nejde o havárii nebo záležitost svěřenou výboru zákonem/stanovami, rozhodují vlastníci na shromáždění nebo mimo zasedání per rollam. [MP33/UH35/UH37] Pevně stanovit finanční limit pro samostatné rozhodování výboru. [MP42/UH44] Služby a jiné náklady musí být vyúčtovány a vypořádány podle zákona, nelze je jen prohlasovat. Doporučení: návrh stanov je nutné právně přepracovat před schválením; jde o právní/soudní postup a podklad pro formální námitky.",
+  "8:1": "Komentáře advokáta ke stanovám a hlasováním: [MP24/UH26] U změny prohlášení vlastníka se má postupovat podle § 1169 OZ; uvedená formulace ve stanovách je problematická a není vhodné ji do stanov v této podobě vkládat. [UH30/UH32] Per rollam a rozhodování mimo shromáždění musí být vymezeno tak, aby výbor neobcházel shromáždění; pokud nejde o havárii nebo zákonem/stanovami svěřenou věc, rozhodují vlastníci. [MP33/UH35/UH37] Limit pro samostatné rozhodování výboru musí být pevný. Doporučení: bod ponechat jako právní námitku k anulaci/novému projednání stanov, prohlášení vlastníka a všech hlasování bez řádných podkladů."
+};
+
+const DEFAULT_LAWYER_STATUSES = {
+  "7:0": "legal",
+  "7:1": "legal",
+  "11:3": "legal",
+  "12:1": "legal",
+  "12:2": "legal",
+  "12:4": "legal",
+  "8:1": "legal"
+};
 
 function uid(si, ii){ return si + ":" + ii; }
 const STATUS_DEFS = [
@@ -562,6 +697,16 @@ function setStatus(id, value){
 }
 function statusLabel(value){ return (STATUS_MAP[value] || STATUS_MAP.open).short; }
 function statusWeight(value){ return (STATUS_MAP[value] || STATUS_MAP.open).weight; }
+function statusFromLawyerComment(text){
+  const v = String(text || "").trim().toLowerCase();
+  if(!v) return "open";
+  const n = v.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  if(/(splneno|vyreseno|hotovo|uzavreno|akceptovano)/.test(n)) return "done";
+  if(/(castecne|cast|zcasti)/.test(n)) return "partial";
+  if(/(soud|soudni|zalob|pravni|advokat|vyzva|predzalob)/.test(n)) return "legal";
+  if(/(ceka|probiha|v procesu|resi se|doplnit|proverit|vyzadat|cekame)/.test(n)) return "process";
+  return "process";
+}
 
 function loadState(){
   try{
@@ -572,14 +717,32 @@ function loadState(){
         state.checks = data.checks || {};
         state.statuses = data.statuses || {};
         state.comments = data.comments || {};
+        state.lawyerComments = data.lawyerComments || data.advocateComments || {};
       }
     }
   }catch(e){ console.warn("Nepodařilo se načíst uložený stav:", e); }
+  applyDefaultLawyerComments();
+}
+
+function applyDefaultLawyerComments(){
+  state.lawyerComments = state.lawyerComments || {};
+  state.statuses = state.statuses || {};
+  state.checks = state.checks || {};
+  Object.keys(DEFAULT_LAWYER_COMMENTS).forEach(function(id){
+    const inserted = !String(state.lawyerComments[id] || "").trim();
+    if(!String(state.lawyerComments[id] || "").trim()){
+      state.lawyerComments[id] = DEFAULT_LAWYER_COMMENTS[id];
+    }
+    const nextStatus = DEFAULT_LAWYER_STATUSES[id] || statusFromLawyerComment(state.lawyerComments[id]);
+    if(inserted || !state.statuses[id] || state.statuses[id] === "open"){
+      setStatus(id, nextStatus);
+    }
+  });
 }
 
 function saveState(msg){
   try{
-    localStorage.setItem(STORE_KEY, JSON.stringify({checks: state.checks, statuses: state.statuses, comments: state.comments, savedAt: new Date().toISOString()}));
+    localStorage.setItem(STORE_KEY, JSON.stringify({checks: state.checks, statuses: state.statuses, comments: state.comments, lawyerComments: state.lawyerComments, savedAt: new Date().toISOString()}));
     if(msg){ document.getElementById("saveInfo").textContent = msg + " · " + new Date().toLocaleString("cs-CZ"); }
     updateProgress();
   }catch(e){
@@ -611,8 +774,25 @@ function updateProgress(){
     " · v procesu " + stats.process +
     " · právní/soudní postup " + stats.legal +
     " · nesplněno " + stats.open;
-  document.getElementById("progressFill").style.width = stats.percent + "%";
+  const progress = document.getElementById("progressFill");
+  progress.innerHTML = "";
+  STATUS_DEFS.forEach(function(def){
+    const count = stats[def.id] || 0;
+    if(!count) return;
+    const segment = document.createElement("div");
+    segment.className = "progress-segment status-" + def.id;
+    segment.style.width = (count * 100 / stats.total) + "%";
+    segment.title = def.label + ": " + count + " / " + stats.total;
+    progress.appendChild(segment);
+  });
   updateTocCounts();
+  updateTopbarHeight();
+}
+
+function updateTopbarHeight(){
+  const topbar = document.getElementById("topbar");
+  if(!topbar) return;
+  document.documentElement.style.setProperty("--topbar-height", Math.ceil(topbar.getBoundingClientRect().height) + "px");
 }
 
 function prioLabel(p){ return p === "high" ? "vysoká priorita" : (p === "mid" ? "střední priorita" : "doprovodné"); }
@@ -679,6 +859,21 @@ function updateTocCounts(){
   });
 }
 
+function renderTocFileLink(f){
+  const external = f.href.indexOf("file://") === 0;
+  const target = external ? ' target="_blank" rel="noopener"' : '';
+  return '<li><a class="toc-file" href="' + f.href + '"' + target + '><span class="tid">' + f.tid + '</span>' + f.label + '</a></li>';
+}
+
+function renderMeetingDocFolders(){
+  return '<div class="toc-cat toc-docs"><h4>Dokumenty ke schůzi</h4>' +
+    '<p class="toc-note">Rychlé nahlížení během schůze – stanovy, zápisy, podání a hospodaření v časovém sledu.</p>' +
+    MEETING_DOC_FOLDERS.map(function(folder){
+      return '<details class="toc-folder"' + (folder.open ? ' open' : '') + '><summary>' + folder.title + '</summary><ol>' +
+        folder.files.map(renderTocFileLink).join("") + '</ol></details>';
+    }).join("") + '</div>';
+}
+
 function renderToc(){
   const toc = document.getElementById("toc");
   const parts = [];
@@ -698,21 +893,26 @@ function renderToc(){
     });
     if(items.length){ parts.push('<div class="toc-cat"><h4>' + cat.title + '</h4><ol>' + items.join("") + '</ol></div>'); }
   });
-  parts.push('<div class="toc-cat"><h4>Časová osa problémů</h4><ol>' +
-    '<li><a href="#timeline" data-target="timeline"><span class="tid">⏱</span>Všechny problémy chronologicky</a></li>' +
-    TIMELINE.map(function(g){ return '<li><a href="#tl-' + g.id + '" data-target="tl-' + g.id + '"><span class="tid">' + g.id + '</span>' + g.title + '</a></li>'; }).join("") + '</ol></div>');
-  parts.push('<div class="toc-cat"><h4>Přehledy</h4><ol>' + TOC_ANCHORS.map(function(a){
+  parts.push('<div class="toc-cat"><h4>Časová osa</h4><ol>' +
+    '<li><a href="#timeline" data-target="timeline"><span class="tid">⏱</span>Sbalený archiv celé časové osy</a></li>' +
+    '</ol><p class="toc-note">Dílčí časové osy jsou nově přímo u příslušných bodů jako rozbalovací detail.</p></div>');
+  parts.push(renderMeetingDocFolders());
+  parts.push('<details class="toc-cat"><summary>Přehledy</summary><ol>' + TOC_ANCHORS.map(function(a){
     return '<li><a href="#' + a.id + '" data-target="' + a.id + '"><span class="tid">' + a.tid + '</span>' + a.label + '</a></li>';
-  }).join("") + '</ol></div>');
-  parts.push('<div class="toc-cat"><h4>Dokumenty projektu</h4><ol>' + TOC_FILES.map(function(f){
-    const external = f.href.indexOf("file://") === 0;
-    return '<li><a class="toc-file" href="' + f.href + '"' + (external ? ' target="_blank" rel="noopener"' : '') + '><span class="tid">' + f.tid + '</span>' + f.label + '</a></li>';
-  }).join("") + '</ol></div>');
+  }).join("") + '</ol></details>');
+  parts.push('<details class="toc-cat"><summary>Dokumenty projektu</summary><ol>' + TOC_FILES.map(renderTocFileLink).join("") + '</ol></details>');
   parts.push('<p class="toc-hint">Komentáře u jednotlivých bodů slouží jako právní poznámky nebo doplnění důkazů. Ukládají se pouze lokálně v prohlížeči.</p>');
   toc.innerHTML = parts.join("");
   Array.prototype.forEach.call(toc.querySelectorAll("a[data-target]"), function(a){
     a.addEventListener("click", function(ev){
-      const t = document.getElementById(a.getAttribute("data-target"));
+      const targetId = a.getAttribute("data-target");
+      const m = /^sec-([A-Z])$/.exec(targetId || "");
+      if(m && openIncidentSection(m[1], true)){
+        ev.preventDefault();
+        history.replaceState(null, "", a.getAttribute("href"));
+        return;
+      }
+      const t = document.getElementById(targetId);
       if(t){ ev.preventDefault(); t.scrollIntoView({behavior: "smooth", block: "start"}); }
     });
   });
@@ -763,7 +963,7 @@ function renderLegalIntro(root){
 
 function legalBoxForSection(s){
   const x = INCIDENT_LEGAL[s.id] || {};
-  return '<div class="notes"><strong>Šablona incidentu:</strong> Datum: ' + (x.date || '[doplnit]') +
+  return '<div class="notes legal-box"><strong>Šablona incidentu:</strong> Datum: ' + (x.date || '[doplnit]') +
     ' · Dotčené osoby: ' + (x.people || '[doplnit]') + '<br>' +
     '<strong>Právní kvalifikace:</strong> ' + (x.law || '[doplnit relevantní paragrafy]') + '<br>' +
     '<strong>Požadovaná náprava:</strong> ' + (x.remedy || '[doplnit]') + '</div>';
@@ -789,49 +989,71 @@ function renderLegalTemplates(root){
 
 /* ---- Časová osa jednotlivých problémů ---- */
 
+function timelineMatchesSection(g, sectionId){
+  const hay = String((g && g.title ? g.title : "") + " " + (g && g.sub ? g.sub : ""));
+  return new RegExp("\\bbod(?:y)?\\s+[^)]*\\b" + sectionId + "\\b", "i").test(hay);
+}
+
+function timelineGroupsForSection(sectionId){
+  return TIMELINE.filter(function(g){ return timelineMatchesSection(g, sectionId); });
+}
+
+function timelineBoxHtml(g, idPrefix){
+  const boxId = idPrefix ? ' id="' + idPrefix + g.id + '"' : "";
+  let html = '<div class="tl"' + boxId + '><h3><span class="badge ' + g.prio + '">' + g.id + '</span> ' + g.title + '</h3>';
+  if(g.sub){ html += '<p class="tl-sub">' + g.sub + '</p>'; }
+  html += '<ol>';
+  g.ev.forEach(function(e){
+    html += '<li' + (e.k ? ' class="ev-' + e.k + '"' : '') + '><span class="tl-date">' + e.d + '</span><span class="tl-body">' + e.t + '</span><span class="tl-src">Zdroj: ' + e.src + '</span></li>';
+  });
+  html += '</ol></div>';
+  return html;
+}
+
+function inlineTimelineDetailsForSection(s){
+  const groups = timelineGroupsForSection(s.id);
+  if(!groups.length) return "";
+  const count = groups.reduce(function(sum, g){ return sum + g.ev.length; }, 0);
+  return '<details class="timeline-details"><summary>Časová osa / důkazy k bodu ' + s.id + ' (' + groups.length + ' okruh' + (groups.length > 1 ? 'y' : '') + ', ' + count + ' událostí)</summary>' +
+    groups.map(function(g){ return timelineBoxHtml(g, 'tl-inline-' + s.id + '-'); }).join("") + '</details>';
+}
+
 function renderTimeline(root){
   const sec = document.createElement("section");
   sec.className = "card tl-card low";
   sec.id = "timeline";
   sec.setAttribute("data-anchor", "timeline");
   const h = document.createElement("h2");
-  h.innerHTML = '<span class="badge low">5</span> Časová osa jednotlivých problémů ' +
-    '<span class="prio-note">chronologie doložených kroků se zdroji a otevřenými otázkami</span>';
+  h.innerHTML = '<span class="badge low">5</span> Archiv celé časové osy ' +
+    '<span class="prio-note">sbaleno kvůli kratšímu scrollingu; dílčí časové osy jsou u jednotlivých bodů</span>';
   sec.appendChild(h);
-  const intro = document.createElement("p");
-  intro.className = "notes";
-  intro.innerHTML = "Chronologický přehled je samostatná část spisu. Slouží k rychlému dohledání data, zdroje a návaznosti jednotlivých incidentů před přípravou právních kroků.";
-  sec.appendChild(intro);
-  TIMELINE.forEach(function(g){
-    const box = document.createElement("div");
-    box.className = "tl";
-    box.id = "tl-" + g.id;
-    const gh = document.createElement("h3");
-    gh.innerHTML = '<span class="badge ' + g.prio + '">' + g.id + '</span> ' + g.title;
-    box.appendChild(gh);
-    if(g.sub){
-      const sub = document.createElement("p");
-      sub.className = "tl-sub";
-      sub.innerHTML = g.sub;
-      box.appendChild(sub);
-    }
-    const ol = document.createElement("ol");
-    g.ev.forEach(function(e){
-      const li = document.createElement("li");
-      if(e.k){ li.className = "ev-" + e.k; }
-      li.innerHTML = '<span class="tl-date">' + e.d + '</span><span class="tl-body">' + e.t + '</span>' +
-        '<span class="tl-src">Zdroj: ' + e.src + '</span>';
-      ol.appendChild(li);
-    });
-    box.appendChild(ol);
-    sec.appendChild(box);
-  });
-  const leg = document.createElement("p");
-  leg.className = "tl-legend";
-  leg.innerHTML = "Legenda: červený bod = klíčová skutečnost, oranžový = dílčí krok, modrý = informativní. " +
-    "Datace vycházejí z podkladů v repozitáři; u položek bez přesného data je uvedeno „bez data“.";
-  sec.appendChild(leg);
+  const details = document.createElement("details");
+  details.className = "timeline-details compact-archive";
+  details.innerHTML = '<summary>Rozbalit kompletní chronologický archiv (' + TIMELINE.length + ' okruhů)</summary>' +
+    '<p class="notes">Chronologický přehled zůstává zachovaný pro dohledání data, zdroje a návaznosti incidentů. V běžném čtení je sbalený, aby neduplikoval jednotlivé body A–O.</p>' +
+    TIMELINE.map(function(g){ return timelineBoxHtml(g, 'tl-'); }).join("") +
+    '<p class="tl-legend">Legenda: červený bod = klíčová skutečnost, oranžový = dílčí krok, modrý = informativní. Datace vycházejí z podkladů v repozitáři; u položek bez přesného data je uvedeno „bez data“.</p>';
+  sec.appendChild(details);
   root.appendChild(sec);
+}
+
+function closeOtherIncidentDetails(current){
+  Array.prototype.forEach.call(document.querySelectorAll("details.incident-details[open]"), function(d){
+    if(d !== current){ d.open = false; }
+  });
+}
+
+function openIncidentSection(id, scrollIntoView){
+  const sec = document.getElementById("sec-" + id);
+  if(!sec) return false;
+  const details = sec.querySelector("details.incident-details");
+  if(details){
+    details.open = true;
+    sec.classList.add("is-open");
+    closeOtherIncidentDetails(details);
+  }
+  if(scrollIntoView !== false){ sec.scrollIntoView({behavior:"smooth", block:"start"}); }
+  return true;
 }
 
 function render(){
@@ -841,16 +1063,35 @@ function render(){
   renderLegalIntro(root);
   SECTIONS.forEach(function(s, si){
     const sec = document.createElement("section");
-    sec.className = "card " + s.prio;
+    sec.className = "card incident-card " + s.prio;
     sec.id = "sec-" + s.id;
     sec.setAttribute("data-anchor", s.id);
+    const details = document.createElement("details");
+    details.className = "incident-details";
+    details.dataset.sectionId = s.id;
+    if(si === 0){ details.open = true; sec.classList.add("is-open"); }
+    details.addEventListener("toggle", function(){
+      sec.classList.toggle("is-open", details.open);
+      if(details.open){ closeOtherIncidentDetails(details); }
+    });
+    const summary = document.createElement("summary");
+    const heading = document.createElement("div");
+    heading.className = "incident-heading";
+    const kicker = document.createElement("span");
+    kicker.className = "incident-kicker";
+    kicker.textContent = "Incident / část případu";
     const h = document.createElement("h2");
     h.innerHTML = '<span class="badge ' + s.prio + '">' + s.id + '</span> ' + s.title +
       ' <span class="prio-note">' + prioLabel(s.prio) + '</span>';
-    sec.appendChild(h);
+    heading.appendChild(kicker);
+    heading.appendChild(h);
+    summary.appendChild(heading);
+    details.appendChild(summary);
+    const body = document.createElement("div");
+    body.className = "incident-body";
     const meta = document.createElement("div");
     meta.innerHTML = legalBoxForSection(s);
-    sec.appendChild(meta.firstChild);
+    body.appendChild(meta.firstChild);
     const list = document.createElement(s.ordered ? "ol" : "ul");
     if(!s.ordered){ list.style.listStyle = "none"; list.style.margin = "0"; list.style.padding = "0"; }
     s.items.forEach(function(it, ii){
@@ -895,33 +1136,73 @@ function render(){
       });
       const lab = document.createElement("label");
       lab.innerHTML = it.t;
-      const ta = document.createElement("textarea");
-      ta.className = "comment";
-      ta.placeholder = "Právní komentář / skutkové doplnění / výsledek jednání / důkaz…";
-      ta.value = state.comments[id] || "";
-      ta.addEventListener("input", function(){
-        state.comments[id] = ta.value;
+      const commentsGrid = document.createElement("div");
+      commentsGrid.className = "comment-grid";
+      const myField = document.createElement("div");
+      myField.className = "comment-field";
+      const myTitle = document.createElement("span");
+      myTitle.className = "comment-field-title";
+      myTitle.textContent = "Moje komentáře / vznesené dotazy";
+      const myTa = document.createElement("textarea");
+      myTa.className = "comment my-comment";
+      myTa.placeholder = "Moje poznámky, otázky pro výbor / advokáta, doplnění skutkového stavu…";
+      myTa.value = state.comments[id] || "";
+      myTa.addEventListener("input", function(){
+        state.comments[id] = myTa.value;
         saveState("Uloženo");
       });
+      const lawyerField = document.createElement("div");
+      lawyerField.className = "comment-field";
+      const lawyerTitle = document.createElement("span");
+      lawyerTitle.className = "comment-field-title";
+      lawyerTitle.textContent = "Odpověď advokáta / navazující postup";
+      const lawyerTa = document.createElement("textarea");
+      lawyerTa.className = "comment lawyer-comment";
+      lawyerTa.placeholder = "Odpověď advokáta, doporučený postup, právní závěr…";
+      lawyerTa.value = state.lawyerComments[id] || "";
+      lawyerTa.addEventListener("input", function(){
+        state.lawyerComments[id] = lawyerTa.value;
+        const nextStatus = statusFromLawyerComment(lawyerTa.value);
+        setStatus(id, nextStatus);
+        refreshStatusChecks(nextStatus);
+        saveState("Uloženo · stav upraven podle odpovědi advokáta");
+      });
+      myField.appendChild(myTitle);
+      myField.appendChild(myTa);
+      lawyerField.appendChild(lawyerTitle);
+      lawyerField.appendChild(lawyerTa);
+      commentsGrid.appendChild(myField);
+      commentsGrid.appendChild(lawyerField);
       const row = document.createElement("div");
       row.className = "row";
       const txt = document.createElement("div");
       txt.className = "txt";
+      const statusPanel = document.createElement("div");
+      statusPanel.className = "status-panel";
       txt.appendChild(lab);
-      txt.appendChild(statusTitle);
-      txt.appendChild(statusChecks);
+      statusPanel.appendChild(statusTitle);
+      statusPanel.appendChild(statusChecks);
       row.appendChild(txt);
+      row.appendChild(statusPanel);
       li.appendChild(row);
-      li.appendChild(ta);
+      li.appendChild(commentsGrid);
       list.appendChild(li);
     });
-    sec.appendChild(list);
+    body.appendChild(list);
     if(s.notes){
       const n = document.createElement("p");
       n.className = "notes";
       n.innerHTML = s.notes;
-      sec.appendChild(n);
+      body.appendChild(n);
     }
+    const tlHtml = inlineTimelineDetailsForSection(s);
+    if(tlHtml){
+      const tlWrap = document.createElement("div");
+      tlWrap.innerHTML = tlHtml;
+      body.appendChild(tlWrap.firstChild);
+    }
+    details.appendChild(body);
+    sec.appendChild(details);
     root.appendChild(sec);
   });
   renderTimeline(root);
@@ -985,7 +1266,11 @@ function buildText(exportDate){
       L.push(mark + " " + stripHtml(it.t));
       const c = (state.comments[id] || "").trim();
       if(c){
-        L.push("     Komentář: " + c.replace(/\n/g, "\n              "));
+        L.push("     Moje komentáře / dotazy: " + c.replace(/\n/g, "\n                            "));
+      }
+      const lc = (state.lawyerComments[id] || "").trim();
+      if(lc){
+        L.push("     Odpověď advokáta / postup: " + lc.replace(/\n/g, "\n                                "));
       }
     });
     if(s.notes){ L.push("  " + stripHtml(s.notes)); }
@@ -1032,16 +1317,20 @@ function staticTocHtml(){
   blocks.push('<div class="toc-cat"><h4>Přehledy</h4><ol>' + TOC_ANCHORS.map(function(a){
     return '<li><a href="#' + a.id + '"><span class="tid">' + a.tid + '</span>' + a.label + '</a></li>';
   }).join("") + '</ol></div>');
-  blocks.push('<div class="toc-cat"><h4>Časová osa</h4><ol><li><a href="#timeline"><span class="tid">5</span>Celá časová osa</a></li>' + TIMELINE.map(function(g){
-    return '<li><a href="#tl-' + g.id + '"><span class="tid">' + g.id + '</span>' + g.title + '</a></li>';
-  }).join("") + '</ol></div>');
+  blocks.push('<div class="toc-cat"><h4>Časová osa</h4><ol><li><a href="#timeline"><span class="tid">5</span>Sbalený archiv celé časové osy</a></li></ol></div>');
   return '<aside class="toc"><p class="toc-title">Navigace projektu SVJ</p>' + blocks.join("") + '</aside>';
 }
 
 function exportHtml(){
   const now = new Date().toLocaleString("cs-CZ");
   const css = document.querySelector("style").innerHTML;
-  const bodyHtml = document.getElementById("checklist").outerHTML;
+  const liveTextareas = Array.prototype.slice.call(document.querySelectorAll("#checklist textarea"));
+  const checklistClone = document.getElementById("checklist").cloneNode(true);
+  Array.prototype.forEach.call(checklistClone.querySelectorAll("textarea"), function(ta, idx){
+    const live = liveTextareas[idx];
+    ta.textContent = live ? live.value : ta.value;
+  });
+  const bodyHtml = checklistClone.outerHTML;
   const doc = "<!DOCTYPE html>\n<html lang=\"cs\">\n<head>\n<meta charset=\"utf-8\">\n" +
     "<title>SVJ U Beránky 2140 – index</title>\n<style>" + css + "\n</style>\n</head>\n<body>\n" +
     "<header class=\"page\"><div class=\"wrap\"><h1>MASTER DOKUMENT – Kompletní případ SVJ U Beránky 2140</h1>" +
@@ -1056,7 +1345,7 @@ function exportHtml(){
 
 function exportJson(){
   const now = new Date().toLocaleString("cs-CZ");
-  const data = {checks: state.checks, statuses: state.statuses, comments: state.comments, savedAt: new Date().toISOString()};
+  const data = {checks: state.checks, statuses: state.statuses, comments: state.comments, lawyerComments: state.lawyerComments, savedAt: new Date().toISOString()};
   download("checklist-svj-zaloha-2026-09-24.json", JSON.stringify(data, null, 2), "application/json");
   document.getElementById("saveInfo").textContent = "Záloha JSON vytvořena · " + now;
 }
@@ -1070,6 +1359,8 @@ function importJson(file){
         state.checks = data.checks || {};
         state.statuses = data.statuses || {};
         state.comments = data.comments || {};
+        state.lawyerComments = data.lawyerComments || data.advocateComments || {};
+        applyDefaultLawyerComments();
         render();
         saveState("Obnoveno ze zálohy");
       }else{
@@ -1082,21 +1373,45 @@ function importJson(file){
   reader.readAsText(file);
 }
 
+const VIEW_STORE_KEY = "svj-checklist-view-2026-09-24";
+function isCompactMode(){
+  try{ return localStorage.getItem(VIEW_STORE_KEY) !== "detail"; }catch(e){ return true; }
+}
+function applyCompactMode(){
+  const compact = isCompactMode();
+  document.body.classList.toggle("compact-mode", compact);
+  const btn = document.getElementById("btnCompact");
+  if(btn){
+    btn.textContent = compact ? "Kompaktní režim" : "Detailní režim";
+    btn.classList.toggle("toggle-on", compact);
+    btn.title = compact ? "Kompaktní zobrazení ponechává komentáře viditelné; kliknutím přepnete na detailní režim" : "Detailní zobrazení včetně právních boxů; kliknutím přepnete na kompaktní režim";
+  }
+}
+function toggleCompactMode(){
+  const nextCompact = !document.body.classList.contains("compact-mode");
+  try{ localStorage.setItem(VIEW_STORE_KEY, nextCompact ? "compact" : "detail"); }catch(e){}
+  applyCompactMode();
+}
+
 /* Inicializace */
 loadState();
+applyCompactMode();
 render();
 document.getElementById("loginForm").addEventListener("submit", handleLogin);
 document.getElementById("btnLogout").addEventListener("click", function(){ sessionStorage.removeItem(AUTH_STORE_KEY); document.body.classList.remove("is-authenticated"); });
+document.getElementById("btnCompact").addEventListener("click", toggleCompactMode);
+window.addEventListener("resize", updateTopbarHeight);
 document.getElementById("btnSave").addEventListener("click", function(){ saveState("Uloženo"); });
 document.getElementById("btnBackup").addEventListener("click", exportJson);
 document.getElementById("btnTXT").addEventListener("click", exportTxt);
 document.getElementById("btnHTML").addEventListener("click", exportHtml);
 document.getElementById("btnPrint").addEventListener("click", function(){ window.print(); });
 document.getElementById("btnReset").addEventListener("click", function(){
-  if(confirm("Opravdu smazat všechna zaškrtnutí a komentáře? Tato akce je nevratná.")){
+  if(confirm("Opravdu smazat všechna zaškrtnutí, moje komentáře/dotazy i odpovědi advokáta? Tato akce je nevratná.")){
     state.checks = {};
     state.statuses = {};
     state.comments = {};
+    state.lawyerComments = {};
     render();
     saveState("Smazáno");
   }
