@@ -19,7 +19,7 @@ Cílem je, aby každý bod checklistu byl **doložený, ověřitelný a právně
 
 ## 2. Struktura repozitáře a pojmenování
 
-- Struktura repozitáře (detail v `README.md`): `00-pravidla/` – pravidla a checklist, `01-zapisy/` – zápisy a nahrávky, `02-dokumenty/` – oficiální dokumenty (vč. `stanovy/`, plných mocí, oznámení a výzev), `03-podklady-dukyzy/` – důkazy pro advokáta (vč. `vyuctovani-2024/`, `vyuctovani-2025/`, `datove-schranky/`, `attachments/`, `fotky/`), `04-stiznosti/` – stížnosti, `x-duplicates/` – starší verze a přesné kopie (archiv, nevstupuje do postupu), `tools/` – nástroje.
+- Struktura repozitáře (detail v `README.md`): `00-pravidla/` – pravidla a checklist, `01-zapisy/` – zápisy a nahrávky, `02-dokumenty/` – oficiální dokumenty (vč. `stanovy/`, plných mocí, oznámení a výzev), `03-podklady-dukazy/` – důkazy pro advokáta (vč. `vyuctovani-2024/`, `vyuctovani-2025/`, `datove-schranky/`, `attachments/`, `fotky/`), `04-stiznosti/` – stížnosti, `x-duplicates/` – starší verze a přesné kopie (archiv, nevstupuje do postupu), `tools/` – nástroje.
 - **Originální dokumenty se nikdy nepřepisují.** Pracovní poznámky se ukládají do samostatných `.md` souborů.
 - Nové soubory pojmenovávat ve tvaru `YYYY-MM-DD-popis.obsah` (např. `2026-09-23 vyuctovani-teplo-kalkulace.pdf`). Existující soubory si ponechávají původní jména (dokumentovaná výjimka, dokud nedojde k jednorázovému přejmenování).
 - Každý nový soubor uvést v Changelogu tohoto dokumentu (datum, název, zdroj, čím byl doložen).
@@ -39,7 +39,7 @@ Každý nový bod musí obsahovat všech pět částí (jinak bod není zařazen
 
 ```markdown
 - [ ] **<Stručný název / požadavek>:** <popis vč. částek, dat, ID zpráv>.
-  - **Podklady:** `03-podklady-dukyzy/…` (datum, strana / ID zprávy DS)
+  - **Podklady:** `03-podklady-dukazy/…` (datum, strana / ID zprávy DS)
   - **Právní rámec:** § … OZ (ověřeno dne … / ke ověření)
   - **Požadavek:** <formulace usnesení + lhůta>
   - **Priorita:** 🔴
@@ -51,7 +51,7 @@ Odpovídající zápis do HTML (`00-pravidla/checklist-porada-svj.html`, pole `i
 // sekce s id "A" …
 items:[
   {t:"…existující položky…"},
-  {t:"<b>Titulek / požadavek:</b> popis … <em>(Podklady: 03-podklady-dukyzy/…; Právní rámec: § … OZ)</em>"}
+  {t:"<b>Titulek / požadavek:</b> popis … <em>(Podklady: 03-podklady-dukazy/…; Právní rámec: § … OZ)</em>"}
 ]
 ```
 
@@ -59,7 +59,7 @@ items:[
 
 1. **Zařazení** – přidávat pouze materiály s doloženým zdrojem (originál, oficiální kopie, potvrzení o doručení DS). Nepotvrzená tvrzení označit jako „nezjištěno“ a nezařazovat jako fakt.
 2. **Kontrola čísel** – částky z vyúčtování (bod D: SLUŽBY obj. 4, GARÁŽ obj. 704) vždy přepočítat proti PDF a uvést zdroj; počítat s přeplatky 58 548 Kč a zadrženými 27 000 Kč.
-3. **Právní kontrola** – právní odkazy před jednáním konzultovat s advokátem (Mgr. Martin Panuška, CAK 13030; plná moc `02-dokumenty/PlnaMoc.pdf` z 18. 5. 2026, jednotky 2140/9 a 2140/12). Další kontakty: Lucie Pražáková / bytovadruzstva.cz dle `03-podklady-dukyzy/Kata info.md`.
+3. **Právní kontrola** – právní odkazy před jednáním konzultovat s advokátem (Mgr. Martin Panuška, CAK 13030; plná moc `02-dokumenty/PlnaMoc.pdf` z 18. 5. 2026, jednotky 2140/9 a 2140/12). Další kontakty: Lucie Pražáková / bytovadruzstva.cz dle `03-podklady-dukazy/Kata info.md`.
 4. **Zapracování** – nový bod přidat **souběžně do MD i HTML** (oba soubory musí zůstat obsahově totožné) a zapsat Changelog (níže).
 5. **Předání** – alespoň 1 den před schůzí (do 23. 9. 2026) vygenerovat export pro advokáta (HTML/PDF) a vytisknout pracovní kopii.
 
@@ -82,7 +82,7 @@ items:[
 
 ## 6. Pravidla komunikace přes datovou schránku
 
-- Každé podání zaevidovat: **věc, datum odeslání, ID zprávy, potvrzení o doručení (PDZ)** – ukládat do `03-podklady-dukyzy/datove-schranky/` (viz vzor `03-podklady-dukyzy/datove-schranky/Datové schránky.pdf`).
+- Každé podání zaevidovat: **věc, datum odeslání, ID zprávy, potvrzení o doručení (PDZ)** – ukládat do `03-podklady-dukazy/datove-schranky/` (viz vzor `03-podklady-dukazy/datove-schranky/Datové schránky.pdf`).
 - Text zprávy připravit exportem **„Export pro datovou schránku (.txt)“** z HTML checklistu (vložit do těla zprávy, případně přiložit i jako přílohu); právní podání vždy jako **PDF z tisku** („Tisk / uložit jako PDF“).
 - Ponechávat kopii každé odeslané zprávy a lhůtu na odpověď si poznamenat do komentáře příslušného bodu.
 - Na nezodpovězená podání (6 ks dle checklistu) upozornit výbor i advokáta; po 30 dnech eskalovat.
@@ -105,7 +105,7 @@ items:[
 |---|---|
 | Správce repozitáře a checklistu | Petr Ullmann |
 | Advokátní zastoupení | Mgr. Martin Panuška, CAK 13030 – `02-dokumenty/PlnaMoc.pdf` (18. 5. 2026) |
-| Konzultace problematiky SVJ | Lucie Pražáková, bytovadruzstva.cz (dle `03-podklady-dukyzy/Kata info.md`) |
+| Konzultace problematiky SVJ | Lucie Pražáková, bytovadruzstva.cz (dle `03-podklady-dukazy/Kata info.md`) |
 | Polic ČR (konzultace vydírání) | `orp1.mop.vokovice.podatelna@pcr.cz` (dle `04-stiznosti/policie.md`) |
 
 ## 10. Minimální checklist ověření během schůze
@@ -125,5 +125,5 @@ items:[
 | Datum | Autor | Změna | Zdroj |
 |---|---|---|---|
 | 22. 9. 2026 | P. Ullmann | Vznik dokumentu (verze 1.0) | `checklist-porada-svj.md`, `info.md` |
-| 22. 9. 2026 | P. Ullmann | Reorganizace repozitáře: `docs/` → `00-pravidla/`–`04-stiznosti/`, aktualizace všech cest; `info.md` → `03-podklady-dukyzy/analyza-stanov.md` (detail v `README.md`) | `README.md` |
+| 22. 9. 2026 | P. Ullmann | Reorganizace repozitáře: `docs/` → `00-pravidla/`–`04-stiznosti/`, aktualizace všech cest; `info.md` → `03-podklady-dukazy/analyza-stanov.md` (detail v `README.md`) | `README.md` |
 | 22. 9. 2026 | P. Ullmann | Dohledání podkladů z `xx/`: 60 souborů zařazeno do `01-…`–`04-…`, 41 duplicit (shodný SHA1 / starší verze dle data) → `x-duplicates/xx/`, smazán jen IDE odpad `.idea/`; ověřeno SHA1 a existencí cest | import `xx/` |
