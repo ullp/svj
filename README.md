@@ -35,19 +35,20 @@ https://UZIVATEL.github.io/REPO/0-data/pravni-pripady/
 
 Všechny odkazy jsou relativní, aplikace proto funguje i v podadresáři GitHub Pages.
 
-## Profily a aktualizace od uživatelů
+## Profily a automatická databázová synchronizace
 
-Aplikace je bez backendu. Na GitHub Pages tedy sama nemůže zapisovat změny do repozitáře. Změny se ukládají lokálně v prohlížeči (`localStorage`) a mezi uživateli se předávají přes JSON:
+Aplikace zůstává statická a funguje na GitHub Pages bez vlastního serveru. Sdílená „databáze“ je JSON soubor `0-data/pravni-pripady/pravni-pripady-stav.json` uložený přímo v GitHub repozitáři. Web ho čte a zapisuje přes GitHub Contents API, takže po dokončení editace se změny automaticky sloučí a uloží pro ostatní profily.
 
-1. Uživatel vyplní **Synchronizace profilů → Jméno profilu**.
-2. Provede změny v komentářích, stavech, checklistech nebo editacích.
-3. Klikne na **Export celého stavu** a pošle soubor `pravni-pripady-stav.json` správci.
-4. Správce nebo jiný uživatel použije **Import JSON**. Import změny slučuje:
-   - komentáře podle ID,
-   - stavy/checklisty/editace podle importovaného souboru,
-   - historii zachová jako součást importu.
+Postup nastavení v prohlížeči každého uživatele, který má zapisovat:
 
-Pokud je soubor `pravni-pripady-stav.json` umístěn vedle `index.html` a aplikace běží přes HTTP(S), načte se při prvním otevření jako výchozí stav.
+1. V GitHubu vytvořte **fine-grained personal access token** pro tento repozitář s oprávněním **Contents: Read and write**.
+2. Přihlaste se do aplikace a otevřete **Databáze → Nastavit GitHub DB**.
+3. Vyplňte vlastníka repozitáře, název repozitáře, větev (`main`), cestu `0-data/pravni-pripady/pravni-pripady-stav.json` a token.
+4. Od této chvíle aplikace při otevření načítá sdílený stav a při uložení komentářů, stavů, checklistů, editací a historie spouští automatickou synchronizaci. Ruční export/import už není potřeba.
+
+Synchronizace před zápisem vždy načte aktuální soubor z GitHubu, sloučí ho s lokálními změnami a při konfliktu zápisu (`409 Conflict`) provede nové načtení a opakuje zápis až třikrát. V horní liště se zobrazuje stav: lokální režim, čekající změna, synchronizace, úspěch nebo chyba.
+
+Token se ukládá pouze lokálně do `localStorage` daného prohlížeče. Pokud GitHub databáze není nastavena, aplikace dál funguje lokálně a při prvním otevření přes HTTP(S) načte výchozí soubor `pravni-pripady-stav.json`.
 
 ## Přihlášení
 
