@@ -1,11 +1,11 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T20:28:04.563Z",
+  "exportedAt": "2026-09-27T20:33:39.381Z",
   "profile": {
     "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T20:28:04.563Z"
+    "updatedAt": "2026-09-27T20:33:39.381Z"
   },
   "role": "admin",
   "comments": {},
@@ -20,10 +20,27 @@
     }
   },
   "checklist": {},
-  "edits": {},
-  "history": {},
+  "edits": {
+    "souhrnne-stiznosti": {
+      "problem": "<ol><li>role předsedy SVJ je rolí nezastupitelnou</li><li>Václav Hodek se prokazoval plnou mocí od syna Pavla Hodka min. od roku 2011</li><li>Pan Hodek st. V. si vyloženě po celou dobu vybíral co se bude realizovat a co ne, viz. zateplení a kotelna (Martinec na kotelnu upozorňoval mnoho let).</li></ol>"
+    }
+  },
+  "history": {
+    "souhrnne-stiznosti": [
+      {
+        "id": "cmuka0dui7ww0cw",
+        "at": "2026-09-27T20:33:37.818Z",
+        "role": "admin",
+        "field": "problem",
+        "action": "edit",
+        "oldValue": "Doplnit podle podkladů ve složce případu.",
+        "newValue": "<ol><li>role předsedy SVJ je rolí nezastupitelnou</li><li>Václav Hodek se prokazoval plnou mocí od syna Pavla Hodka min. od roku 2011</li><li>Pan Hodek st. V. si vyloženě po celou dobu vybíral co se bude realizovat a co ne, viz. zateplení a kotelna (Martinec na kotelnu upozorňoval mnoho let).</li></ol>",
+        "file": "stiznosti/popis-stiznosti-template.md"
+      }
+    ]
+  },
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T20:28:04.563Z",
-  "syncReason": "první synchronizace",
+  "syncedAt": "2026-09-27T20:33:39.381Z",
+  "syncReason": "historie",
   "syncAttempt": 1
 }
