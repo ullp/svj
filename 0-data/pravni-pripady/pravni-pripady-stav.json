@@ -1,11 +1,11 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T21:04:30.469Z",
+  "exportedAt": "2026-09-27T21:40:31.691Z",
   "profile": {
     "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T21:04:30.469Z"
+    "updatedAt": "2026-09-27T21:40:31.691Z"
   },
   "role": "admin",
   "comments": {},
@@ -34,6 +34,9 @@
     },
     "souhrnne-stiznosti": {
       "problem": "<ol><li>role předsedy SVJ je rolí nezastupitelnou</li><li>Václav Hodek se prokazoval plnou mocí od syna Pavla Hodka min. od roku 2011</li><li>Pan Hodek st. V. si vyloženě po celou dobu vybíral co se bude realizovat a co ne, viz. zateplení a kotelna (Martinec na kotelnu upozorňoval mnoho let).</li></ol>"
+    },
+    "zastupovani-predsedy-svj-otcem": {
+      "problem": "<div>Václav Hodek se prokazoval plnou mocí od syna Pavla Hodka min. od roku 2011<br>Pan Hodek st. V. si vyloženě po celou dobu vybíral co se bude realizovat a co ne, viz. zateplení a kotelna (Martinec na kotelnu upozorňoval mnoho let).</div>"
     }
   },
   "history": {
@@ -60,6 +63,18 @@
         "newValue": "<ol><li>role předsedy SVJ je rolí nezastupitelnou</li><li>Václav Hodek se prokazoval plnou mocí od syna Pavla Hodka min. od roku 2011</li><li>Pan Hodek st. V. si vyloženě po celou dobu vybíral co se bude realizovat a co ne, viz. zateplení a kotelna (Martinec na kotelnu upozorňoval mnoho let).</li></ol>",
         "file": "stiznosti/popis-stiznosti-template.md"
       }
+    ],
+    "zastupovani-predsedy-svj-otcem": [
+      {
+        "id": "cmukcedx4md9ho3",
+        "at": "2026-09-27T21:40:30.328Z",
+        "role": "admin",
+        "field": "problem",
+        "action": "edit",
+        "oldValue": "Doplnit podle podkladů ve složce případu.",
+        "newValue": "<div>Václav Hodek se prokazoval plnou mocí od syna Pavla Hodka min. od roku 2011<br>Pan Hodek st. V. si vyloženě po celou dobu vybíral co se bude realizovat a co ne, viz. zateplení a kotelna (Martinec na kotelnu upozorňoval mnoho let).</div>",
+        "file": "stiznosti/zastupovani-predsedy-svj-otcem/popis-stiznosti-zastupovani-predsedy-svj-otcem.md"
+      }
     ]
   },
   "customCases": [],
@@ -84,7 +99,7 @@
     ]
   },
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T21:04:30.469Z",
-  "syncReason": "čekající změny",
+  "syncedAt": "2026-09-27T21:40:31.691Z",
+  "syncReason": "historie",
   "syncAttempt": 1
 }
