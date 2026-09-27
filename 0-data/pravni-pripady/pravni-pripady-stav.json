@@ -1,11 +1,11 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T23:44:18.189Z",
+  "exportedAt": "2026-09-27T23:52:36.608Z",
   "profile": {
     "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T23:44:18.189Z"
+    "updatedAt": "2026-09-27T23:52:36.607Z"
   },
   "role": "admin",
   "comments": {
@@ -71,6 +71,19 @@
     },
     "zastupovani-predsedy-svj-otcem": {
       "problem": "<div>Václav Hodek se prokazoval plnou mocí od syna Pavla Hodka min. od roku 2011<br>Pan Hodek st. V. si vyloženě po celou dobu vybíral co se bude realizovat a co ne, viz. zateplení a kotelna (Martinec na kotelnu upozorňoval mnoho let).</div>"
+    },
+    "vyhrozovani-pavlem-hodkem": {
+      "title": "Vyhrozovani předsedou Pavlem Hodkem",
+      "popis": "Vyhrožování Pavlem Hodkem Pavel Hodek v rámci mého dotazu na stav řešení oprav balkonů mi vyhrožoval po předposlední schůzi SVJ v přítomnosti syna. Pavel mi již v afektu formou křičení před domem u aut sdělil, že mu nebudu říkat co má dělat. Odpověděl jsem, že to by měl dělat by měl vědět sám a ne si o tom nechat radit za zády od pana Husárka nebo jeho otce, který opravy rozporuje vzhledem k prohlášení které si kdyby odsouhlasili v rámci kterého si bude každý své balkony spravovat sám. K tomu by však potřeboval provést změnu na stavebním úřadě v prohlášení vlastníka. K tomu by však potřeboval plný počet hlasů, který tehdy neměl, respektive jsem o tom přesvědčen např. u paní Vodičkové, která svůj byt pronajímá a schůze nechodí a vyždy se omlouvala. Pokračoval jsem se synem dál v cestě, ale Pavel sedl do auta a dojel nás na rohu ulice, kde na mne křičel, \"Chceš v tomhle žít?\" a dále mi vyh…",
+      "problem": "Doplnit podle podkladů ve složce případu.",
+      "reakce_svj": "Doplnit podle podkladů ve složce případu.",
+      "uskutecnene_kroky": "Doplnit podle podkladů ve složce případu.",
+      "aktualni_vyhled": "Doplnit podle podkladů ve složce případu.",
+      "skutkovy_zaklad": "Vyhrožování Pavlem Hodkem Pavel Hodek v rámci mého dotazu na stav řešení oprav balkonů mi vyhrožoval po předposlední schůzi SVJ v přítomnosti syna. Pavel mi již v afektu formou křičení před domem u aut sdělil, že mu nebudu říkat co má dělat. Odpověděl jsem, že to by měl dělat by měl vědět sám a ne si o tom nechat radit za zády od pana Husárka nebo jeho otce, který opravy rozporuje vzhledem k prohlášení které si kdyby odsouhlasili v rámci kterého si bude každý své balkony spravovat sám. K tomu by však potřeboval provést změnu na stavebním úřadě v prohlášení vlastníka. K tomu by však potřeboval plný počet hlasů, který tehdy neměl, respektive jsem o tom přesvědčen např. u paní Vodičkové, která svůj byt pronajímá a schůze nechodí a vyždy se omlouvala. Pokračoval jsem se synem dál v cestě, ale Pavel sedl do auta a dojel nás na rohu ulice, kde na mne křičel, \"Chceš v tomhle žít?\" a dále mi vyh…",
+      "pravni_otazky": "",
+      "mozne_naroky": "",
+      "pravni_sablona": "",
+      "pravni_doplneni": ""
     }
   },
   "history": {
@@ -108,6 +121,18 @@
         "oldValue": "Doplnit podle podkladů ve složce případu.",
         "newValue": "<div>Václav Hodek se prokazoval plnou mocí od syna Pavla Hodka min. od roku 2011<br>Pan Hodek st. V. si vyloženě po celou dobu vybíral co se bude realizovat a co ne, viz. zateplení a kotelna (Martinec na kotelnu upozorňoval mnoho let).</div>",
         "file": "stiznosti/zastupovani-predsedy-svj-otcem/popis-stiznosti-zastupovani-predsedy-svj-otcem.md"
+      }
+    ],
+    "vyhrozovani-pavlem-hodkem": [
+      {
+        "id": "cmukh48d1rjxnd3",
+        "at": "2026-09-27T23:52:34.645Z",
+        "role": "admin",
+        "field": "case",
+        "action": "edit-case",
+        "oldValue": "Nadpis: Vyhrozovani pavlem hodkem\n\nPopis\nVyhrožování Pavlem Hodkem Pavel Hodek v rámci mého dotazu na stav řešení oprav balkonů mi vyhrožoval po předposlední schůzi SVJ v přítomnosti syna. Pavel mi již v afektu formou křičení před domem u aut sdělil, že mu nebudu říkat co má dělat. Odpověděl jsem, že to by měl dělat by měl vědět sám a ne si o tom nechat radit za zády od pana Husárka nebo jeho otce, který opravy rozporuje vzhledem k prohlášení které si kdyby odsouhlasili v rámci kterého si bude každý své balkony spravovat sám. K tomu by však potřeboval provést změnu na stavebním úřadě v prohlášení vlastníka. K tomu by však potřeboval plný počet hlasů, který tehdy neměl, respektive jsem o tom přesvědčen např. u paní Vodičkové, která svůj byt pronajímá a schůze nechodí a vyždy se omlouvala. Pokračoval jsem se synem dál v cestě, ale Pavel sedl do auta a dojel nás na rohu ulice, kde na mne křičel, \"Chceš v tomhle žít?\" a dále mi vyh…\n\nProblém\nDoplnit podle podkladů ve složce případu.\n\nReakce SVJ\nDoplnit podle podkladů ve složce případu.\n\nUskutečněné kroky\nDoplnit podle podkladů ve složce případu.\n\nAktuální výhled situace\nDoplnit podle podkladů ve složce případu.\n\nSkutkový základ\nVyhrožování Pavlem Hodkem Pavel Hodek v rámci mého dotazu na stav řešení oprav balkonů mi vyhrožoval po předposlední schůzi SVJ v přítomnosti syna. Pavel mi již v afektu formou křičení před domem u aut sdělil, že mu nebudu říkat co má dělat. Odpověděl jsem, že to by měl dělat by měl vědět sám a ne si o tom nechat radit za zády od pana Husárka nebo jeho otce, který opravy rozporuje vzhledem k prohlášení které si kdyby odsouhlasili v rámci kterého si bude každý své balkony spravovat sám. K tomu by však potřeboval provést změnu na stavebním úřadě v prohlášení vlastníka. K tomu by však potřeboval plný počet hlasů, který tehdy neměl, respektive jsem o tom přesvědčen např. u paní Vodičkové, která svůj byt pronajímá a schůze nechodí a vyždy se omlouvala. Pokračoval jsem se synem dál v cestě, ale Pavel sedl do auta a dojel nás na rohu ulice, kde na mne křičel, \"Chceš v tomhle žít?\" a dále mi vyh…\n\nPrávní otázky\n\nMožné nároky / kroky\n\nPrávní šablona případu\n\nCo doplnit pro advokáta\n",
+        "newValue": "Nadpis: Vyhrozovani předsedou Pavlem Hodkem\n\nPopis\nVyhrožování Pavlem Hodkem Pavel Hodek v rámci mého dotazu na stav řešení oprav balkonů mi vyhrožoval po předposlední schůzi SVJ v přítomnosti syna. Pavel mi již v afektu formou křičení před domem u aut sdělil, že mu nebudu říkat co má dělat. Odpověděl jsem, že to by měl dělat by měl vědět sám a ne si o tom nechat radit za zády od pana Husárka nebo jeho otce, který opravy rozporuje vzhledem k prohlášení které si kdyby odsouhlasili v rámci kterého si bude každý své balkony spravovat sám. K tomu by však potřeboval provést změnu na stavebním úřadě v prohlášení vlastníka. K tomu by však potřeboval plný počet hlasů, který tehdy neměl, respektive jsem o tom přesvědčen např. u paní Vodičkové, která svůj byt pronajímá a schůze nechodí a vyždy se omlouvala. Pokračoval jsem se synem dál v cestě, ale Pavel sedl do auta a dojel nás na rohu ulice, kde na mne křičel, \"Chceš v tomhle žít?\" a dále mi vyh…\n\nProblém\nDoplnit podle podkladů ve složce případu.\n\nReakce SVJ\nDoplnit podle podkladů ve složce případu.\n\nUskutečněné kroky\nDoplnit podle podkladů ve složce případu.\n\nAktuální výhled situace\nDoplnit podle podkladů ve složce případu.\n\nSkutkový základ\nVyhrožování Pavlem Hodkem Pavel Hodek v rámci mého dotazu na stav řešení oprav balkonů mi vyhrožoval po předposlední schůzi SVJ v přítomnosti syna. Pavel mi již v afektu formou křičení před domem u aut sdělil, že mu nebudu říkat co má dělat. Odpověděl jsem, že to by měl dělat by měl vědět sám a ne si o tom nechat radit za zády od pana Husárka nebo jeho otce, který opravy rozporuje vzhledem k prohlášení které si kdyby odsouhlasili v rámci kterého si bude každý své balkony spravovat sám. K tomu by však potřeboval provést změnu na stavebním úřadě v prohlášení vlastníka. K tomu by však potřeboval plný počet hlasů, který tehdy neměl, respektive jsem o tom přesvědčen např. u paní Vodičkové, která svůj byt pronajímá a schůze nechodí a vyždy se omlouvala. Pokračoval jsem se synem dál v cestě, ale Pavel sedl do auta a dojel nás na rohu ulice, kde na mne křičel, \"Chceš v tomhle žít?\" a dále mi vyh…\n\nPrávní otázky\n\nMožné nároky / kroky\n\nPrávní šablona případu\n\nCo doplnit pro advokáta\n",
+        "file": "stiznosti/vyhrozovani-pavlem-hodkem/popis-stiznosti-vyhrozovani-pavlem-hodkem.md"
       }
     ]
   },
@@ -153,7 +178,7 @@
     ]
   },
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T23:44:18.189Z",
-  "syncReason": "čekající změny",
+  "syncedAt": "2026-09-27T23:52:36.608Z",
+  "syncReason": "historie",
   "syncAttempt": 1
 }
