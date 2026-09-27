@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Přihlášení – právní případy SVJ</title>
+  <style>
+    :root{--accent:#0b57d0;--bg:#f4f5f7;--card:#fff;--ink:#1b1b1f;--line:#dfe3e8;--muted:#5f6368;--red:#b3261e;--green:#2e7d32}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(135deg,#eef3ff,var(--bg));color:var(--ink)}
+    main{width:min(520px,calc(100vw - 32px));background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 50px rgba(31,42,68,.12);padding:24px}
+    h1{margin:0 0 8px;font-size:1.45rem}.muted{color:var(--muted);font-size:.92rem}label{display:block;font-weight:700;margin:14px 0 6px}select,input{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}.row label{display:inline-flex;align-items:center;gap:7px;margin:0;font-weight:400}.row input[type=checkbox]{width:auto}button,a.button{font:inherit;padding:9px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);text-decoration:none;cursor:pointer}button.primary{background:var(--accent);border-color:var(--accent);color:#fff}.msg{margin-top:12px;font-weight:700}.err{color:var(--red)}.ok{color:var(--green)}code{background:#eef1f5;padding:1px 5px;border-radius:5px}.hint{margin-top:16px;padding:10px;border:1px dashed var(--line);border-radius:10px;background:#fbfcff}
+  </style>
+</head>
+<body>
+<main>
+  <h1>Přihlášení do právních případů</h1>
+  <p class="muted">Vyberte roli a přihlaste se. Bez přihlášení je index dostupný jen pro čtení jako <code>viewer</code>.</p>
+  <label for="role">Role</label>
+  <select id="role">
+    <option value="admin">admin</option>
+    <option value="advokat-a">advokát strany A</option>
+    <option value="advokat-b">advokát strany B</option>
+  </select>
+  <label for="username">Login</label>
+  <input id="username" autocomplete="username" placeholder="Login">
+  <label for="password">Heslo</label>
+  <input id="password" type="password" autocomplete="current-password" placeholder="Heslo">
+  <div class="row">
+    <label><input id="remember" type="checkbox"> pamatovat 8 hodin</label>
+  </div>
+  <div class="row">
+    <button class="primary" type="button" onclick="submitLogin()">Přihlásit</button>
+    <a class="button" href="index.html">Zpět na index</a>
+  </div>
+  <div id="message" class="msg"></div>
+  <div class="hint muted">Pozn.: u statické HTML stránky jde o lokální ochranu UI v prohlížeči, nikoli o serverovou autentizaci.</div>
+</main>
+<script>
+const SESSION_KEY='pravni_pripady_login_session_v2';
+const ROLE_KEY='pravni_pripady_role_v2';
+const ROLE_ACCOUNTS={
+  admin:{username:'admin',passwordHash:'ac70047db82e797c1670e1281cd270ecd99983bc266e250cc2d2d8a7195fc2f6'},
+  'advokat-a':{username:'advokat-a',passwordHash:'1101add35730dc5d99656d2e623767cf02264506d82eac7ab8d7949920a5ebae'},
+  'advokat-b':{username:'advokat-b',passwordHash:'dba1a67da7b36aa84f7f56a5651349ea771d39aef296ef5be6b3e055c1017821'}
+};
+function roleLabel(role){return ({admin:'admin','advokat-a':'advokát strany A','advokat-b':'advokát strany B',viewer:'viewer'})[role]||role;}
+async function hashText(text){const enc=new TextEncoder().encode(text); const digest=await crypto.subtle.digest('SHA-256',enc); return [...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('');}
+function setMsg(text,ok=false){const el=document.getElementById('message'); el.textContent=text; el.className='msg '+(ok?'ok':'err');}
+async function submitLogin(){const role=document.getElementById('role').value; const account=ROLE_ACCOUNTS[role]; const username=document.getElementById('username').value.trim(); const password=document.getElementById('password').value; if(!account){setMsg('Neplatná role.'); return;} if(username!==account.username){setMsg('Neplatný login pro zvolenou roli.'); return;} const hash=await hashText(password); if(hash!==account.passwordHash){setMsg('Neplatné heslo.'); return;} const remember=document.getElementById('remember').checked; const ttl=remember?8*60*60*1000:2*60*60*1000; localStorage.setItem(SESSION_KEY,JSON.stringify({role,username,loginAt:new Date().toISOString(),expiresAt:Date.now()+ttl})); localStorage.setItem(ROLE_KEY,role); setMsg('Přihlášeno jako '+roleLabel(role)+'. Přesměrovávám…',true); setTimeout(()=>{location.href='index.html';},350);}
+function syncLogin(){const role=document.getElementById('role').value; document.getElementById('username').value=ROLE_ACCOUNTS[role].username; document.getElementById('password').focus();}
+document.getElementById('role').addEventListener('change',syncLogin);
+document.addEventListener('keydown',e=>{if(e.key==='Enter')submitLogin();});
+syncLogin();
+</script>
+</body>
+</html>
