@@ -1,14 +1,28 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T21:50:29.643Z",
+  "exportedAt": "2026-09-27T21:52:00.975Z",
   "profile": {
     "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T21:50:29.643Z"
+    "updatedAt": "2026-09-27T21:52:00.975Z"
   },
   "role": "admin",
-  "comments": {},
+  "comments": {
+    "zastupovani-predsedy-svj-otcem": [
+      {
+        "id": "cmukct5roixo3fu",
+        "parentId": null,
+        "author": "admin",
+        "authorRole": "admin",
+        "authorLogin": "admin",
+        "replyToAuthor": null,
+        "replyToId": null,
+        "text": "test",
+        "created": "2026-09-27T21:51:59.604Z"
+      }
+    ]
+  },
   "statuses": {
     "vyhrozovani-pavlem-hodkem": {
       "svj": "bez odezvy",
@@ -104,7 +118,7 @@
     ]
   },
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T21:50:29.643Z",
-  "syncReason": "čekající změny",
+  "syncedAt": "2026-09-27T21:52:00.975Z",
+  "syncReason": "komentáře",
   "syncAttempt": 1
 }
