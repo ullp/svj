@@ -1,11 +1,11 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T21:41:00.226Z",
+  "exportedAt": "2026-09-27T21:50:27.118Z",
   "profile": {
     "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T21:41:00.226Z"
+    "updatedAt": "2026-09-27T21:50:27.118Z"
   },
   "role": "admin",
   "comments": {},
@@ -27,7 +27,11 @@
       "law": "Vymahatelné"
     }
   },
-  "checklist": {},
+  "checklist": {
+    "zastupovani-predsedy-svj-otcem::legal-point::58": {
+      "yn": "ano"
+    }
+  },
   "edits": {
     "energie": {
       "popis": "Od roku 2021 jsem platil pravidelně jak příspěvek do \"hotovostního\" fondu oprav, tak i vyměřenou výši předepsané výše záloh, které kromě jiného zahrnují SVJ vyměřené výše záloh za vodu a topení. V roce 2024 jsem si všiml, že stále platím stejnou výši záloh za vodu jako v případě jednotky, kde spotřeba je objektivně vyšší v nepoměru k mé spotřebě.&nbsp;Na toto jsem se informoval u pana V. Hodka, který zprvu mou připomínku odmítl a až později na mé opakované žádosti změnu provedl a snížil u mne a obecně i u ostatních jednotek výši záloh. Nicméně v následujícím roce 2025 došlo k navýšení, které nebylo objektivně podloženo."
@@ -77,6 +81,7 @@
       }
     ]
   },
+  "addedEvidence": {},
   "customCases": [],
   "casePrefs": {
     "priorities": {},
@@ -99,7 +104,7 @@
     ]
   },
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T21:41:00.226Z",
-  "syncReason": "historie",
+  "syncedAt": "2026-09-27T21:50:27.118Z",
+  "syncReason": "checklist",
   "syncAttempt": 1
 }
