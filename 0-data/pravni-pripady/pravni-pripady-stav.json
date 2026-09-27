@@ -1,11 +1,11 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T20:51:55.653Z",
+  "exportedAt": "2026-09-27T20:52:14.411Z",
   "profile": {
     "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T20:51:55.653Z"
+    "updatedAt": "2026-09-27T20:52:14.411Z"
   },
   "role": "admin",
   "comments": {},
@@ -19,6 +19,10 @@
       "law": "Vymahatelné"
     },
     "fond-oprav-hotovostni": {
+      "svj": "hotovo",
+      "law": "Vymahatelné"
+    },
+    "klice": {
       "svj": "hotovo",
       "law": "Vymahatelné"
     }
@@ -60,7 +64,7 @@
   },
   "customCases": [],
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T20:51:55.653Z",
+  "syncedAt": "2026-09-27T20:52:14.411Z",
   "syncReason": "stavy",
   "syncAttempt": 1
 }
