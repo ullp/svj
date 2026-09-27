@@ -1,11 +1,11 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T21:52:00.975Z",
+  "exportedAt": "2026-09-27T21:59:40.092Z",
   "profile": {
     "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T21:52:00.975Z"
+    "updatedAt": "2026-09-27T21:59:40.092Z"
   },
   "role": "admin",
   "comments": {
@@ -44,6 +44,9 @@
   "checklist": {
     "zastupovani-predsedy-svj-otcem::legal-point::58": {
       "yn": "ano"
+    },
+    "souhrnne-stiznosti::legal-item::1": {
+      "yn": "ne"
     }
   },
   "edits": {
@@ -118,7 +121,7 @@
     ]
   },
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T21:52:00.975Z",
-  "syncReason": "komentáře",
+  "syncedAt": "2026-09-27T21:59:40.092Z",
+  "syncReason": "checklist",
   "syncAttempt": 1
 }
