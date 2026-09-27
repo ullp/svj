@@ -1,13 +1,13 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T22:13:15.627Z",
+  "exportedAt": "2026-09-27T22:21:15.879Z",
   "profile": {
-    "name": "viewer",
+    "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T22:13:15.627Z"
+    "updatedAt": "2026-09-27T22:21:15.879Z"
   },
-  "role": "viewer",
+  "role": "admin",
   "comments": {
     "zastupovani-predsedy-svj-otcem": [
       {
@@ -121,7 +121,7 @@
     ]
   },
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T22:13:15.627Z",
-  "syncReason": "čekající změny",
+  "syncedAt": "2026-09-27T22:21:15.879Z",
+  "syncReason": "ruční uložení",
   "syncAttempt": 1
 }
