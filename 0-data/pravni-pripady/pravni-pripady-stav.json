@@ -1,11 +1,11 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T20:52:14.411Z",
+  "exportedAt": "2026-09-27T21:04:03.478Z",
   "profile": {
     "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T20:52:14.411Z"
+    "updatedAt": "2026-09-27T21:04:03.478Z"
   },
   "role": "admin",
   "comments": {},
@@ -63,8 +63,28 @@
     ]
   },
   "customCases": [],
+  "casePrefs": {
+    "priorities": {},
+    "order": [
+      "souhrnne-stiznosti",
+      "balkony",
+      "energie",
+      "cedulka-na-fasade",
+      "fond-oprav-hotovostni",
+      "klice",
+      "kotelna",
+      "odpadkovy-kos",
+      "pes",
+      "plany-bytu",
+      "preplatky",
+      "svj-fungovani",
+      "voda",
+      "vyhrozovani-pavlem-hodkem",
+      "zastupovani-predsedy-svj-otcem"
+    ]
+  },
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T20:52:14.411Z",
-  "syncReason": "stavy",
+  "syncedAt": "2026-09-27T21:04:03.478Z",
+  "syncReason": "priority/pořadí případů",
   "syncAttempt": 1
 }
