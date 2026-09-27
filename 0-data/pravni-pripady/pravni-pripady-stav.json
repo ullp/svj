@@ -1,11 +1,11 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T22:21:18.414Z",
+  "exportedAt": "2026-09-27T22:21:47.255Z",
   "profile": {
     "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T22:21:18.414Z"
+    "updatedAt": "2026-09-27T22:21:47.255Z"
   },
   "role": "admin",
   "comments": {
@@ -101,7 +101,9 @@
   "addedEvidence": {},
   "customCases": [],
   "casePrefs": {
-    "priorities": {},
+    "priorities": {
+      "souhrnne-stiznosti": "high"
+    },
     "order": [
       "souhrnne-stiznosti",
       "balkony",
@@ -121,7 +123,7 @@
     ]
   },
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T22:21:18.415Z",
-  "syncReason": "čekající změny",
+  "syncedAt": "2026-09-27T22:21:47.255Z",
+  "syncReason": "priority/pořadí případů",
   "syncAttempt": 1
 }
