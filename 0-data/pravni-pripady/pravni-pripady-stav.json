@@ -1,11 +1,11 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T23:53:14.268Z",
+  "exportedAt": "2026-09-27T23:53:17.007Z",
   "profile": {
     "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T23:53:14.268Z"
+    "updatedAt": "2026-09-27T23:53:17.007Z"
   },
   "role": "admin",
   "comments": {
@@ -178,7 +178,7 @@
     ]
   },
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T23:53:14.268Z",
-  "syncReason": "historie",
+  "syncedAt": "2026-09-27T23:53:17.007Z",
+  "syncReason": "čekající změny",
   "syncAttempt": 1
 }
