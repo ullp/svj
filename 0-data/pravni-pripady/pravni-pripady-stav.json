@@ -1,11 +1,11 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T21:40:52.121Z",
+  "exportedAt": "2026-09-27T21:41:00.226Z",
   "profile": {
     "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T21:40:52.120Z"
+    "updatedAt": "2026-09-27T21:41:00.226Z"
   },
   "role": "admin",
   "comments": {},
@@ -99,7 +99,7 @@
     ]
   },
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T21:40:52.121Z",
+  "syncedAt": "2026-09-27T21:41:00.226Z",
   "syncReason": "historie",
   "syncAttempt": 1
 }
