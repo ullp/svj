@@ -1,11 +1,11 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T23:53:46.053Z",
+  "exportedAt": "2026-09-27T23:55:09.708Z",
   "profile": {
     "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T23:53:46.053Z"
+    "updatedAt": "2026-09-27T23:55:09.708Z"
   },
   "role": "admin",
   "comments": {
@@ -175,10 +175,16 @@
       "voda",
       "vyhrozovani-pavlem-hodkem",
       "zastupovani-predsedy-svj-otcem"
-    ]
+    ],
+    "timeline": {
+      "klice": {
+        "from": "2025-07",
+        "to": "2026-06"
+      }
+    }
   },
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T23:53:46.053Z",
-  "syncReason": "čekající změny",
+  "syncedAt": "2026-09-27T23:55:09.708Z",
+  "syncReason": "priority/pořadí případů",
   "syncAttempt": 1
 }
