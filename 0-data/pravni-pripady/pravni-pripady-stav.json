@@ -1,11 +1,11 @@
 {
   "schema": "pravni-pripady-state-v2",
-  "exportedAt": "2026-09-27T22:21:47.255Z",
+  "exportedAt": "2026-09-27T23:31:09.478Z",
   "profile": {
     "name": "admin",
     "email": "",
     "note": "",
-    "updatedAt": "2026-09-27T22:21:47.255Z"
+    "updatedAt": "2026-09-27T23:31:09.478Z"
   },
   "role": "admin",
   "comments": {
@@ -20,6 +20,15 @@
         "replyToId": null,
         "text": "test",
         "created": "2026-09-27T21:51:59.604Z"
+      }
+    ],
+    "strisky-balkonu": [
+      {
+        "id": "cmukgco1y24imhs",
+        "parentId": null,
+        "author": "Petr Ullmann",
+        "text": "Nový případ vytvořen podle vzoru: Svj fungovani",
+        "created": "2026-09-27T23:31:08.614Z"
       }
     ]
   },
@@ -38,6 +47,10 @@
     },
     "klice": {
       "svj": "hotovo",
+      "law": "Vymahatelné"
+    },
+    "strisky-balkonu": {
+      "svj": "probíhá",
       "law": "Vymahatelné"
     }
   },
@@ -99,7 +112,24 @@
     ]
   },
   "addedEvidence": {},
-  "customCases": [],
+  "customCases": [
+    {
+      "id": "strisky-balkonu",
+      "title": "Stříšky balkonů",
+      "dir": "strisky-bakonu",
+      "okruh": "Správa domu",
+      "summary": "Jedná se o to, že stříšky balkonů spodají do správy domu jakožto obvodový plášť. SVJ odmítá opravy. Poškozené jsou i rohy pod plechy.",
+      "templateCaseId": "svj-fungovani",
+      "templateTitle": "Svj fungovani",
+      "templateHtml": "<div class=\"template-row\" data-check-ready=\"1\"><div class=\"template-done-control legal-check-controls no-print\"><label class=\"check-label no-print\" data-check-key=\"svj-fungovani::template-row::77\"><input type=\"checkbox\">bod hotov</label></div><strong>1. Strany / osoby</strong><div>Vlastník jednotky / zastupovaná strana vs. SVJ / výbor / konkrétní osoby. Doplnit přesné identifikace a role osob.</div></div><div class=\"template-row\" data-check-ready=\"1\"><div class=\"template-done-control legal-check-controls no-print\"><label class=\"check-label no-print\" data-check-key=\"svj-fungovani::template-row::78\"><input type=\"checkbox\">bod hotov</label></div><strong>2. Skutková tvrzení</strong><div>Časová osa: co se stalo, kdy, kdo jednal, komu bylo doručeno, jaká byla reakce SVJ a jaká újma nebo riziko vzniklo.</div></div><div class=\"template-row\" data-check-ready=\"1\"><div class=\"template-done-control legal-check-controls no-print\"><label class=\"check-label no-print\" data-check-key=\"svj-fungovani::template-row::79\"><input type=\"checkbox\">bod hotov</label></div><strong>3. Důkazy</strong><div>Každý důkaz označit ID a přiřadit ke konkrétnímu tvrzení; zvlášť datové zprávy, PDF, analýzy, zápisy a fotografie.</div></div><div class=\"template-row\" data-check-ready=\"1\"><div class=\"template-done-control legal-check-controls no-print\"><label class=\"check-label no-print\" data-check-key=\"svj-fungovani::template-row::80\"><input type=\"checkbox\">bod hotov</label></div><strong>4. Právní kvalifikace</strong><div>Řádná správa domu, informační povinnost, vyúčtování/služby, hospodaření SVJ, zásah do práv vlastníka. Advokát doplní konkrétní ustanovení OZ, stanov a procesní režim.</div></div><div class=\"template-row\" data-check-ready=\"1\"><div class=\"template-done-control legal-check-controls no-print\"><label class=\"check-label no-print\" data-check-key=\"svj-fungovani::template-row::81\"><input type=\"checkbox\">bod hotov</label></div><strong>5. Předžalobní postup</strong><div>Doplnit výzvy, doručení, odpovědi nebo mlčení SVJ, uplynutí lhůty a návrh smírného řešení.</div></div><div class=\"template-row\" data-check-ready=\"1\"><div class=\"template-done-control legal-check-controls no-print\"><label class=\"check-label no-print\" data-check-key=\"svj-fungovani::template-row::82\"><input type=\"checkbox\">bod hotov</label></div><strong>6. Návrh výsledku</strong><div>Vydání podkladů, zaplacení částky, přepočet, náprava správy, zdržení se jednání, určení neplatnosti nebo jiný vhodný petit.</div></div><div class=\"template-row\" data-check-ready=\"1\"><div class=\"template-done-control legal-check-controls no-print\"><label class=\"check-label no-print\" data-check-key=\"svj-fungovani::template-row::83\"><input type=\"checkbox\">bod hotov</label></div><strong>7. Rizika</strong><div>Lhůty, promlčení, důkazní nouze, nutnost OCR/exportu, svědci, znalecký posudek, náklady řízení.</div></div>",
+      "pravni_otazky": [],
+      "naroky": [],
+      "doplneni": [],
+      "popis_stiznosti_soubor": "strisky-bakonu/popis-stiznosti-strisky-balkonu.md",
+      "createdAt": "2026-09-27T23:31:08.614Z",
+      "updatedAt": "2026-09-27T23:31:08.614Z"
+    }
+  ],
   "casePrefs": {
     "priorities": {
       "souhrnne-stiznosti": "high"
@@ -123,7 +153,7 @@
     ]
   },
   "source": "pravni-pripady/index.html",
-  "syncedAt": "2026-09-27T22:21:47.255Z",
-  "syncReason": "priority/pořadí případů",
+  "syncedAt": "2026-09-27T23:31:09.478Z",
+  "syncReason": "nový případ",
   "syncAttempt": 1
 }
