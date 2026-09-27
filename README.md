@@ -44,7 +44,9 @@ Postup nastavení v prohlížeči každého uživatele, který má zapisovat:
 1. V GitHubu vytvořte **fine-grained personal access token** pro tento repozitář s oprávněním **Contents: Read and write**.
 2. Přihlaste se do aplikace a otevřete **Databáze → Nastavit GitHub DB**.
 3. Vyplňte vlastníka repozitáře, název repozitáře, větev (`main`), cestu `0-data/pravni-pripady/pravni-pripady-stav.json` a token.
-4. Od této chvíle aplikace při otevření načítá sdílený stav a při uložení komentářů, stavů, checklistů, editací a historie spouští automatickou synchronizaci. Ruční export/import už není potřeba.
+4. Od této chvíle aplikace při otevření načítá sdílený stav a při uložení komentářů, stavů, checklistů, editací, historie a nově založených případů spouští automatickou synchronizaci. Ruční export/import už není potřeba.
+
+Nový případ lze založit v horní liště přes **Nový případ → Vytvořit a synchronizovat**. Aplikace použije jako vzor strukturu jednoho z nejvíce vyplněných existujících případů, vytvoří pracovní právní kostru a uloží ji do sdíleného JSON stavu.
 
 Synchronizace před zápisem vždy načte aktuální soubor z GitHubu, sloučí ho s lokálními změnami a při konfliktu zápisu (`409 Conflict`) provede nové načtení a opakuje zápis až třikrát. V horní liště se zobrazuje stav: lokální režim, čekající změna, synchronizace, úspěch nebo chyba.
 
